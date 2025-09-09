@@ -1,0 +1,5734 @@
+[
+  {
+    "id": 1,
+    "product_id": 421,
+    "sku": "550030625",
+    "gtin": "7330516179123",
+    "brand_id": null,
+    "stock": "5.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 5410,
+    "price": 15120,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 15119,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 9400,
+        "compare_price": 15119,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 9400,
+        "compare_price": 15119,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 2,
+    "product_id": 422,
+    "sku": "27-971-05",
+    "gtin": "7330516179130",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 5920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 5920,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 3,
+    "product_id": 432,
+    "sku": "550031853",
+    "gtin": "7330516387603",
+    "brand_id": null,
+    "stock": "3.00",
+    "weight": 0,
+    "purchase_price": 11170,
+    "stock_price": 11170,
+    "price": 39600,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 39600,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 24900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 24900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 4,
+    "product_id": 444,
+    "sku": "550030728",
+    "gtin": "550030728",
+    "brand_id": null,
+    "stock": "15.00",
+    "weight": 640,
+    "purchase_price": 12061,
+    "stock_price": 12061,
+    "price": 39920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 39920,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 24950,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 24950,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 5,
+    "product_id": 473,
+    "sku": "550033037",
+    "gtin": "550033037",
+    "brand_id": null,
+    "stock": "4.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 2552,
+    "price": 7600,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 7600,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 4500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 3500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 6,
+    "product_id": 477,
+    "sku": "550030771",
+    "gtin": "7330516178904",
+    "brand_id": null,
+    "stock": "5.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 1678,
+    "price": 7120,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 7120,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 3900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 2900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 7,
+    "product_id": 479,
+    "sku": "550030763",
+    "gtin": "550030763",
+    "brand_id": null,
+    "stock": "2.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 23920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 23920,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 14900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 14900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 8,
+    "product_id": 481,
+    "sku": "550031981",
+    "gtin": "7330516178966",
+    "brand_id": null,
+    "stock": "3.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 1414,
+    "price": 3200,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 3200,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 2000,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 2000,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 9,
+    "product_id": 483,
+    "sku": "550031126",
+    "gtin": "7330516259887",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 3920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 3920,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 2700,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 2700,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 10,
+    "product_id": 493,
+    "sku": "550030964",
+    "gtin": "",
+    "brand_id": null,
+    "stock": "1.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 23200,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 23200,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 14500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 9900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 11,
+    "product_id": 495,
+    "sku": "550030315",
+    "gtin": "7330516179222",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 46320,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 46320,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 32500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 32500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 12,
+    "product_id": 1091,
+    "sku": "550032107",
+    "gtin": "7330516948132",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 145760,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 145760,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 13,
+    "product_id": 1384,
+    "sku": "550030764",
+    "gtin": "7330516585955",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 25000,
+    "stock_price": 25000,
+    "price": 63600,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 63600,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 40000,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 40000,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 14,
+    "product_id": 1520,
+    "sku": "550031573",
+    "gtin": "7330516586099",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 20895,
+    "price": 41600,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 41600,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 27900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 26500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 15,
+    "product_id": 1592,
+    "sku": "550032585",
+    "gtin": "550032585",
+    "brand_id": null,
+    "stock": "12.00",
+    "weight": 0,
+    "purchase_price": 5130,
+    "stock_price": 5130,
+    "price": 27920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 27920,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 17450,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 17450,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 16,
+    "product_id": 1607,
+    "sku": "550031058",
+    "gtin": "7330516587980",
+    "brand_id": null,
+    "stock": "6.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 2700,
+    "price": 6320,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 6320,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 3900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 3900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 17,
+    "product_id": 1664,
+    "sku": "550031077",
+    "gtin": "550031077",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 190,
+    "purchase_price": 8910,
+    "stock_price": 8910,
+    "price": 18320,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 18320,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 12900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 12900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 18,
+    "product_id": 2129,
+    "sku": "550032021",
+    "gtin": "550032021",
+    "brand_id": null,
+    "stock": "63.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 11920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 11920,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 7500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 7500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 19,
+    "product_id": 2230,
+    "sku": "550031250",
+    "gtin": "7330516477717",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 44000,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 44000,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 27500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 27500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 20,
+    "product_id": 2251,
+    "sku": "550031251",
+    "gtin": "7330516177440",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 103200,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 103200,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 69500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 69500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 21,
+    "product_id": 2717,
+    "sku": "550029980",
+    "gtin": "7330516177051",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 39498,
+    "price": 95200,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 95200,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 59500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 55000,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 22,
+    "product_id": 2740,
+    "sku": "550030222",
+    "gtin": "7330516605851",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 4760,
+    "stock_price": 4760,
+    "price": 19920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 19920,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 12500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 12500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 23,
+    "product_id": 2772,
+    "sku": "550031139",
+    "gtin": "",
+    "brand_id": null,
+    "stock": "1.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 151600,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 151600,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 99500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 99500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 24,
+    "product_id": 2958,
+    "sku": "550032006",
+    "gtin": "",
+    "brand_id": null,
+    "stock": "61.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 11600,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 11600,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 7500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 7500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 25,
+    "product_id": 3136,
+    "sku": "550031583",
+    "gtin": "7330516607718",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 1350,
+    "stock_price": 1350,
+    "price": 3120,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 3120,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 2000,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 2000,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 26,
+    "product_id": 3465,
+    "sku": "550032023",
+    "gtin": "7330516474259",
+    "brand_id": null,
+    "stock": "85.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 2625,
+    "price": 4720,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 4720,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 3000,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 3000,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 27,
+    "product_id": 3467,
+    "sku": "550031053",
+    "gtin": "7330516607343",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 2520,
+    "stock_price": 2520,
+    "price": 9520,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 9520,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 5900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 5900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 28,
+    "product_id": 3688,
+    "sku": "550033727",
+    "gtin": "7330516600610",
+    "brand_id": null,
+    "stock": "7.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 11920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 11920,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 8900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 8900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 29,
+    "product_id": 3703,
+    "sku": "550031825",
+    "gtin": "7330516598221",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 4720,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 4720,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 3000,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 3000,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 30,
+    "product_id": 3747,
+    "sku": "550030554",
+    "gtin": "550030554",
+    "brand_id": null,
+    "stock": "4.00",
+    "weight": 0,
+    "purchase_price": 5300,
+    "stock_price": 5300,
+    "price": 9520,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 9520,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 6900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 6900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 31,
+    "product_id": 3909,
+    "sku": "550031376",
+    "gtin": "550031376",
+    "brand_id": null,
+    "stock": "20.00",
+    "weight": 0,
+    "purchase_price": 1350,
+    "stock_price": 1350,
+    "price": 3120,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 3120,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 1900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 1900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 32,
+    "product_id": 3983,
+    "sku": "550032089",
+    "gtin": "550032089",
+    "brand_id": null,
+    "stock": "6.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 7600,
+    "price": 19920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 19920,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 12900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 12900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 33,
+    "product_id": 3994,
+    "sku": "550033719",
+    "gtin": "7330516585245",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 15360,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 15360,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 34,
+    "product_id": 4007,
+    "sku": "550032020",
+    "gtin": "7330516585474",
+    "brand_id": null,
+    "stock": "21.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 19920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 19920,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 12500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 12500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 35,
+    "product_id": 4157,
+    "sku": "550030717",
+    "gtin": "550030717",
+    "brand_id": null,
+    "stock": "7.00",
+    "weight": 130,
+    "purchase_price": 6400,
+    "stock_price": 6400,
+    "price": 11920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 11920,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 7900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 7900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 36,
+    "product_id": 4158,
+    "sku": "550031374",
+    "gtin": "7330516604298",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 1350,
+    "stock_price": 1350,
+    "price": 7120,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 7120,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 4900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 4900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 37,
+    "product_id": 4178,
+    "sku": "550030674",
+    "gtin": "7330516243305",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 111600,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 111600,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 90000,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 90000,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 38,
+    "product_id": 4214,
+    "sku": "550030844",
+    "gtin": "7330516009581",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 150,
+    "purchase_price": 18720,
+    "stock_price": 18720,
+    "price": 42320,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 42320,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 33900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 33900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 39,
+    "product_id": 4252,
+    "sku": "550031377",
+    "gtin": "7330516602713",
+    "brand_id": null,
+    "stock": "-1.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 209,
+    "price": 2800,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 2800,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 1700,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 1700,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 40,
+    "product_id": 4253,
+    "sku": "550032040",
+    "gtin": "7330516602720",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 40,
+    "purchase_price": 2070,
+    "stock_price": 2070,
+    "price": 3920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 3920,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 3,
+        "currency_id": 1,
+        "price": 2500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 2500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 41,
+    "product_id": 4290,
+    "sku": "550033728",
+    "gtin": "7330516602942",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 7680,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 7680,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 42,
+    "product_id": 4291,
+    "sku": "550032387",
+    "gtin": "550032387",
+    "brand_id": null,
+    "stock": "97.00",
+    "weight": 80,
+    "purchase_price": 0,
+    "stock_price": 1424,
+    "price": 8720,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 8720,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 5900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 5900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 43,
+    "product_id": 4293,
+    "sku": "550031802",
+    "gtin": "7330516602980",
+    "brand_id": null,
+    "stock": "46.00",
+    "weight": 80,
+    "purchase_price": 0,
+    "stock_price": 1216,
+    "price": 5600,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 5600,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 2900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 2900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 44,
+    "product_id": 4294,
+    "sku": "550031943",
+    "gtin": "550031943",
+    "brand_id": null,
+    "stock": "62.00",
+    "weight": 70,
+    "purchase_price": 3420.0000000000005,
+    "stock_price": 1386,
+    "price": 6320,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 6320,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 3700,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 3700,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 45,
+    "product_id": 4296,
+    "sku": "550030572",
+    "gtin": "550030572",
+    "brand_id": null,
+    "stock": "82.00",
+    "weight": 70,
+    "purchase_price": 2880,
+    "stock_price": 2880,
+    "price": 6320,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 6320,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 3900,
+        "compare_price": 6320,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 3900,
+        "compare_price": 6320,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 46,
+    "product_id": 4297,
+    "sku": "550031901",
+    "gtin": "550031901",
+    "brand_id": null,
+    "stock": "121.00",
+    "weight": 70,
+    "purchase_price": 4410,
+    "stock_price": 4410,
+    "price": 8400,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 8400,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 5900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 5900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 47,
+    "product_id": 4298,
+    "sku": "550032090",
+    "gtin": "550032090",
+    "brand_id": null,
+    "stock": "110.00",
+    "weight": 70,
+    "purchase_price": 1410,
+    "stock_price": 1410,
+    "price": 7920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 7920,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 4900,
+        "compare_price": 7920,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 4900,
+        "compare_price": 7920,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 48,
+    "product_id": 4299,
+    "sku": "550030663",
+    "gtin": "550030663",
+    "brand_id": null,
+    "stock": "33.00",
+    "weight": 180,
+    "purchase_price": 2055,
+    "stock_price": 2055,
+    "price": 11920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 11920,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 7500,
+        "compare_price": 11920,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 7500,
+        "compare_price": 11920,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 49,
+    "product_id": 4300,
+    "sku": "550030573",
+    "gtin": "7330516603086",
+    "brand_id": null,
+    "stock": "124.00",
+    "weight": 80,
+    "purchase_price": 1306,
+    "stock_price": 1306,
+    "price": 11920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 11920,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 7450,
+        "compare_price": 11920,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 4500,
+        "compare_price": 11920,
+        "tier": 10
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 4500,
+        "compare_price": 11920,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 50,
+    "product_id": 4301,
+    "sku": "550031378",
+    "gtin": "550031378",
+    "brand_id": null,
+    "stock": "93.00",
+    "weight": 70,
+    "purchase_price": 0,
+    "stock_price": 1410,
+    "price": 7920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 7920,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 4900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 4900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 51,
+    "product_id": 4309,
+    "sku": "550031308",
+    "gtin": "7330516787038",
+    "brand_id": null,
+    "stock": "31.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 4720,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 4720,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 2900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 2900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 52,
+    "product_id": 4320,
+    "sku": "550031592",
+    "gtin": "550031592",
+    "brand_id": null,
+    "stock": "20.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 6700,
+    "price": 12720,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 12720,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 8900,
+        "compare_price": 12720,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 8900,
+        "compare_price": 12720,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 53,
+    "product_id": 4321,
+    "sku": "550031031",
+    "gtin": "7330516603499",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 11120,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 11120,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 7900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 7900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 54,
+    "product_id": 4322,
+    "sku": "550031229",
+    "gtin": "550031229",
+    "brand_id": null,
+    "stock": "9.00",
+    "weight": 270,
+    "purchase_price": 4950,
+    "stock_price": 4950,
+    "price": 15920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 15919,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 9900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 9900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 55,
+    "product_id": 4329,
+    "sku": "550031373",
+    "gtin": "550031373",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 9690,
+    "price": 18320,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 18320,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 11500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 11500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 56,
+    "product_id": 4331,
+    "sku": "550030434",
+    "gtin": "7330516603581",
+    "brand_id": null,
+    "stock": "1.00",
+    "weight": 0,
+    "purchase_price": 8190.000000000001,
+    "stock_price": 8190.000000000001,
+    "price": 18320,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 18320,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 11900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 11900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 57,
+    "product_id": 4332,
+    "sku": "550031944",
+    "gtin": "550031944",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 19120,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 19120,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 11900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 11900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 58,
+    "product_id": 4333,
+    "sku": "550030292",
+    "gtin": "7330516603604",
+    "brand_id": null,
+    "stock": "6.00",
+    "weight": 0,
+    "purchase_price": 8460,
+    "stock_price": 8460,
+    "price": 25520,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 25520,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 15900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 15900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 59,
+    "product_id": 4337,
+    "sku": "550031085",
+    "gtin": "7330516603666",
+    "brand_id": null,
+    "stock": "5.00",
+    "weight": 0,
+    "purchase_price": 6030,
+    "stock_price": 6030,
+    "price": 11120,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 11120,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 6500,
+        "compare_price": 11120,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 6500,
+        "compare_price": 11120,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 60,
+    "product_id": 4340,
+    "sku": "550031841",
+    "gtin": "550031841",
+    "brand_id": null,
+    "stock": "11.00",
+    "weight": 0,
+    "purchase_price": 4410,
+    "stock_price": 4410,
+    "price": 11920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 11920,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 7450,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 7450,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 61,
+    "product_id": 4350,
+    "sku": "550030966",
+    "gtin": "550030966",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 110,
+    "purchase_price": 0,
+    "stock_price": 4590,
+    "price": 10320,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 10320,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 8900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 8900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 62,
+    "product_id": 4615,
+    "sku": "550030682",
+    "gtin": "7330516590683",
+    "brand_id": null,
+    "stock": "2.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 1300,
+    "price": 2320,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 2320,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 1500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 1500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 63,
+    "product_id": 4624,
+    "sku": "550030750",
+    "gtin": "550030750",
+    "brand_id": null,
+    "stock": "6.00",
+    "weight": 450,
+    "purchase_price": 7830,
+    "stock_price": 7830,
+    "price": 14320,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 14319,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 9900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 9900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 64,
+    "product_id": 4634,
+    "sku": "550031417",
+    "gtin": "7330516590874",
+    "brand_id": null,
+    "stock": "3.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 9265,
+    "price": 17520,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 17520,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 10950,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 10900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 65,
+    "product_id": 4668,
+    "sku": "550033722",
+    "gtin": "7330516591642",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 16800,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 16800,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 66,
+    "product_id": 4820,
+    "sku": "550031070",
+    "gtin": "7330516585214",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 39200,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 39200,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 29500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 29500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 67,
+    "product_id": 4877,
+    "sku": "550030468",
+    "gtin": "7330516603536",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 5850,
+    "stock_price": 5850,
+    "price": 15920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 15919,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 11000,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 11000,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 68,
+    "product_id": 4879,
+    "sku": "550031372",
+    "gtin": "7330516603550",
+    "brand_id": null,
+    "stock": "2.00",
+    "weight": 0,
+    "purchase_price": 8075,
+    "stock_price": 8075,
+    "price": 15920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 15919,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 9900,
+        "compare_price": 15919,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 9900,
+        "compare_price": 15919,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 69,
+    "product_id": 4916,
+    "sku": "550030833",
+    "gtin": "7330516948125",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 199600,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 199600,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 125000,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 125000,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 70,
+    "product_id": 4917,
+    "sku": "550031225",
+    "gtin": "7330516255117",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 78750,
+    "stock_price": 78750,
+    "price": 137200,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 137200,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 71,
+    "product_id": 4965,
+    "sku": "550030851",
+    "gtin": "550030851",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 9600,
+    "price": 100000,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 100000,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 72,
+    "product_id": 5077,
+    "sku": "550029982",
+    "gtin": "7330516591840",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 34200,
+    "stock_price": 34200,
+    "price": 71600,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 71600,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 45000,
+        "compare_price": 71600,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 45000,
+        "compare_price": 71600,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 73,
+    "product_id": 5084,
+    "sku": "550032432",
+    "gtin": "550032432",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 20,
+    "purchase_price": 0,
+    "stock_price": 1330,
+    "price": 2720,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 2720,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 1900,
+        "compare_price": 2720,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 1900,
+        "compare_price": 2720,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 74,
+    "product_id": 5331,
+    "sku": "550033726",
+    "gtin": "7330516593745",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 4720,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 4720,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 75,
+    "product_id": 9250,
+    "sku": "550030545",
+    "gtin": "7330516541722",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 200,
+    "price": 880,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 880,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 76,
+    "product_id": 5424,
+    "sku": "550030850",
+    "gtin": "550030850",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 56015,
+    "price": 103920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 103920,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 63900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 6,
+        "currency_id": 1,
+        "price": 69000,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 77,
+    "product_id": 5435,
+    "sku": "550032979",
+    "gtin": "550032979",
+    "brand_id": null,
+    "stock": "10.00",
+    "weight": 200,
+    "purchase_price": 18000,
+    "stock_price": 13086.000000000002,
+    "price": 35120,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 35120,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 21900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 21900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 78,
+    "product_id": 5438,
+    "sku": "550033723",
+    "gtin": "550033723",
+    "brand_id": null,
+    "stock": "24.00",
+    "weight": 170,
+    "purchase_price": 0,
+    "stock_price": 12532,
+    "price": 31920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 31920,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 19900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 19900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 79,
+    "product_id": 9252,
+    "sku": "550030259",
+    "gtin": "550030259",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 1200,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 1200,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 80,
+    "product_id": 5442,
+    "sku": "550031639",
+    "gtin": "",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 12480,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 12480,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 7900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 7900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 81,
+    "product_id": 9254,
+    "sku": "550031563",
+    "gtin": "550031563",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 10,
+    "purchase_price": 0,
+    "stock_price": 6653,
+    "price": 880,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 880,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 82,
+    "product_id": 9255,
+    "sku": "550030438",
+    "gtin": "7330516541784",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 800,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 800,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 450,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 83,
+    "product_id": 9260,
+    "sku": "550031953",
+    "gtin": "7330516541142",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 20000,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 20000,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 12000,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 12000,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 84,
+    "product_id": 9276,
+    "sku": "550031375",
+    "gtin": "",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 5520,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 5520,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 3500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 3500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 85,
+    "product_id": 9277,
+    "sku": "550031409",
+    "gtin": "550031409",
+    "brand_id": null,
+    "stock": "14.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 809,
+    "price": 3920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 3920,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 2400,
+        "compare_price": 3920,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 2400,
+        "compare_price": 3920,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 86,
+    "product_id": 5515,
+    "sku": "550032044",
+    "gtin": "7330516063989",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 95200,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 95200,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 59500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 59500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 87,
+    "product_id": 9280,
+    "sku": "550033721",
+    "gtin": "7330516791226",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 5920,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 5920,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 88,
+    "product_id": 9646,
+    "sku": "550031585",
+    "gtin": "7330516542620",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 7200,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 7200,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 4500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 4500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 89,
+    "product_id": 5540,
+    "sku": "550032029",
+    "gtin": "7330516606032",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 5500,
+    "price": 17600,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 17600,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 11000,
+        "compare_price": 17600,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 11000,
+        "compare_price": 17600,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 90,
+    "product_id": 9657,
+    "sku": "550031660",
+    "gtin": "7330516542859",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 10320,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 10320,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 91,
+    "product_id": 9668,
+    "sku": "550031586",
+    "gtin": "7330516542972",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 13040,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 13040,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 8500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 8500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 92,
+    "product_id": 5731,
+    "sku": "550030481",
+    "gtin": "550030481",
+    "brand_id": null,
+    "stock": "38.00",
+    "weight": 10,
+    "purchase_price": 90,
+    "stock_price": 221,
+    "price": 1440,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 1440,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 800,
+        "compare_price": 1440,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 500,
+        "compare_price": 1440,
+        "tier": 10
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 500,
+        "compare_price": 1440,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": null,
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 93,
+    "product_id": 9669,
+    "sku": "550031587",
+    "gtin": "7330516542989",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 20320,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 20320,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 13000,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 13000,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 94,
+    "product_id": 5906,
+    "sku": "550031114",
+    "gtin": "550031114",
+    "brand_id": null,
+    "stock": "6.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 1894.0000000000002,
+    "price": 4400,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 4400,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 95,
+    "product_id": 9747,
+    "sku": "550033730",
+    "gtin": "7330516796450",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 11600,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 11600,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 96,
+    "product_id": 5990,
+    "sku": "19-033-22",
+    "gtin": "",
+    "brand_id": null,
+    "stock": "79.00",
+    "weight": 0,
+    "purchase_price": 229.99999999999997,
+    "stock_price": 229.99999999999997,
+    "price": 880,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 880,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 600,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 600,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 97,
+    "product_id": 9916,
+    "sku": "550031244",
+    "gtin": "7330516961100",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 21420,
+    "stock_price": 21420,
+    "price": 45520,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 45520,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 28500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 28500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 98,
+    "product_id": 6409,
+    "sku": "550032007",
+    "gtin": "7330516177068",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 10320,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 10320,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 6500,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 6500,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 99,
+    "product_id": 9924,
+    "sku": "550032030",
+    "gtin": "7330516787298",
+    "brand_id": null,
+    "stock": "0.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 0,
+    "price": 23600,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 23600,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  },
+  {
+    "id": 100,
+    "product_id": 6424,
+    "sku": "550031987",
+    "gtin": "7330516263334",
+    "brand_id": null,
+    "stock": "1.00",
+    "weight": 0,
+    "purchase_price": 0,
+    "stock_price": 8841,
+    "price": 22320,
+    "prices": [
+      {
+        "customer_group_id": null,
+        "currency_id": 1,
+        "price": 22320,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 4,
+        "currency_id": 1,
+        "price": 13900,
+        "compare_price": 0,
+        "tier": 1
+      },
+      {
+        "customer_group_id": 5,
+        "currency_id": 1,
+        "price": 13900,
+        "compare_price": 0,
+        "tier": 1
+      }
+    ],
+    "options": [],
+    "compare_price": 0,
+    "auto_pricing": 0,
+    "auto_pricing_min_price": 0,
+    "package_size": 1,
+    "storage_space": "",
+    "supplier_sku": null,
+    "external_reference": null,
+    "always_orderable": false,
+    "positive_inventory_status": {
+      "id": 1,
+      "name": "Finns i lager",
+      "orderable": true,
+      "watchable": false,
+      "show_stock": true
+    },
+    "negative_inventory_status": {
+      "id": 2,
+      "name": "Slut på lager",
+      "orderable": false,
+      "watchable": true,
+      "show_stock": false
+    },
+    "created_at": "2024-09-18T10:28:16.000000Z"
+  }
+]

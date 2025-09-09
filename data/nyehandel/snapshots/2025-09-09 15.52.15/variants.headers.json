@@ -1,0 +1,19 @@
+[
+  {
+    "access-control-allow-origin": "*",
+    "alt-svc": "h3=\":443\"; ma=2592000",
+    "cache-control": "no-cache, private",
+    "content-encoding": "gzip",
+    "content-type": "application/json",
+    "date": "Tue, 09 Sep 2025 13:52:19 GMT",
+    "server": "nginx",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "transfer-encoding": "chunked",
+    "vary": "Accept-Encoding",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "SAMEORIGIN",
+    "x-ratelimit-limit": "10000",
+    "x-ratelimit-remaining": "9752",
+    "x-xss-protection": "1; mode=block"
+  }
+]
