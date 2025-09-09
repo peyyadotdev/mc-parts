@@ -1,20 +1,21 @@
 # mc-parts
 
-This project was created with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), a modern TypeScript stack that combines Next.js, Next, TRPC, and more.
+This project was created with [Better‑T‑Stack](https://github.com/AmanVarshney01/create-better-t-stack) and extended for MC Parts — a data‑table interface to ingest, validate, fix, and sync motorcycle/moped product data with Ny E‑handel.
 
-## Features
+## Features / Stack
 
-- **TypeScript** - For type safety and improved developer experience
-- **Next.js** - Full-stack React framework
-- **TailwindCSS** - Utility-first CSS for rapid UI development
-- **shadcn/ui** - Reusable UI components
-- **Next.js** - Full-stack React framework
-- **tRPC** - End-to-end type-safe APIs
-- **Bun** - Runtime environment
-- **Drizzle** - TypeScript-first ORM
-- **PostgreSQL** - Database engine
-- **Biome** - Linting and formatting
-- **Husky** - Git hooks for code quality
+- **React 19 + Next.js 15** — App Router, Route Handlers
+- **TypeScript ≥ 5.3** — strict, end‑to‑end typing
+- **Bun** — runtime and package manager
+- **tRPC** — type‑safe server API (apps/server)
+- **Drizzle + PostgreSQL** — schema + migrations (local Postgres for dev; Supabase cloud later)
+- **Biome** — lint/format; **Husky** — git hooks
+- **shadcn/ui + Tailwind** — UI kit
+- **TanStack** — Query, Table, Virtual for high‑perf data tables
+- **cmdk** — command palette; **react-hotkeys-hook** — keyboard shortcuts; **sonner** — toasts
+- **nuqs** — URL state for filters/sort/pagination
+- **Search** — Typesense (preferred) or Supabase full‑text
+- **Ny E‑handel integration** — OpenAPI at `.cursor/docs/nyehandel/nyehandel.openapi.json`, codegen types + Zod client
 
 ## Getting Started
 
@@ -36,14 +37,13 @@ bun db:push
 ```
 
 
-Then, run the development server:
+Then, run the development servers:
 
 ```bash
 bun dev
 ```
 
-Open [http://localhost:3001](http://localhost:3001) in your browser to see the web application.
-The API is running at [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3001](http://localhost:3001) for web, [http://localhost:3000](http://localhost:3000) for API, and [http://localhost:4000](http://localhost:4000) for docs.
 
 
 
@@ -54,8 +54,13 @@ The API is running at [http://localhost:3000](http://localhost:3000).
 ```
 mc-parts/
 ├── apps/
-│   ├── web/         # Frontend application (Next.js)
-│   └── server/      # Backend API (Next, TRPC)
+│   ├── web/           # Frontend (Next.js) — data-table UI
+│   ├── server/        # Backend API (Next, tRPC, Drizzle)
+│   └── fumadocs/      # Documentation site (Next)
+├── src/integrations/nyehandel/generated/  # OpenAPI types + Zod client
+├── scripts/nyehandel/  # Introspection utilities
+├── data/nyehandel/snapshots/  # Captured payloads + inferred schemas
+└── .cursor/docs/nyehandel/    # OpenAPI + architecture docs
 ```
 
 ## Available Scripts
@@ -68,3 +73,35 @@ mc-parts/
 - `bun db:push`: Push schema changes to database
 - `bun db:studio`: Open database studio UI
 - `bun check`: Run Biome formatting and linting
+
+Ny E‑handel helpers
+- `bun run ny:introspect` — snapshot products/categories/variants and infer Zod
+- `bun run gen:nye` — regenerate OpenAPI types and Zod client from `.cursor/docs/nyehandel/nyehandel.openapi.json`
+
+## Plan: Data‑table MVP
+
+Milestone 1 — Shell and plumbing
+- Install libs: `@tanstack/react-table`, `@tanstack/react-virtual`, `@tanstack/react-query`, `cmdk`, `react-hotkeys-hook`, `sonner`, `nuqs`
+- Create `/parts` route with virtualized table, fake data, sorting/filtering, pagination in URL (nuqs)
+- Keyboard basics (row navigation, quick search), toasts for actions
+
+Milestone 2 — Live data + staging
+- Drizzle schema for catalog + staging; local Postgres
+- Fetch products/variants from Ny E‑handel (read‑only) and show in table via TanStack Query
+- CSV upload (client to server), create `import_session` + `import_row` in staging
+
+Milestone 3 — Validation + fixes
+- Column mapping UI; Zod validation pipeline; per‑cell error badges
+- Inline edits re‑validate; bulk edits; undo (client‑side)
+
+Milestone 4 — Dedupe + commit
+- Dedupe groups (SKU/GTIN or OEM key), resolve conflicts
+- Commit valid rows → upsert catalog (idempotent)
+
+Milestone 5 — Search and polish
+- Integrate Typesense (or Supabase FTS) for instant search
+- Saved views, column pinning/resizing; command palette (cmdk)
+
+Conventions
+- **Conventional Commits** + commit lint
+- Biome‑clean; no `any` in exported types; all inputs Zod‑validated
