@@ -1,0 +1,36 @@
+{
+  "name": "mc-parts",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "check": "biome check --write .",
+    "prepare": "husky",
+    "ruler:apply": "bunx @intellectronica/ruler@latest apply --local-only",
+    "dev": "bun run --filter '*' dev",
+    "build": "bun run --filter '*' build",
+    "check-types": "bun run --filter '*' check-types",
+    "dev:native": "bun run --filter native dev",
+    "dev:web": "bun run --filter web dev",
+    "dev:server": "bun run --filter server dev",
+    "db:push": "bun run --filter server db:push",
+    "db:studio": "bun run --filter server db:studio",
+    "db:generate": "bun run --filter server db:generate",
+    "db:migrate": "bun run --filter server db:migrate"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2"
+  },
+  "lint-staged": {
+    "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
+      "biome check --write ."
+    ]
+  },
+  "packageManager": "bun@1.1.43"
+}

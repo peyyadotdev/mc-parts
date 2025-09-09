@@ -1,0 +1,5881 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Nyehandel copy",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [],
+  "paths": {
+    "/orders/{order_id}": {
+      "get": {
+        "summary": "Get order",
+        "deprecated": false,
+        "description": "Fetch an order",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "11042",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{x_identifier}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "currency_iso": {
+                          "type": "string"
+                        },
+                        "order_items": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "sku": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "quantity": {
+                                "type": "string"
+                              },
+                              "unit": {
+                                "type": "string"
+                              },
+                              "vat_rate": {
+                                "type": "integer"
+                              },
+                              "unit_price": {
+                                "type": "integer"
+                              },
+                              "total_amount": {
+                                "type": "integer"
+                              },
+                              "image_url": {
+                                "type": "string"
+                              },
+                              "variant_url": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "customer": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "customer_type": {
+                              "type": "string"
+                            },
+                            "firstname": {
+                              "type": "string"
+                            },
+                            "lastname": {
+                              "type": "string"
+                            },
+                            "email": {
+                              "type": "string"
+                            },
+                            "phone": {
+                              "type": "string"
+                            },
+                            "ssn": {
+                              "type": "string"
+                            },
+                            "created_at": {
+                              "type": "string"
+                            },
+                            "updated_at": {
+                              "type": "string"
+                            },
+                            "billing_address": {
+                              "type": "object",
+                              "properties": {
+                                "address": {
+                                  "type": "string"
+                                },
+                                "address2": {
+                                  "type": "null"
+                                },
+                                "co_address": {
+                                  "type": "null"
+                                },
+                                "postcode": {
+                                  "type": "string"
+                                },
+                                "city": {
+                                  "type": "string"
+                                },
+                                "state": {
+                                  "type": "null"
+                                },
+                                "country": {
+                                  "type": "string"
+                                },
+                                "company_name": {
+                                  "type": "string"
+                                },
+                                "firstname": {
+                                  "type": "string"
+                                },
+                                "lastname": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "address",
+                                "address2",
+                                "co_address",
+                                "postcode",
+                                "city",
+                                "state",
+                                "country",
+                                "company_name",
+                                "firstname",
+                                "lastname"
+                              ]
+                            },
+                            "shipping_address": {
+                              "type": "object",
+                              "properties": {
+                                "address": {
+                                  "type": "string"
+                                },
+                                "address2": {
+                                  "type": "null"
+                                },
+                                "co_address": {
+                                  "type": "null"
+                                },
+                                "postcode": {
+                                  "type": "string"
+                                },
+                                "city": {
+                                  "type": "string"
+                                },
+                                "state": {
+                                  "type": "null"
+                                },
+                                "country": {
+                                  "type": "string"
+                                },
+                                "company_name": {
+                                  "type": "string"
+                                },
+                                "firstname": {
+                                  "type": "string"
+                                },
+                                "lastname": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "address",
+                                "address2",
+                                "co_address",
+                                "postcode",
+                                "city",
+                                "state",
+                                "country",
+                                "company_name",
+                                "firstname",
+                                "lastname"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "customer_type",
+                            "firstname",
+                            "lastname",
+                            "email",
+                            "phone",
+                            "ssn",
+                            "created_at",
+                            "updated_at",
+                            "billing_address",
+                            "shipping_address"
+                          ]
+                        },
+                        "billing_address": {
+                          "type": "object",
+                          "properties": {
+                            "address": {
+                              "type": "string"
+                            },
+                            "address2": {
+                              "type": "null"
+                            },
+                            "co_address": {
+                              "type": "null"
+                            },
+                            "postcode": {
+                              "type": "string"
+                            },
+                            "city": {
+                              "type": "string"
+                            },
+                            "state": {
+                              "type": "null"
+                            },
+                            "country": {
+                              "type": "string"
+                            },
+                            "company_name": {
+                              "type": "string"
+                            },
+                            "firstname": {
+                              "type": "string"
+                            },
+                            "lastname": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "address",
+                            "address2",
+                            "co_address",
+                            "postcode",
+                            "city",
+                            "state",
+                            "country",
+                            "company_name",
+                            "firstname",
+                            "lastname"
+                          ]
+                        },
+                        "shipping_address": {
+                          "type": "object",
+                          "properties": {
+                            "address": {
+                              "type": "string"
+                            },
+                            "address2": {
+                              "type": "null"
+                            },
+                            "co_address": {
+                              "type": "null"
+                            },
+                            "postcode": {
+                              "type": "string"
+                            },
+                            "city": {
+                              "type": "string"
+                            },
+                            "state": {
+                              "type": "null"
+                            },
+                            "country": {
+                              "type": "string"
+                            },
+                            "company_name": {
+                              "type": "string"
+                            },
+                            "firstname": {
+                              "type": "string"
+                            },
+                            "lastname": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "address",
+                            "address2",
+                            "co_address",
+                            "postcode",
+                            "city",
+                            "state",
+                            "country",
+                            "company_name",
+                            "firstname",
+                            "lastname"
+                          ]
+                        },
+                        "shipping": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "vat_rate": {
+                              "type": "integer"
+                            },
+                            "total_amount": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "vat_rate",
+                            "total_amount"
+                          ]
+                        },
+                        "payment": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "vat_rate": {
+                              "type": "integer"
+                            },
+                            "total_amount": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "vat_rate",
+                            "total_amount"
+                          ]
+                        },
+                        "created_at": {
+                          "type": "string"
+                        },
+                        "updated_at": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "currency_iso",
+                        "order_items",
+                        "customer",
+                        "billing_address",
+                        "shipping_address",
+                        "shipping",
+                        "payment",
+                        "created_at",
+                        "updated_at"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "Update order",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customer_id": {
+                    "type": "integer"
+                  },
+                  "shipping": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "price_ex_vat": {
+                        "type": "integer"
+                      },
+                      "price_inc_vat": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  },
+                  "payment": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "price_ex_vat": {
+                        "type": "integer"
+                      },
+                      "price_inc_vat": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  },
+                  "currency_iso": {
+                    "type": "string"
+                  },
+                  "billing_address": {
+                    "type": "object",
+                    "properties": {
+                      "firstname": {
+                        "type": "string"
+                      },
+                      "lastname": {
+                        "type": "string"
+                      },
+                      "company_name": {
+                        "type": "string"
+                      },
+                      "co_address": {
+                        "type": "string"
+                      },
+                      "address": {
+                        "type": "string"
+                      },
+                      "address2": {
+                        "type": "string"
+                      },
+                      "postcode": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string",
+                        "minLength": 2,
+                        "maxLength": 2,
+                        "examples": [
+                          "SE"
+                        ]
+                      },
+                      "vat_number": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "shipping_address": {
+                    "type": "object",
+                    "properties": {
+                      "firstname": {
+                        "type": "string"
+                      },
+                      "lastname": {
+                        "type": "string"
+                      },
+                      "company_name": {
+                        "type": "string"
+                      },
+                      "co_address": {
+                        "type": "string"
+                      },
+                      "address": {
+                        "type": "string"
+                      },
+                      "address2": {
+                        "type": "string"
+                      },
+                      "postcode": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string",
+                        "minLength": 2,
+                        "maxLength": 2,
+                        "examples": [
+                          "SE"
+                        ]
+                      },
+                      "vat_number": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "product",
+                            "discount"
+                          ]
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "sku": {
+                          "type": "string"
+                        },
+                        "price_ex_vat": {
+                          "type": "integer"
+                        },
+                        "price_inc_vat": {
+                          "type": "integer"
+                        },
+                        "quantity": {
+                          "type": "integer",
+                          "minimum": 0
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "sku",
+                        "price_ex_vat",
+                        "price_inc_vat",
+                        "quantity"
+                      ]
+                    }
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "open",
+                      "approved",
+                      "deliverable",
+                      "shipped",
+                      "canceled",
+                      "awaiting_delivery",
+                      "awaiting_payment",
+                      "backlisted"
+                    ]
+                  },
+                  "checkout_message": {
+                    "type": "string"
+                  },
+                  "delivery_date": {
+                    "type": "string",
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                    "examples": [
+                      "2025-10-23"
+                    ],
+                    "minLength": 10,
+                    "maxLength": 10,
+                    "format": "date"
+                  },
+                  "reference": {
+                    "type": "string"
+                  },
+                  "marking": {
+                    "type": "string"
+                  },
+                  "warehouse_note": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "data": {
+                  "id": 32318,
+                  "status": "deliverable",
+                  "currency_iso": "SEK",
+                  "user": null,
+                  "locale": "sv_SE",
+                  "checkout_message": "string",
+                  "warehouse_note": "string",
+                  "pickup_location_id": null,
+                  "order_items": [
+                    {
+                      "id": 89507,
+                      "parent_id": null,
+                      "sku": "70007508",
+                      "gtin": "7034187075080",
+                      "name": "Harmoni Ljusblå Satin Dra på lakan 180x200 Höie",
+                      "display_name": "Harmoni Ljusblå Satin Dra på lakan 180x200 Höie",
+                      "type": "physical",
+                      "is_dropship": 0,
+                      "quantity": "3.00",
+                      "unit": "pcs",
+                      "storage_space": "D1P4",
+                      "weight": 0,
+                      "net_weight": 0,
+                      "hs_code": null,
+                      "country_of_origin": null,
+                      "primary_category": {
+                        "id": 20,
+                        "parent_id": 55,
+                        "active": true,
+                        "show_in_menu": true,
+                        "external_reference": null,
+                        "name": "Sängkläder",
+                        "description": "<h1>Sängkläder för optimal komfort</h1>\n<p>Upptäck vår kategori för <strong>sängkläder</strong> och förbättra din sömnkvalitet. Vi erbjuder allt från <a href=\"https://sovfabriken.se/sv/categories/lakan\">lakan</a>, <a href=\"https://sovfabriken.se/sv/categories/paslakan\">påslakan</a> till <a href=\"https://sovfabriken.se/sv/categories/orngott\">örngott</a>, allt för en optimal sömnupplevelse.</p>\n<p>Med fokus på hög kvalitet och komfort, erbjuder våra sängkläder en mängd material, som bomull, linne, satin och flanell. För dem med ett miljöfokus, erbjuder vi även ett urval av ekologiska alternativ.</p>\n<p>Vi tror att stil och funktion går hand i hand. Välj bland trendiga mönster och färgkombinationer, eller satsa på klassisk elegans för att skapa en inbjudande atmosfär i ditt sovrum med våra sängkläder.</p>\n<h2>Högkvalitativa sängkläder för en god natts sömn</h2>\n<p>Investera i sängkläder av hög kvalitet för att optimera din sömn. Vårt sortiment sträcker sig från cirkulära och återvunna tyger till nyproducerade med 100% bomull. Utforska våra sängkläder och hitta det bästa alternativet för ditt hem!</p>\n<p><img src=\"https://d3dnwnveix5428.cloudfront.net/eyJrZXkiOiJzdG9yZV82NWZkMTQyZS02ZTQ2LTQ2ZWQtYmZmZC0xOGQxYjA3NWJlYjRcL2ltYWdlc1wveWhTVlVqZkFQNlBDZ0lZMWZIMWVVMUlpVEx5RUZ6OUoxZEppNWI0cy5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEwMjQsImhlaWdodCI6MTAyNCwiZml0IjoiaW5zaWRlIn19fQ==\" alt=\"Lyxiga sängkläder uppsatta på en säng\" width=\"140\" height=\"140\" title=\"Sängkläder\"></p>\n<h3>Skapa en personlig atmosfär med rätt sängkläder</h3>\n<p>Sängkläder kan förändra hela känslan i ditt sovrum. Vårt breda sortiment ger dig förmågan att byta miljö och känsla efter årstid, humör eller designpreferens. Låt din kreativitet flöda och skapa ditt drömsovrum med våra sängkläder!</p>\n<p><img src=\"https://d3dnwnveix5428.cloudfront.net/store_65fd142e-6e46-46ed-bffd-18d1b075beb4/media/NG17Ju549ouNFvDZyCYBrwFfK7tBEKftFf2Tj4Lw.jpg\" width=\"200\" height=\"133\" title=\"Sängkläder för olika årstider\" alt=\"Sängkläder visande olika designs för olika årstider\"></p><h3>Hur tvättar man sängkläder?</h3><p>Läs vår guide om hur du tvättar dina sängkläder bäst för en så lång livslängd som möjligt. I denna guide får du också reda på hur ofta du bör tvätta dina sängkläder.</p><p><a href=\"/sv/page/tvatta-sangklader\">Läs mer här</a></p>",
+                        "slug": "sangklader",
+                        "image_url": "",
+                        "meta_title": "Sängkläder | Brett sortiment med hög kvalitet",
+                        "meta_description": "Upptäck ett brett sortiment av sängkläder av hög kvalitet. Skapa en skön sömnupplevelse med våra lakan, påslakan, och kuddar.",
+                        "created_at": "2023-06-15T13:33:27.000000Z"
+                      },
+                      "vat_rate": 2500,
+                      "unit_price": 100,
+                      "total_amount": 375,
+                      "supplier_sku": "70007508",
+                      "image_url": "https://dft8v6yqjl5yf.cloudfront.net/eyJrZXkiOiJzdG9yZV8wYmM3OGE3Ni04ZDI4LTRkYTQtYTA3Ny00MDgxNmY1ZTMxYzBcL2ltYWdlc1wvM0c0TnpYcDM2SWtvZ2pMMTc0NDE5MjI4Ni53ZWJwIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjoyMDQ4LCJoZWlnaHQiOjIwNDgsImZpdCI6Imluc2lkZSJ9fX0=",
+                      "variant_url": "https://davidse.nyehandel.test/products/harmoni-ljusbla-satin-dra-pa-lakan-180x200-hoie/2630",
+                      "metas": []
+                    }
+                  ],
+                  "customer": {
+                    "id": 1,
+                    "customer_type": "person",
+                    "firstname": "Björn",
+                    "lastname": "Forsman",
+                    "email": "Bjorn@nordisktextil.se",
+                    "phone": "+46 73 727 21 80",
+                    "ssn": null,
+                    "created_at": "2022-05-24T11:09:38.000000Z",
+                    "updated_at": "2022-05-24T11:09:38.000000Z",
+                    "billing_address": {
+                      "address": "Bokbindarevägen 5",
+                      "address2": null,
+                      "co_address": null,
+                      "postcode": "79144",
+                      "city": "Falun",
+                      "state": null,
+                      "country": "SE",
+                      "company_name": null,
+                      "firstname": "Björn",
+                      "lastname": "Forsman",
+                      "vat_number": null
+                    },
+                    "shipping_address": {
+                      "address": "Bokbindarevägen 5",
+                      "address2": null,
+                      "co_address": null,
+                      "postcode": "79144",
+                      "city": "Falun",
+                      "state": null,
+                      "country": "SE",
+                      "company_name": null,
+                      "firstname": "Björn",
+                      "lastname": "Forsman",
+                      "vat_number": null
+                    }
+                  },
+                  "billing_address": {
+                    "address": "string",
+                    "address2": "string",
+                    "co_address": "string",
+                    "postcode": "string",
+                    "city": "string",
+                    "state": "string",
+                    "country": "SE",
+                    "company_name": "string",
+                    "firstname": "string",
+                    "lastname": "string",
+                    "vat_number": null
+                  },
+                  "shipping_address": {
+                    "address": "string",
+                    "address2": "string",
+                    "co_address": "string",
+                    "postcode": "string",
+                    "city": "string",
+                    "state": "string",
+                    "country": "SE",
+                    "company_name": "string",
+                    "firstname": "string",
+                    "lastname": "string",
+                    "vat_number": null
+                  },
+                  "shipping": {
+                    "id": 7,
+                    "name": "Postnord - Hemleverans",
+                    "identifier": "9",
+                    "vat_rate": 2500,
+                    "total_amount": 125
+                  },
+                  "payment": {
+                    "id": 10,
+                    "name": "Stripe",
+                    "vat_rate": 2500,
+                    "total_amount": 125
+                  },
+                  "created_at": "2024-12-09T09:16:26.000000Z",
+                  "updated_at": "2024-12-09T09:16:26.000000Z"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "customer_id": {
+                      "type": "integer"
+                    },
+                    "shipping": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "name"
+                        },
+                        "price_ex_vat": {
+                          "type": "integer"
+                        },
+                        "price_inv_vat": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "payment": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "price_ex_vat": {
+                          "type": "integer"
+                        },
+                        "price_inc_vat": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "currency_iso": {
+                      "type": "string",
+                      "maxLength": 3
+                    },
+                    "currency_id": {
+                      "type": "integer"
+                    },
+                    "billing_address": {
+                      "type": "object",
+                      "properties": {
+                        "firstname": {
+                          "type": "string"
+                        },
+                        "lastname": {
+                          "type": "string"
+                        },
+                        "company_name": {
+                          "type": "string"
+                        },
+                        "co_address": {
+                          "type": "string"
+                        },
+                        "address": {
+                          "type": "string"
+                        },
+                        "address2": {
+                          "type": "string"
+                        },
+                        "postcode": {
+                          "type": "string"
+                        },
+                        "city": {
+                          "type": "string"
+                        },
+                        "country": {
+                          "type": "string"
+                        },
+                        "vat_number": {
+                          "type": "string"
+                        },
+                        "state": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "shipping_address": {
+                      "type": "object",
+                      "properties": {
+                        "firstname": {
+                          "type": "string"
+                        },
+                        "lastname": {
+                          "type": "string"
+                        },
+                        "company_name": {
+                          "type": "string"
+                        },
+                        "co_address": {
+                          "type": "string"
+                        },
+                        "address": {
+                          "type": "string"
+                        },
+                        "address2": {
+                          "type": "string"
+                        },
+                        "postcode": {
+                          "type": "string"
+                        },
+                        "city": {
+                          "type": "string"
+                        },
+                        "country": {
+                          "type": "string"
+                        },
+                        "vat_number": {
+                          "type": "string"
+                        },
+                        "state": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "sku": {
+                            "type": "string"
+                          },
+                          "price": {
+                            "type": "number"
+                          },
+                          "quantity": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "sku"
+                        ]
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "open",
+                        "approved",
+                        "deliverable",
+                        "shipped",
+                        "partially-delivered",
+                        "canceled",
+                        "awaiting-delivery",
+                        "awaiting-payment",
+                        "backlisted",
+                        "external"
+                      ]
+                    },
+                    "checkout_message": {
+                      "type": "string"
+                    },
+                    "delivery_date": {
+                      "type": "string"
+                    },
+                    "reference": {
+                      "type": "string"
+                    },
+                    "marking": {
+                      "type": "string"
+                    },
+                    "warehouse_note": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/orders": {
+      "get": {
+        "summary": "Get orders",
+        "deprecated": false,
+        "description": "# Filters\n## Available fields\n* created_at\n* updated_at\n* shipped_at\n* canceled_at\n* status (Only supports operator `eq`)\n\n## Available operators\n* eq (=)\n* lt (<)\n* lte (<=)\n* gt (>)\n* gte (>=)",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": 50,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": 1,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 0,
+              "exclusiveMinimum": 1,
+              "default": 1
+            }
+          },
+          {
+            "name": "filters[field][operator]",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "2025-06-01",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "Create order",
+        "deprecated": false,
+        "description": "Create an order",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{x_identifier}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "application/json",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "application/json"
+              ]
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "application/json",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "application/json"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "currency_iso": {
+                    "type": "string",
+                    "description": "3 Letter currency code, ISO 4217"
+                  },
+                  "locale": {
+                    "type": "string",
+                    "examples": [
+                      "SV-se"
+                    ],
+                    "pattern": "^[A-Za-z]{2,2}(?:-[A-Za-z]{2,2})$",
+                    "description": "language (2 letters), followed by a dash and country (2 letters)"
+                  },
+                  "delivery_date": {
+                    "type": "string",
+                    "examples": [
+                      "2024-01-01"
+                    ]
+                  },
+                  "warehouse_note": {
+                    "type": "string"
+                  },
+                  "marking": {
+                    "type": "string"
+                  },
+                  "reference": {
+                    "type": "string"
+                  },
+                  "checkout_message": {
+                    "type": "string",
+                    "maxLength": 255
+                  },
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "approve"
+                    ]
+                  },
+                  "customer": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "person",
+                          "organization"
+                        ]
+                      },
+                      "email": {
+                        "type": "string"
+                      },
+                      "phone": {
+                        "type": "string"
+                      },
+                      "ssn": {
+                        "type": "string"
+                      },
+                      "organization_number": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "email"
+                    ]
+                  },
+                  "billing_address": {
+                    "type": "object",
+                    "properties": {
+                      "company_name": {
+                        "type": "string",
+                        "description": "Required if customer type is organization"
+                      },
+                      "firstname": {
+                        "type": "string"
+                      },
+                      "lastname": {
+                        "type": "string"
+                      },
+                      "address": {
+                        "type": "string"
+                      },
+                      "address2": {
+                        "type": "string"
+                      },
+                      "co_address": {
+                        "type": "string"
+                      },
+                      "postcode": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "firstname",
+                      "lastname",
+                      "address",
+                      "postcode",
+                      "city",
+                      "country",
+                      "co_address",
+                      "address2",
+                      "state"
+                    ]
+                  },
+                  "shipping_address": {
+                    "type": "object",
+                    "properties": {
+                      "company_name": {
+                        "type": "string",
+                        "description": "Required if customer type is organization"
+                      },
+                      "firstname": {
+                        "type": "string"
+                      },
+                      "lastname": {
+                        "type": "string"
+                      },
+                      "address": {
+                        "type": "string"
+                      },
+                      "address2": {
+                        "type": "string"
+                      },
+                      "co_address": {
+                        "type": "string"
+                      },
+                      "postcode": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "firstname",
+                      "lastname",
+                      "address",
+                      "postcode",
+                      "city",
+                      "country",
+                      "address2",
+                      "co_address",
+                      "state"
+                    ]
+                  },
+                  "shipping": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "price_ex_vat": {
+                        "type": "integer"
+                      },
+                      "price_inc_vat": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "price_ex_vat",
+                      "price_inc_vat"
+                    ]
+                  },
+                  "payment": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "price_ex_vat": {
+                        "type": "integer"
+                      },
+                      "price_inc_vat": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "price_ex_vat",
+                      "price_inc_vat"
+                    ]
+                  },
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        },
+                        "sku": {
+                          "type": "string"
+                        },
+                        "quantity": {
+                          "type": "integer"
+                        },
+                        "price_ex_vat": {
+                          "type": "integer"
+                        },
+                        "price_inc_vat": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "sku",
+                        "quantity",
+                        "price_ex_vat",
+                        "price_inc_vat"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "currency_iso",
+                  "locale",
+                  "customer",
+                  "billing_address",
+                  "shipping",
+                  "payment",
+                  "items"
+                ]
+              },
+              "example": {
+                "currency_iso": "SEK",
+                "locale": "SV-se",
+                "customer": {
+                  "type": "organization",
+                  "email": "manual_order@nyehandel.se",
+                  "phone": "0733111111",
+                  "ssn": "9001011234",
+                  "organization_number": "5592412075"
+                },
+                "billing_address": {
+                  "company_name": "Företaget AB",
+                  "firstname": "Peter",
+                  "lastname": "Nilsson",
+                  "address": "Testgatan 11",
+                  "postcode": "12345",
+                  "city": "Kristianstad",
+                  "country": "SE"
+                },
+                "shipping_address": {
+                  "company_name": "Företag två AB",
+                  "firstname": "Nils",
+                  "lastname": "Petersson",
+                  "address": "Skeppsvägen 620",
+                  "postcode": "54321",
+                  "city": "Hässleholm",
+                  "country": "SE"
+                },
+                "shipping": {
+                  "name": "Postnord - MyPack",
+                  "price_ex_vat": 10000,
+                  "price_inc_vat": 12500
+                },
+                "payment": {
+                  "name": "Faktura",
+                  "price_ex_vat": 10000,
+                  "price_inc_vat": 12500
+                },
+                "items": [
+                  {
+                    "type": "product",
+                    "sku": "117849",
+                    "quantity": 3,
+                    "price_ex_vat": 10000,
+                    "price_inc_vat": 12500
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "currency_iso": {
+                          "type": "string"
+                        },
+                        "order_items": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "sku": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "quantity": {
+                                "type": "string"
+                              },
+                              "unit": {
+                                "type": "string"
+                              },
+                              "vat_rate": {
+                                "type": "integer"
+                              },
+                              "unit_price": {
+                                "type": "integer"
+                              },
+                              "total_amount": {
+                                "type": "integer"
+                              },
+                              "image_url": {
+                                "type": "string"
+                              },
+                              "variant_url": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "customer": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "customer_type": {
+                              "type": "string"
+                            },
+                            "firstname": {
+                              "type": "string"
+                            },
+                            "lastname": {
+                              "type": "string"
+                            },
+                            "email": {
+                              "type": "string"
+                            },
+                            "phone": {
+                              "type": "null"
+                            },
+                            "ssn": {
+                              "type": "null"
+                            },
+                            "created_at": {
+                              "type": "string"
+                            },
+                            "updated_at": {
+                              "type": "string"
+                            },
+                            "billing_address": {
+                              "type": "object",
+                              "properties": {
+                                "address": {
+                                  "type": "string"
+                                },
+                                "address2": {
+                                  "type": "null"
+                                },
+                                "co_address": {
+                                  "type": "null"
+                                },
+                                "postcode": {
+                                  "type": "string"
+                                },
+                                "city": {
+                                  "type": "string"
+                                },
+                                "state": {
+                                  "type": "null"
+                                },
+                                "country": {
+                                  "type": "string"
+                                },
+                                "company_name": {
+                                  "type": "null"
+                                },
+                                "firstname": {
+                                  "type": "string"
+                                },
+                                "lastname": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "address",
+                                "address2",
+                                "co_address",
+                                "postcode",
+                                "city",
+                                "state",
+                                "country",
+                                "company_name",
+                                "firstname",
+                                "lastname"
+                              ]
+                            },
+                            "shipping_address": {
+                              "type": "object",
+                              "properties": {
+                                "address": {
+                                  "type": "string"
+                                },
+                                "address2": {
+                                  "type": "null"
+                                },
+                                "co_address": {
+                                  "type": "null"
+                                },
+                                "postcode": {
+                                  "type": "string"
+                                },
+                                "city": {
+                                  "type": "string"
+                                },
+                                "state": {
+                                  "type": "null"
+                                },
+                                "country": {
+                                  "type": "string"
+                                },
+                                "company_name": {
+                                  "type": "null"
+                                },
+                                "firstname": {
+                                  "type": "string"
+                                },
+                                "lastname": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "address",
+                                "address2",
+                                "co_address",
+                                "postcode",
+                                "city",
+                                "state",
+                                "country",
+                                "company_name",
+                                "firstname",
+                                "lastname"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "customer_type",
+                            "firstname",
+                            "lastname",
+                            "email",
+                            "phone",
+                            "ssn",
+                            "created_at",
+                            "updated_at",
+                            "billing_address",
+                            "shipping_address"
+                          ]
+                        },
+                        "billing_address": {
+                          "type": "object",
+                          "properties": {
+                            "address": {
+                              "type": "string"
+                            },
+                            "address2": {
+                              "type": "null"
+                            },
+                            "co_address": {
+                              "type": "null"
+                            },
+                            "postcode": {
+                              "type": "string"
+                            },
+                            "city": {
+                              "type": "string"
+                            },
+                            "state": {
+                              "type": "null"
+                            },
+                            "country": {
+                              "type": "string"
+                            },
+                            "company_name": {
+                              "type": "string"
+                            },
+                            "firstname": {
+                              "type": "string"
+                            },
+                            "lastname": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "address",
+                            "address2",
+                            "co_address",
+                            "postcode",
+                            "city",
+                            "state",
+                            "country",
+                            "company_name",
+                            "firstname",
+                            "lastname"
+                          ]
+                        },
+                        "shipping_address": {
+                          "type": "object",
+                          "properties": {
+                            "address": {
+                              "type": "string"
+                            },
+                            "address2": {
+                              "type": "null"
+                            },
+                            "co_address": {
+                              "type": "null"
+                            },
+                            "postcode": {
+                              "type": "string"
+                            },
+                            "city": {
+                              "type": "string"
+                            },
+                            "state": {
+                              "type": "null"
+                            },
+                            "country": {
+                              "type": "string"
+                            },
+                            "company_name": {
+                              "type": "string"
+                            },
+                            "firstname": {
+                              "type": "string"
+                            },
+                            "lastname": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "address",
+                            "address2",
+                            "co_address",
+                            "postcode",
+                            "city",
+                            "state",
+                            "country",
+                            "company_name",
+                            "firstname",
+                            "lastname"
+                          ]
+                        },
+                        "shipping": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "vat_rate": {
+                              "type": "integer"
+                            },
+                            "total_amount": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "vat_rate",
+                            "total_amount"
+                          ]
+                        },
+                        "payment": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "vat_rate": {
+                              "type": "integer"
+                            },
+                            "total_amount": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "vat_rate",
+                            "total_amount"
+                          ]
+                        },
+                        "created_at": {
+                          "type": "string"
+                        },
+                        "updated_at": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "currency_iso",
+                        "order_items",
+                        "customer",
+                        "billing_address",
+                        "shipping_address",
+                        "shipping",
+                        "payment",
+                        "created_at",
+                        "updated_at"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/orders/{order_id}/deliver": {
+      "post": {
+        "summary": "Deliver order",
+        "deprecated": false,
+        "description": "Can be used by external systems to send shipment booking data to Nyehandel. The order in Nyehandel will change status to \"shipped\" when deliver is triggered.\n\nNOTE: The pdfs attached in pdf_paths will not be downloaded and copied to our filesystem, so we expect the pdf's to remain on the path sent.",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "complete_delivery": {
+                    "type": "boolean"
+                  },
+                  "pdf_paths": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "description": "Url paths to waybill PDF's"
+                  },
+                  "parcels": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "tracking_id": {
+                          "type": "string",
+                          "description": "The tracking ID used to manually track the parcel"
+                        },
+                        "tracking_url": {
+                          "type": "string",
+                          "description": "An complete URL to where the customer can track the parcel"
+                        }
+                      },
+                      "required": [
+                        "tracking_id",
+                        "tracking_url"
+                      ]
+                    },
+                    "description": "Each parcel that is sent"
+                  }
+                },
+                "required": [
+                  "complete_delivery",
+                  "pdf_paths",
+                  "parcels"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/orders/delivery-notes": {
+      "get": {
+        "summary": "Get delivery notes",
+        "deprecated": false,
+        "description": "Fetch delivery notes",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "ids[]",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": [
+              "42290"
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{x_identifier}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/shipping-methods": {
+      "get": {
+        "summary": "Get Shipping methods",
+        "deprecated": false,
+        "description": "Gets the available shipping methods, paginated",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": 1,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": 100,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{x_identifier}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/products": {
+      "get": {
+        "summary": "Get products",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": 50,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": 1,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "exclusiveMinimum": 1,
+              "default": 1
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "status",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "draft",
+                "published",
+                "inactive",
+                "pending_retirement",
+                "retired"
+              ],
+              "examples": [
+                "published"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "Create product",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{x_identifier}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "draft",
+                      "published",
+                      "inactive",
+                      "pending_retirement",
+                      "retired"
+                    ]
+                  },
+                  "meta_title": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "meta_description": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "external_reference": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "description": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "short_description": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "slug": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "hs_code": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "vat_rate": {
+                    "type": "integer",
+                    "enum": [
+                      2500,
+                      1200,
+                      600,
+                      0
+                    ]
+                  },
+                  "variants": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "sku": {
+                          "type": "string"
+                        },
+                        "prices": {
+                          "type": "object",
+                          "properties": {
+                            "price": {
+                              "type": [
+                                "integer",
+                                "null"
+                              ]
+                            },
+                            "compare_price": {
+                              "type": [
+                                "integer",
+                                "null"
+                              ]
+                            },
+                            "customer_group_id": {
+                              "type": [
+                                "integer",
+                                "null"
+                              ]
+                            },
+                            "currency_id": {
+                              "type": [
+                                "integer",
+                                "null"
+                              ]
+                            },
+                            "tier": {
+                              "type": [
+                                "integer",
+                                "null"
+                              ]
+                            }
+                          }
+                        },
+                        "stock": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "weight": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "purchase_price": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "stock_price": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "package_size": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "supplier_sku": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "gtin": {
+                          "type": "string"
+                        },
+                        "storage_space": {
+                          "type": "string"
+                        },
+                        "options": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "description": "Required if more than one variant"
+                        },
+                        "always_orderable": {
+                          "type": "boolean"
+                        },
+                        "positive_inventory_status": {
+                          "type": "string"
+                        },
+                        "negative_inventory_status": {
+                          "type": "string"
+                        },
+                        "vehicle_data": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "tag": {
+                                "type": "string"
+                              },
+                              "brand": {
+                                "type": "string"
+                              },
+                              "model": {
+                                "type": "string"
+                              },
+                              "year": {
+                                "type": "string"
+                              },
+                              "metadata": {
+                                "type": "object",
+                                "properties": {}
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "sku"
+                      ]
+                    }
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "standard",
+                      "inventory_item",
+                      "pre_order_item"
+                    ]
+                  },
+                  "categories": {
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "external_identifier": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "update_on_exists": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    },
+                    "description": "Set category or create if not found"
+                  },
+                  "brand_name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Set brand or create brand if not found"
+                  },
+                  "supplier_name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Set supplier or create supplier if not found"
+                  },
+                  "attributes": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        },
+                        "is_featured": {
+                          "type": "boolean"
+                        },
+                        "is_labeled": {
+                          "type": "boolean"
+                        }
+                      }
+                    }
+                  },
+                  "specifications": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "string"
+                        },
+                        "specifications": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "string"
+                              },
+                              "is_featured": {
+                                "type": "boolean"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "filter_tags": {
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "type": "string",
+                      "pattern": "/^.+_.+$/"
+                    }
+                  },
+                  "images": {
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "type": "string",
+                      "description": "Image urls in array",
+                      "pattern": "/^.+_.+$/"
+                    }
+                  }
+                },
+                "required": [
+                  "variants",
+                  "name",
+                  "type"
+                ]
+              },
+              "example": {
+                "status": "draft",
+                "name": "namn 2024-09-03",
+                "meta_title": "Metis titilus",
+                "meta_description": "Metus deskriptus",
+                "external_reference": "Ext reffe",
+                "description": "produktbeskrivningen",
+                "hs_code": "12312321",
+                "country_of_origin": "SE",
+                "vat_rate": 1200,
+                "variants": [
+                  {
+                    "sku": "20240901-hej57ad39",
+                    "stock": "291",
+                    "weight": "2500",
+                    "stock_price": 10000,
+                    "purchase_price": 1000,
+                    "supplier_sku": "Lev-art-100",
+                    "gtin": "Gtion-valle",
+                    "prices": [
+                      {
+                        "price": 15000,
+                        "tier": 1,
+                        "compare_price": 20000
+                      },
+                      {
+                        "price": 14000,
+                        "tier": 5,
+                        "compare_price": 20000
+                      },
+                      {
+                        "price": 14000,
+                        "tier": 10,
+                        "compare_price": 20000,
+                        "currency_id": 1
+                      }
+                    ],
+                    "options": [
+                      {
+                        "type": "Färg",
+                        "value": "Blå"
+                      },
+                      {
+                        "type": "Storlek",
+                        "value": "S"
+                      }
+                    ]
+                  }
+                ],
+                "categories": [
+                  {
+                    "name": "Jul",
+                    "update_on_exists": false
+                  },
+                  {
+                    "name": "kaosdkasd",
+                    "external_identifier": "api-1",
+                    "update_on_exists": false
+                  },
+                  {
+                    "name": "hejsan",
+                    "external_identifier": "api-1",
+                    "update_on_exists": false
+                  }
+                ],
+                "type": "inventory_item"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/products/batch": {
+      "put": {
+        "summary": "Update products batch",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "products": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "product_search_query": {
+                          "type": "object",
+                          "properties": {
+                            "field": {
+                              "type": "string",
+                              "enum": [
+                                "product_id",
+                                "variant_sku"
+                              ]
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "field",
+                            "value"
+                          ]
+                        },
+                        "status": {
+                          "type": "string",
+                          "enum": [
+                            "inactive",
+                            "published",
+                            "draft",
+                            "pedning",
+                            "pending_retirement",
+                            "retired"
+                          ]
+                        },
+                        "meta_title": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "meta_description": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "external_reference": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "description": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "short_description": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "slug": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "hs_code": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "country_of_origin": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "vat_rate": {
+                          "type": "integer",
+                          "enum": [
+                            2500,
+                            1200,
+                            600,
+                            0
+                          ]
+                        },
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "standard",
+                            "inventory_item",
+                            "pre_order_item"
+                          ]
+                        },
+                        "categories": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "external_identifier": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "update_on_exists": {
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "brand_name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "supplier_name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "attributes": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "string"
+                              },
+                              "is_featured": {
+                                "type": "boolean"
+                              },
+                              "is_labeled": {
+                                "type": "boolean"
+                              }
+                            }
+                          }
+                        },
+                        "specifications": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "section_title": {
+                                "type": "string"
+                              },
+                              "specifications": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "key": {
+                                      "type": "string"
+                                    },
+                                    "value": {
+                                      "type": "string"
+                                    },
+                                    "is_featured": {
+                                      "type": "boolean"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "filter_tags": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "pattern": "^[a-zA-Z]+_[a-zA-Z]+$"
+                          }
+                        },
+                        "properties": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "string"
+                              },
+                              "is_featured": {
+                                "type": "boolean"
+                              },
+                              "is_labeled": {
+                                "type": "boolean"
+                              }
+                            },
+                            "required": [
+                              "key",
+                              "value"
+                            ]
+                          }
+                        },
+                        "images": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "required": [
+                        "product_search_query"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "products"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "Create products batch",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{x_identifier}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "products": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string",
+                          "enum": [
+                            "draft",
+                            "published",
+                            "inactive",
+                            "pending_retirement",
+                            "retired"
+                          ]
+                        },
+                        "meta_title": {
+                          "type": "string"
+                        },
+                        "meta_description": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "external_reference": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "short_description": {
+                          "type": "string"
+                        },
+                        "slug": {
+                          "type": "string"
+                        },
+                        "hs_code": {
+                          "type": "string"
+                        },
+                        "country_of_origin": {
+                          "type": "string"
+                        },
+                        "vat_rate": {
+                          "type": "integer",
+                          "enum": [
+                            2500,
+                            1200,
+                            600,
+                            0
+                          ]
+                        },
+                        "variants": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "sku": {
+                                "type": "string"
+                              },
+                              "stock": {
+                                "type": "number",
+                                "multipleOf": 0.01
+                              },
+                              "weight": {
+                                "type": "integer"
+                              },
+                              "purchase_price": {
+                                "type": "integer",
+                                "multipleOf": 0.01,
+                                "minimum": 0
+                              },
+                              "stock_price": {
+                                "type": "integer",
+                                "multipleOf": 0.01
+                              },
+                              "package_size": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "multipleOf": 1
+                              },
+                              "supplier_sku": {
+                                "type": "string"
+                              },
+                              "prices": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "price": {
+                                      "type": "integer",
+                                      "minimum": 0
+                                    },
+                                    "compare_price": {
+                                      "type": "integer",
+                                      "minimum": 0
+                                    },
+                                    "customer_group_id": {
+                                      "type": "integer",
+                                      "minimum": 1,
+                                      "multipleOf": 1
+                                    },
+                                    "currency_id": {
+                                      "type": "integer",
+                                      "minimum": 1,
+                                      "multipleOf": 1
+                                    },
+                                    "tier": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "multipleOf": 1
+                                    }
+                                  },
+                                  "required": [
+                                    "price",
+                                    "01JPMSC0WG644VH1EJYRG7B6GJ"
+                                  ]
+                                }
+                              },
+                              "gtin": {
+                                "type": "string"
+                              },
+                              "options": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string"
+                                    },
+                                    "value": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                "description": "Required if more than one variant"
+                              }
+                            },
+                            "required": [
+                              "sku",
+                              "prices"
+                            ]
+                          }
+                        },
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "standard",
+                            "inventory_item",
+                            "pre_order_item"
+                          ]
+                        },
+                        "categories": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "external_identifier": {
+                                "type": "string"
+                              },
+                              "update_on_exists": {
+                                "type": "boolean"
+                              }
+                            },
+                            "required": [
+                              "name"
+                            ]
+                          },
+                          "description": "Set category or create if not found"
+                        },
+                        "brand_name": {
+                          "type": "string",
+                          "description": "Set brand or create brand if not found"
+                        },
+                        "supplier_name": {
+                          "type": "string",
+                          "description": "Set supplier or create supplier if not found"
+                        },
+                        "attributes": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "string"
+                              },
+                              "is_featured": {
+                                "type": "boolean"
+                              },
+                              "is_labeled": {
+                                "type": "boolean"
+                              }
+                            }
+                          }
+                        },
+                        "specifications": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "section_title": {
+                                "type": "string"
+                              },
+                              "specifications": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "key": {
+                                      "type": "string"
+                                    },
+                                    "value": {
+                                      "type": "string"
+                                    },
+                                    "is_featured": {
+                                      "type": "boolean"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "filter_tags": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "pattern": "/^.+_.+$/"
+                          }
+                        },
+                        "images": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "description": "Image urls in array"
+                          }
+                        },
+                        "vehicle_data": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "tag": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "model": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "brand": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "year": {
+                                "type": [
+                                  "integer",
+                                  "null"
+                                ]
+                              },
+                              "metadata": {
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {}
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "variants",
+                        "type",
+                        "status",
+                        "vehicle_data"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "products"
+                ]
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/products/{productId}": {
+      "put": {
+        "summary": "Update product",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{x_identifier}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "draft",
+                      "published",
+                      "inactive",
+                      "pending_retirement",
+                      "retired"
+                    ]
+                  },
+                  "meta_title": {
+                    "type": "string"
+                  },
+                  "meta_description": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "external_reference": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "short_description": {
+                    "type": "string"
+                  },
+                  "slug": {
+                    "type": "string"
+                  },
+                  "hs_code": {
+                    "type": "string"
+                  },
+                  "country_of_origin": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "standard",
+                      "inventory_item",
+                      "pre_order_item"
+                    ]
+                  },
+                  "categories": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "external_identifier": {
+                          "type": "string"
+                        },
+                        "update_on_exists": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    },
+                    "description": "Set category or create if not found"
+                  },
+                  "brand_name": {
+                    "type": "string",
+                    "description": "Set brand or create brand if not found"
+                  },
+                  "supplier_name": {
+                    "type": "string",
+                    "description": "Set supplier or create supplier if not found"
+                  },
+                  "attributes": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        },
+                        "is_feature": {
+                          "type": "boolean"
+                        },
+                        "is_labeled": {
+                          "type": "boolean"
+                        }
+                      }
+                    }
+                  },
+                  "specifications": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "string"
+                        },
+                        "specifications": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "string"
+                              },
+                              "is_featured": {
+                                "type": "boolean"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "filter_tags": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "/^.+_.+$/"
+                    }
+                  },
+                  "images": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "description": "Image urls in array",
+                      "pattern": "/^.+_.+$/"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "delete": {
+        "summary": "Delete product",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{x_identifier}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/products/{productId}/variants": {
+      "post": {
+        "summary": "Create variant",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{x_identifier}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "variants": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "sku": {
+                          "type": "string"
+                        },
+                        "stock": {
+                          "type": "integer"
+                        },
+                        "weight": {
+                          "type": "integer"
+                        },
+                        "purchase_price": {
+                          "type": "string"
+                        },
+                        "stock_price": {
+                          "type": "integer"
+                        },
+                        "package_size": {
+                          "type": "integer"
+                        },
+                        "supplier_sku": {
+                          "type": "string"
+                        },
+                        "price": {
+                          "type": "integer"
+                        },
+                        "compare_price": {
+                          "type": "string"
+                        },
+                        "gtin": {
+                          "type": "string"
+                        },
+                        "options": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "variants": [
+                  {
+                    "sku": "Testi123ngxx1",
+                    "stock": "291",
+                    "weight": "12",
+                    "stock_price": 100.25,
+                    "supplier_sku": "Lev-art-100",
+                    "prices": [
+                      {
+                        "price": 125.77,
+                        "compare_price": 133.33,
+                        "currency_id": 1,
+                        "tier": 1
+                      }
+                    ],
+                    "gtin": "Gtion-valle",
+                    "options": [
+                      {
+                        "type": "Färg",
+                        "value": "Blå"
+                      },
+                      {
+                        "type": "Storlek",
+                        "value": "S"
+                      }
+                    ]
+                  },
+                  {
+                    "sku": "Testingdfj2",
+                    "stock": "291",
+                    "weight": "12",
+                    "stock_price": 10000,
+                    "supplier_sku": "Lev-art-100",
+                    "prices": [
+                      {
+                        "price": 30000,
+                        "compare_price": 42000,
+                        "currency_id": 1,
+                        "tier": 1
+                      }
+                    ],
+                    "compare_price": 35000,
+                    "gtin": "Gtion-valle",
+                    "options": [
+                      {
+                        "type": "Färg",
+                        "value": "Blå"
+                      },
+                      {
+                        "type": "Storlek",
+                        "value": "M"
+                      }
+                    ]
+                  },
+                  {
+                    "sku": "Testinx3123xg3",
+                    "stock": "291",
+                    "weight": "12",
+                    "stock_price": 10000,
+                    "supplier_sku": "Lev-art-100",
+                    "prices": [
+                      {
+                        "price": 32000,
+                        "compare_price": 42000,
+                        "currency_id": 1,
+                        "tier": 1
+                      }
+                    ],
+                    "compare_price": 35000,
+                    "gtin": "Gtion-valle",
+                    "options": [
+                      {
+                        "type": "Färg",
+                        "value": "Blå"
+                      },
+                      {
+                        "type": "Storlek",
+                        "value": "XL"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/products/find": {
+      "get": {
+        "summary": "Find product by sku or id",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "ID",
+            "required": false,
+            "example": 1258,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "sku",
+            "in": "query",
+            "description": "SKU",
+            "required": false,
+            "example": "abc-123",
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{x_identifier}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "meta_title": {
+                          "type": "string"
+                        },
+                        "meta_description": {
+                          "type": "string"
+                        },
+                        "external_reference": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "hs_code": {
+                          "type": "null"
+                        },
+                        "country_of_origin": {
+                          "type": "null"
+                        },
+                        "filterTags": {
+                          "type": "null"
+                        },
+                        "variants": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "product_id": {
+                                "type": "integer"
+                              },
+                              "sku": {
+                                "type": "string"
+                              },
+                              "gtin": {
+                                "type": "null"
+                              },
+                              "stock": {
+                                "type": "string"
+                              },
+                              "weight": {
+                                "type": "integer"
+                              },
+                              "purchase_price": {
+                                "type": "integer"
+                              },
+                              "stock_price": {
+                                "type": "integer"
+                              },
+                              "price": {
+                                "type": "integer"
+                              },
+                              "compare_price": {
+                                "type": "integer"
+                              },
+                              "package_size": {
+                                "type": "integer"
+                              },
+                              "supplier_sku": {
+                                "type": "null"
+                              },
+                              "external_reference": {
+                                "type": "string"
+                              },
+                              "always_orderable": {
+                                "type": "boolean"
+                              },
+                              "created_at": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "categories": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "external_reference": {
+                                "type": "null"
+                              },
+                              "name": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "external_reference",
+                              "name"
+                            ]
+                          }
+                        },
+                        "brand": {
+                          "type": "null"
+                        },
+                        "supplier": {
+                          "type": "null"
+                        },
+                        "created_at": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "status",
+                        "type",
+                        "name",
+                        "meta_title",
+                        "meta_description",
+                        "external_reference",
+                        "description",
+                        "hs_code",
+                        "country_of_origin",
+                        "filterTags",
+                        "variants",
+                        "categories",
+                        "brand",
+                        "supplier",
+                        "created_at"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                },
+                "example": {
+                  "data": {
+                    "id": 36120,
+                    "status": "published",
+                    "type": "Ej lagerförd",
+                    "name": "Ledlampa NEDIS E14 4,5W",
+                    "meta_title": "Ledlampa NEDIS E14 4,5W",
+                    "meta_description": "",
+                    "external_reference": "548289 75001224",
+                    "description": "Kronljusformad LED-LAMPA med E14-sockel, 470 lumen och låg strömförbrukning på 4.5 W som ersätter traditionella 42-Watts glödlampor.  Den energieffektiva LED-lampan sprider ett varmt vitt ljus med en färgtemperatur på 2 700 Kelvin",
+                    "hs_code": null,
+                    "country_of_origin": null,
+                    "filterTags": null,
+                    "variants": [
+                      {
+                        "id": 36115,
+                        "product_id": 36120,
+                        "sku": "75001224",
+                        "gtin": null,
+                        "stock": "0.00",
+                        "weight": 0,
+                        "purchase_price": 0,
+                        "stock_price": 0,
+                        "price": 0,
+                        "compare_price": 0,
+                        "package_size": 1,
+                        "supplier_sku": null,
+                        "external_reference": "548289",
+                        "always_orderable": true,
+                        "created_at": "2024-08-28T08:09:21.000000Z"
+                      }
+                    ],
+                    "categories": [
+                      {
+                        "id": 50,
+                        "external_reference": null,
+                        "name": "Möbler & Inredning"
+                      },
+                      {
+                        "id": 51,
+                        "external_reference": null,
+                        "name": "Lampor och tillbehör"
+                      },
+                      {
+                        "id": 1331,
+                        "external_reference": null,
+                        "name": "Glödlampor"
+                      },
+                      {
+                        "id": 36,
+                        "external_reference": null,
+                        "name": "Kontor & Lager"
+                      }
+                    ],
+                    "brand": null,
+                    "supplier": null,
+                    "created_at": "2024-08-28T08:09:21.000000Z"
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/payment-methods": {
+      "get": {
+        "summary": "Get Payment methods",
+        "deprecated": false,
+        "description": "Gets the available payment methods, paginated",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": 1,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": 100,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "01ca8a76-8d28-4da4-a077-40816f5e31c0",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "Bearer 1ePWIFDGKH5Jnjs8fnAVr0JsWrcYSJaO3LLtVvJkk",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/customers/{customer_id}": {
+      "get": {
+        "summary": "Get Customer",
+        "deprecated": false,
+        "description": "Fetch a customer",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "customer_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "01ca8a76-8d28-4da4-a077-40816f5e31c0",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "Bearer 1ePWIFDGKH5Jnjs8fnAVr0JsWrcYSJaO3LLtVvJkk",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/customers/": {
+      "get": {
+        "summary": "Get Customers",
+        "deprecated": false,
+        "description": "Fetch customers",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": 1,
+            "schema": {
+              "type": "number",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": 15,
+            "schema": {
+              "type": "number",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "01ca8a76-8d28-4da4-a077-40816f5e31c0",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "Bearer 1ePWIFDGKH5Jnjs8fnAVr0JsWrcYSJaO3LLtVvJkk",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/customers": {
+      "post": {
+        "summary": "Create Customer",
+        "deprecated": false,
+        "description": "Create a customer",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "01ca8a76-8d28-4da4-a077-40816f5e31c0",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "Bearer 1ePWIFDGKH5Jnjs8fnAVr0JsWrcYSJaO3LLtVvJkk",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customer_type": {
+                    "type": "string",
+                    "enum": [
+                      "person",
+                      "organization"
+                    ]
+                  },
+                  "email": {
+                    "type": "string",
+                    "maxLength": 255,
+                    "format": "email"
+                  },
+                  "invoice_email": {
+                    "type": "string",
+                    "format": "email",
+                    "maxLength": 255
+                  },
+                  "password": {
+                    "type": "string",
+                    "minLength": 8
+                  },
+                  "organization_number": {
+                    "type": "string",
+                    "description": "Required if customer_type is organization"
+                  },
+                  "billing_address": {
+                    "type": "object",
+                    "properties": {
+                      "firstname": {
+                        "type": "string"
+                      },
+                      "lastname": {
+                        "type": "string"
+                      },
+                      "company_name": {
+                        "type": "string",
+                        "description": "Required if customer_type is organization"
+                      },
+                      "address": {
+                        "type": "string"
+                      },
+                      "postcode": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string",
+                        "minLength": 2,
+                        "maxLength": 2,
+                        "description": "2 Characters country code - ISO 3166-1 alpha-2"
+                      }
+                    },
+                    "required": [
+                      "firstname",
+                      "lastname",
+                      "country"
+                    ]
+                  },
+                  "shipping_address": {
+                    "type": "object",
+                    "properties": {
+                      "firstname": {
+                        "type": "string"
+                      },
+                      "lastname": {
+                        "type": "string"
+                      },
+                      "company_name": {
+                        "type": "string",
+                        "description": "Required if customer_type is organization"
+                      },
+                      "address": {
+                        "type": "string"
+                      },
+                      "postcode": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string",
+                        "description": "2 Characters country code - ISO 3166-1 alpha-2"
+                      }
+                    },
+                    "required": [
+                      "firstname",
+                      "lastname",
+                      "country"
+                    ]
+                  }
+                },
+                "required": [
+                  "email",
+                  "customer_type",
+                  "billing_address"
+                ]
+              },
+              "example": {
+                "email": "customer122a1121121@email.com",
+                "invoice_email": "customer-invoice@email.com",
+                "password": "super-secret-p@ss",
+                "customer_type": "person",
+                "billing_address": {
+                  "firstname": "a1",
+                  "lastname": "b2",
+                  "country": "SE"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/categories": {
+      "post": {
+        "summary": "Create category",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{x_identifier}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "meta_title": {
+                    "type": "string"
+                  },
+                  "meta_description": {
+                    "type": "string"
+                  },
+                  "slug": {
+                    "type": "string"
+                  },
+                  "active": {
+                    "type": "boolean"
+                  },
+                  "show_in_menu": {
+                    "type": "boolean"
+                  },
+                  "parent_id": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "image_url": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "get": {
+        "summary": "Get categories",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 100
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{x_identifier}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/categories/{id}": {
+      "put": {
+        "summary": "Update category",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{x_identifier}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "meta_title": {
+                    "type": "string"
+                  },
+                  "meta_description": {
+                    "type": "string"
+                  },
+                  "slug": {
+                    "type": "string"
+                  },
+                  "active": {
+                    "type": "boolean"
+                  },
+                  "show_in_menu": {
+                    "type": "boolean"
+                  },
+                  "parent_id": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "image_url": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "get": {
+        "summary": "Get category",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{x_identifier}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "delete": {
+        "summary": "Delete category",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{x_identifier}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/variants/batch": {
+      "put": {
+        "summary": "Update variant batch",
+        "deprecated": false,
+        "description": "### Notes about prices:\nWhen uppdating prices, the sibling prices will be replaced as well. A sibling is defined as a price that belongs to the same currency and customer group.",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "variants": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "sku": {
+                          "type": "string"
+                        },
+                        "stock": {
+                          "type": "number",
+                          "title": "Artikelnummer"
+                        },
+                        "purchase_price": {
+                          "type": "number",
+                          "minimum": 0,
+                          "multipleOf": 0.01
+                        },
+                        "prices": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "price": {
+                                "type": "number",
+                                "minimum": 0,
+                                "fracionDigits": 2,
+                                "multipleOf": 0.01
+                              },
+                              "compare_price": {
+                                "type": "number",
+                                "minimum": 0,
+                                "multipleOf": 0.01
+                              },
+                              "customer_group_id": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "multipleOf": 1
+                              },
+                              "currency_id": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "multipleOf": 1
+                              },
+                              "tier": {
+                                "type": "number",
+                                "minimum": 1,
+                                "multipleOf": 1
+                              }
+                            }
+                          }
+                        },
+                        "vehicle_data": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "tag": {
+                                "type": "string"
+                              },
+                              "brand": {
+                                "type": "string"
+                              },
+                              "model": {
+                                "type": "string"
+                              },
+                              "year": {
+                                "type": "integer"
+                              },
+                              "metadata": {
+                                "type": "object",
+                                "properties": {}
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "sku"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/variants/{variantId}": {
+      "put": {
+        "summary": "Update variant",
+        "deprecated": false,
+        "description": "### Notes about prices:\nWhen uppdating prices, the sibling prices will be replaced as well. A sibling is defined as a price that belongs to the same currency and customer group.",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "variantId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{x_identifier}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sku": {
+                    "type": "string"
+                  },
+                  "vat_rate": {
+                    "type": "integer"
+                  },
+                  "stock": {
+                    "type": "integer"
+                  },
+                  "weight": {
+                    "type": "integer"
+                  },
+                  "purchase_price": {
+                    "type": "string"
+                  },
+                  "stock_price": {
+                    "type": "integer"
+                  },
+                  "package_size": {
+                    "type": "integer"
+                  },
+                  "supplier_sku": {
+                    "type": "string"
+                  },
+                  "prices": {
+                    "type": "object",
+                    "properties": {
+                      "price": {
+                        "type": "integer"
+                      },
+                      "compare_price": {
+                        "type": "integer"
+                      },
+                      "currency_id": {
+                        "type": "integer"
+                      },
+                      "customer_group_id": {
+                        "type": "integer"
+                      },
+                      "tier": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "gtin": {
+                    "type": "string"
+                  },
+                  "storage_space": {
+                    "type": "string"
+                  },
+                  "always_orderable": {
+                    "type": "boolean"
+                  },
+                  "positive_inventory_status": {
+                    "type": "string"
+                  },
+                  "negative_inventory_status": {
+                    "type": "string"
+                  },
+                  "vehicle_data": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "tag": {
+                          "type": "string"
+                        },
+                        "brand": {
+                          "type": "string"
+                        },
+                        "model": {
+                          "type": "string"
+                        },
+                        "year": {
+                          "type": "integer"
+                        },
+                        "metadata": {
+                          "type": "object",
+                          "properties": {}
+                        }
+                      },
+                      "required": [
+                        "metadata"
+                      ]
+                    }
+                  }
+                }
+              },
+              "example": {
+                "stock": "291",
+                "weight": "2500",
+                "stock_price": 200,
+                "purchase_price": 230,
+                "supplier_sku": "Lev-art-100",
+                "gtin": "Gtion-valle",
+                "prices": [
+                  {
+                    "price": 400,
+                    "compare_price": 500
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "delete": {
+        "summary": "Delete product variant",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "variantId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{x_identifier}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "variants": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "sku": {
+                          "type": "string"
+                        },
+                        "stock": {
+                          "type": "integer"
+                        },
+                        "weight": {
+                          "type": "integer"
+                        },
+                        "purchase_price": {
+                          "type": "string"
+                        },
+                        "stock_price": {
+                          "type": "integer"
+                        },
+                        "package_size": {
+                          "type": "integer"
+                        },
+                        "supplier_sku": {
+                          "type": "string"
+                        },
+                        "price": {
+                          "type": "integer"
+                        },
+                        "compare_price": {
+                          "type": "string"
+                        },
+                        "gtin": {
+                          "type": "string"
+                        },
+                        "options": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/variants/find": {
+      "get": {
+        "summary": "Find variant",
+        "deprecated": false,
+        "description": "ID, sku and GTIN are available as search parameters",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "ID",
+            "required": false,
+            "example": 1258,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "sku",
+            "in": "query",
+            "description": "SKU",
+            "required": false,
+            "example": "abc-123",
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "gtin",
+            "in": "query",
+            "description": "EAN/GTIN",
+            "required": false,
+            "example": "012345678905",
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{x_identifier}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "product_id": {
+                          "type": "integer"
+                        },
+                        "sku": {
+                          "type": "string"
+                        },
+                        "gtin": {
+                          "type": "null"
+                        },
+                        "stock": {
+                          "type": "string"
+                        },
+                        "weight": {
+                          "type": "integer"
+                        },
+                        "purchase_price": {
+                          "type": "integer"
+                        },
+                        "stock_price": {
+                          "type": "integer"
+                        },
+                        "price": {
+                          "type": "integer"
+                        },
+                        "compare_price": {
+                          "type": "integer"
+                        },
+                        "package_size": {
+                          "type": "integer"
+                        },
+                        "supplier_sku": {
+                          "type": "null"
+                        },
+                        "external_reference": {
+                          "type": "string"
+                        },
+                        "always_orderable": {
+                          "type": "boolean"
+                        },
+                        "created_at": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "product_id",
+                        "sku",
+                        "gtin",
+                        "stock",
+                        "weight",
+                        "purchase_price",
+                        "stock_price",
+                        "price",
+                        "compare_price",
+                        "package_size",
+                        "supplier_sku",
+                        "external_reference",
+                        "always_orderable",
+                        "created_at"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "data": {
+                        "id": 36120,
+                        "status": "published",
+                        "type": "Ej lagerförd",
+                        "name": "Ledlampa NEDIS E14 4,5W",
+                        "meta_title": "Ledlampa NEDIS E14 4,5W",
+                        "meta_description": "",
+                        "external_reference": "548289 75001224",
+                        "description": "Kronljusformad LED-LAMPA med E14-sockel, 470 lumen och låg strömförbrukning på 4.5 W som ersätter traditionella 42-Watts glödlampor.  Den energieffektiva LED-lampan sprider ett varmt vitt ljus med en färgtemperatur på 2 700 Kelvin",
+                        "hs_code": null,
+                        "country_of_origin": null,
+                        "filterTags": null,
+                        "variants": [
+                          {
+                            "id": 36115,
+                            "product_id": 36120,
+                            "sku": "75001224",
+                            "gtin": null,
+                            "stock": "0.00",
+                            "weight": 0,
+                            "purchase_price": 0,
+                            "stock_price": 0,
+                            "price": 0,
+                            "compare_price": 0,
+                            "package_size": 1,
+                            "supplier_sku": null,
+                            "external_reference": "548289",
+                            "always_orderable": true,
+                            "created_at": "2024-08-28T08:09:21.000000Z"
+                          }
+                        ],
+                        "categories": [
+                          {
+                            "id": 50,
+                            "external_reference": null,
+                            "name": "Möbler & Inredning"
+                          },
+                          {
+                            "id": 51,
+                            "external_reference": null,
+                            "name": "Lampor och tillbehör"
+                          },
+                          {
+                            "id": 1331,
+                            "external_reference": null,
+                            "name": "Glödlampor"
+                          },
+                          {
+                            "id": 36,
+                            "external_reference": null,
+                            "name": "Kontor & Lager"
+                          }
+                        ],
+                        "brand": null,
+                        "supplier": null,
+                        "created_at": "2024-08-28T08:09:21.000000Z"
+                      }
+                    }
+                  },
+                  "2": {
+                    "summary": "Success",
+                    "value": {
+                      "data": {
+                        "id": 36115,
+                        "product_id": 36120,
+                        "sku": "75001224",
+                        "gtin": null,
+                        "stock": "0.00",
+                        "weight": 0,
+                        "purchase_price": 0,
+                        "stock_price": 0,
+                        "price": 0,
+                        "compare_price": 0,
+                        "package_size": 1,
+                        "supplier_sku": null,
+                        "external_reference": "548289",
+                        "always_orderable": true,
+                        "created_at": "2024-08-28T08:09:21.000000Z"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/currencies": {
+      "get": {
+        "summary": "Get currencies",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "X-Identifier",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{x_identifier}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "variants": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "sku": {
+                          "type": "string"
+                        },
+                        "stock": {
+                          "type": "integer"
+                        },
+                        "weight": {
+                          "type": "integer"
+                        },
+                        "purchase_price": {
+                          "type": "string"
+                        },
+                        "stock_price": {
+                          "type": "integer"
+                        },
+                        "package_size": {
+                          "type": "integer"
+                        },
+                        "supplier_sku": {
+                          "type": "string"
+                        },
+                        "price": {
+                          "type": "integer"
+                        },
+                        "compare_price": {
+                          "type": "string"
+                        },
+                        "gtin": {
+                          "type": "string"
+                        },
+                        "options": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/headless/pages/{slug}": {
+      "get": {
+        "summary": "Get Page",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/headless/pages": {
+      "get": {
+        "summary": "Get Pages",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/headless/categories/sangklader": {
+      "get": {
+        "summary": "Get Category",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/headless/pages/startpage": {
+      "get": {
+        "summary": "Startpage",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/headless/system": {
+      "get": {
+        "summary": "System",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/purchases": {
+      "get": {
+        "summary": "Get purchases",
+        "deprecated": false,
+        "description": "# Filters\n## Available fields\n* created_at\n* delivered_at\n* ordered_at\n* confirmed_at\n* delivery_date\n* status (Only supports operator `eq`)\n\n## Available operators\n* eq (=)\n* lt (<)\n* lte (<=)\n* gt (>)\n* gte (>=)",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": 50,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": 1,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 0,
+              "exclusiveMinimum": 1,
+              "default": 1
+            }
+          },
+          {
+            "name": "filters[field][operator]",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "2025-06-01",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "webhooks": {},
+  "components": {
+    "schemas": {},
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "servers": [],
+  "security": []
+}
