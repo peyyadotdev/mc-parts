@@ -1,0 +1,135 @@
+{
+	"type": "object",
+	"properties": {
+		"enriched_products": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"sku": {
+						"type": "string",
+						"description": "Product SKU/article number",
+						"default": ""
+					},
+					"normalized_name": {
+						"type": "string",
+						"description": "Normalized Swedish product name without brand/model/color/size (e.g., 'Cylinder' not 'Cylinder 70cc Polini för Yamaha DT50')",
+						"default": ""
+					},
+					"short_description": {
+						"type": "string",
+						"description": "Short Swedish description (100-150 characters) for listings",
+						"default": ""
+					},
+					"description": {
+						"type": "string",
+						"description": "Detailed Swedish description (300-500 words) with SEO optimization",
+						"default": ""
+					},
+					"meta_title": {
+						"type": "string",
+						"description": "SEO-optimized page title (max 60 characters)",
+						"default": ""
+					},
+					"meta_description": {
+						"type": "string",
+						"description": "SEO meta description (max 160 characters)",
+						"default": ""
+					},
+					"search_keywords": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"description": "Array of relevant search keywords",
+						"default": []
+					},
+					"primary_category": {
+						"type": "string",
+						"description": "Primary category from categories.json (e.g., 'Styren & Reglage', 'Motordelar & Filter')",
+						"default": ""
+					},
+					"sub_category": {
+						"type": "string",
+						"description": "Sub-category from categories.json (e.g., 'Vajer', 'Motordelar', 'Bromsbelägg')",
+						"default": ""
+					},
+					"attributes": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"name": {
+									"type": "string",
+									"description": "Attribute name from attributes.json (e.g., 'Material', 'Engine Displacement', 'Color')"
+								},
+								"value": {
+									"type": "string",
+									"description": "Attribute value (string for enum, number for numeric attributes)"
+								}
+							},
+							"required": ["name", "value"],
+							"additionalProperties": false
+						},
+						"description": "Product attributes using ONLY those defined in attributes.json",
+						"default": []
+					},
+					"fitment_summary": {
+						"type": "string",
+						"description": "Human-readable fitment text from product-fitments.jsonl (e.g., 'Passar Baotian City, Classic, Ghost, Retro, Sport, Sprint')",
+						"default": ""
+					},
+					"is_variant_candidate": {
+						"type": "boolean",
+						"description": "True if this product should be a variant of another product (differs only in color, size, material, etc.)",
+						"default": false
+					},
+					"variant_parent_sku": {
+						"type": "string",
+						"description": "SKU of suggested parent product if this is a variant",
+						"default": ""
+					},
+					"variant_type": {
+						"type": "string",
+						"description": "Type of variation",
+						"enum": ["color", "size", "material", "length", "displacement"],
+						"default": ""
+					},
+					"requires_human_review": {
+						"type": "boolean",
+						"description": "True if AI is uncertain and human review is recommended",
+						"default": false
+					},
+					"confidence_score": {
+						"type": "number",
+						"description": "AI confidence score 0-1 based on data completeness and certainty",
+						"minimum": 0,
+						"maximum": 1,
+						"default": 0
+					}
+				},
+				"required": [
+					"sku",
+					"normalized_name",
+					"short_description",
+					"description",
+					"meta_title",
+					"meta_description",
+					"search_keywords",
+					"primary_category",
+					"attributes",
+					"fitment_summary",
+					"is_variant_candidate",
+					"requires_human_review",
+					"confidence_score"
+				],
+				"additionalProperties": false
+			},
+			"description": "A list of enriched motorcycle/moped product objects.",
+			"default": []
+		}
+	},
+	"additionalProperties": false,
+	"required": ["enriched_products"],
+	"title": "motorcycle_product_enrichment_batch"
+}
