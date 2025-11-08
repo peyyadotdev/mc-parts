@@ -1,4 +1,5 @@
 export * from "./tables/brand";
+export * from "./tables/brand_translation";
 export * from "./tables/category";
 export * from "./tables/category_translation";
 export * from "./tables/external_ref";
