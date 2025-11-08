@@ -26,6 +26,8 @@
 		"gen:nye": "bun run gen:nye:types && bun run gen:nye:zod"
 	},
 	"dependencies": {
+		"@dqbd/tiktoken": "^1.0.22",
+		"openai": "^6.5.0",
 		"zod": "^4.1.5"
 	},
 	"devDependencies": {
