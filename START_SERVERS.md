@@ -64,10 +64,12 @@ Körs på: http://localhost:3001
 
 ## Databaskonfiguration
 
-Databasanslutningen är konfigurerad i `apps/server/.env.local`:
+Databasanslutningen är konfigurerad i `apps/server/.env`:
 ```
 DATABASE_URL=postgresql://danadalis@localhost:5432/mc-parts
 ```
+
+**Viktigt:** Detta är separerat från root `.env.local` som hanterar nyehandel-koppling (NYE_* variabler).
 
 ## Viktigt: Detta är ett Bun-projekt
 
@@ -80,11 +82,11 @@ DATABASE_URL=postgresql://danadalis@localhost:5432/mc-parts
 
 Om databasen inte fungerar:
 1. Kontrollera att PostgreSQL körs: `psql -h localhost -U danadalis -d mc-parts -c "SELECT 1;"`
-2. Kontrollera att `.env.local` har rätt DATABASE_URL
+2. Kontrollera att `apps/server/.env` har rätt DATABASE_URL
 3. Kör migrationer manuellt: `bun run db:push` (från root)
 
 Om servrarna inte startar:
 1. Kontrollera att portarna 3000 och 3001 är lediga
-2. Kontrollera att `.env.local`-filerna är korrekt konfigurerade
+2. Kontrollera att `apps/server/.env` (databas) och root `.env.local` (nyehandel) är korrekt konfigurerade
 3. Installera dependencies: `bun install` (från root)
 4. Kontrollera att Bun är installerat: `bun --version`

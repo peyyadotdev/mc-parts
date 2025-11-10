@@ -4,10 +4,12 @@
 
 Projektet använder den befintliga databasen `mc-parts` med användaren `danadalis`.
 
-Konfiguration finns i `apps/server/.env.local`:
+Konfiguration finns i `apps/server/.env`:
 ```
 DATABASE_URL=postgresql://danadalis@localhost:5432/mc-parts
 ```
+
+**Viktigt:** Detta är separerat från root `.env.local` som hanterar nyehandel-koppling (NYE_* variabler).
 
 ## Kör migrationer
 
