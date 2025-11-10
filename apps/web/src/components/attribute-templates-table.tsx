@@ -48,6 +48,17 @@ export function AttributeTemplatesTable() {
 	const attributesQuery = useQuery(
 		trpc.attributeDefinition.list.queryOptions({ page: 1, limit: 1000 }),
 	);
+	
+	// Transform attributes to include dataType and unit for display
+	const attributesWithDetails = React.useMemo(() => {
+		return (attributesQuery.data?.definitions || []).map((def: any) => ({
+			id: def.id,
+			name: def.name,
+			key: def.key,
+			dataType: def.dataType,
+			unit: def.unit,
+		}));
+	}, [attributesQuery.data]);
 
 	const createMutation = useMutation({
 		mutationFn: trpc.attributeTemplate.create.mutate,
@@ -199,7 +210,7 @@ export function AttributeTemplatesTable() {
 
 			{isCreateOpen && (
 				<CreateAttributeTemplateDialog
-					attributes={attributesQuery.data?.definitions || []}
+					attributes={attributesWithDetails}
 					onClose={() => setIsCreateOpen(false)}
 					onSubmit={(data) => createMutation.mutate(data)}
 				/>
@@ -208,7 +219,7 @@ export function AttributeTemplatesTable() {
 			{editingId && (
 				<EditAttributeTemplateDialog
 					id={editingId}
-					attributes={attributesQuery.data?.definitions || []}
+					attributes={attributesWithDetails}
 					onClose={() => setEditingId(null)}
 					onSubmit={(data) => updateMutation.mutate({ id: editingId, ...data })}
 				/>
@@ -222,7 +233,7 @@ function CreateAttributeTemplateDialog({
 	onClose,
 	onSubmit,
 }: {
-	attributes: Array<{ id: string; name: string; key: string }>;
+	attributes: Array<{ id: string; name: string; key: string; dataType: string; unit: string | null }>;
 	onClose: () => void;
 	onSubmit: (data: {
 		name: string;
@@ -296,9 +307,21 @@ function CreateAttributeTemplateDialog({
 										checked={requiredIds.includes(attr.id)}
 										onCheckedChange={() => toggleAttribute(attr.id, true)}
 									/>
-									<span className="text-sm">
-										{attr.name} ({attr.key})
-									</span>
+									<div className="flex-1 text-sm">
+										<div className="font-medium">
+											{attr.name} <span className="text-muted-foreground font-mono">({attr.key})</span>
+										</div>
+										<div className="text-muted-foreground text-xs flex gap-2">
+											<span className="rounded bg-blue-100 px-1.5 py-0.5 text-blue-800">
+												{attr.dataType}
+											</span>
+											{attr.unit && (
+												<span className="rounded bg-gray-100 px-1.5 py-0.5 text-gray-700">
+													{attr.unit}
+												</span>
+											)}
+										</div>
+									</div>
 								</div>
 							))}
 						</div>
@@ -312,9 +335,21 @@ function CreateAttributeTemplateDialog({
 										checked={optionalIds.includes(attr.id)}
 										onCheckedChange={() => toggleAttribute(attr.id, false)}
 									/>
-									<span className="text-sm">
-										{attr.name} ({attr.key})
-									</span>
+									<div className="flex-1 text-sm">
+										<div className="font-medium">
+											{attr.name} <span className="text-muted-foreground font-mono">({attr.key})</span>
+										</div>
+										<div className="text-muted-foreground text-xs flex gap-2">
+											<span className="rounded bg-blue-100 px-1.5 py-0.5 text-blue-800">
+												{attr.dataType}
+											</span>
+											{attr.unit && (
+												<span className="rounded bg-gray-100 px-1.5 py-0.5 text-gray-700">
+													{attr.unit}
+												</span>
+											)}
+										</div>
+									</div>
 								</div>
 							))}
 						</div>
@@ -346,7 +381,7 @@ function EditAttributeTemplateDialog({
 	onSubmit,
 }: {
 	id: string;
-	attributes: Array<{ id: string; name: string; key: string }>;
+	attributes: Array<{ id: string; name: string; key: string; dataType: string; unit: string | null }>;
 	onClose: () => void;
 	onSubmit: (data: {
 		name?: string;
@@ -446,9 +481,21 @@ function EditAttributeTemplateDialog({
 										checked={requiredIds.includes(attr.id)}
 										onCheckedChange={() => toggleAttribute(attr.id, true)}
 									/>
-									<span className="text-sm">
-										{attr.name} ({attr.key})
-									</span>
+									<div className="flex-1 text-sm">
+										<div className="font-medium">
+											{attr.name} <span className="text-muted-foreground font-mono">({attr.key})</span>
+										</div>
+										<div className="text-muted-foreground text-xs flex gap-2">
+											<span className="rounded bg-blue-100 px-1.5 py-0.5 text-blue-800">
+												{attr.dataType}
+											</span>
+											{attr.unit && (
+												<span className="rounded bg-gray-100 px-1.5 py-0.5 text-gray-700">
+													{attr.unit}
+												</span>
+											)}
+										</div>
+									</div>
 								</div>
 							))}
 						</div>
@@ -462,9 +509,21 @@ function EditAttributeTemplateDialog({
 										checked={optionalIds.includes(attr.id)}
 										onCheckedChange={() => toggleAttribute(attr.id, false)}
 									/>
-									<span className="text-sm">
-										{attr.name} ({attr.key})
-									</span>
+									<div className="flex-1 text-sm">
+										<div className="font-medium">
+											{attr.name} <span className="text-muted-foreground font-mono">({attr.key})</span>
+										</div>
+										<div className="text-muted-foreground text-xs flex gap-2">
+											<span className="rounded bg-blue-100 px-1.5 py-0.5 text-blue-800">
+												{attr.dataType}
+											</span>
+											{attr.unit && (
+												<span className="rounded bg-gray-100 px-1.5 py-0.5 text-gray-700">
+													{attr.unit}
+												</span>
+											)}
+										</div>
+									</div>
 								</div>
 							))}
 						</div>
