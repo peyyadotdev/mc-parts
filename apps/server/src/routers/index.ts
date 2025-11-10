@@ -90,6 +90,10 @@ export const appRouter = router({
 					productFitment,
 					eq(productVariant.id, productFitment.variantId),
 				)
+				.leftJoin(
+					vehicleModel,
+					eq(productFitment.vehicleModelId, vehicleModel.id),
+				)
 				.where(whereExpr)
 				.groupBy(
 					product.id,
@@ -121,10 +125,22 @@ export const appRouter = router({
 				.limit(limit)
 				.offset(offset);
 
-			const totalRows = await db
-				.select({ cnt: sql<number>`count(*)::int` })
+			// Build total count query with same joins as main query
+			const totalCountQuery = db
+				.select({ cnt: sql<number>`count(distinct ${product.id})::int` })
 				.from(product)
+				.leftJoin(brand, eq(product.brandId, brand.id))
+				.leftJoin(productVariant, eq(product.id, productVariant.productId))
+				.leftJoin(
+					productFitment,
+					eq(productVariant.id, productFitment.variantId),
+				)
+				.leftJoin(
+					vehicleModel,
+					eq(productFitment.vehicleModelId, vehicleModel.id),
+				)
 				.where(whereExpr);
+			const totalRows = await totalCountQuery;
 
 			const total = totalRows[0]?.cnt ?? 0;
 			const totalPages = Math.ceil(total / limit) || 1;
