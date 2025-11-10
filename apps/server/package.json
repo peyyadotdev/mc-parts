@@ -19,7 +19,9 @@
 		"@trpc/server": "^11.5.0",
 		"@trpc/client": "^11.5.0",
 		"drizzle-orm": "^0.44.2",
-		"pg": "^8.14.1"
+		"pg": "^8.14.1",
+		"gray-matter": "^4.0.3",
+		"marked": "^14.1.0"
 	},
 	"devDependencies": {
 		"@types/node": "^20",

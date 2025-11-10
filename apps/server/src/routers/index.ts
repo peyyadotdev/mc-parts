@@ -7,8 +7,22 @@ import { productFitment } from "../db/schema/tables/product_fitment";
 import { productVariant } from "../db/schema/tables/product_variant";
 import { vehicleModel } from "../db/schema/tables/vehicle_model";
 import { publicProcedure, router } from "../lib/trpc";
+import { attributeDefinitionRouter } from "./attribute-definition";
+import { attributeTemplateRouter } from "./attribute-template";
+import { brandAliasRouter } from "./brand-alias";
+import { brandMetadataRouter } from "./brand-metadata";
+import { productEnrichmentRouter } from "./product-enrichment";
+import { validationRouter } from "./validation";
+import { brandNormalizationRouter } from "./brand-normalization";
 
 export const appRouter = router({
+	productEnrichment: productEnrichmentRouter,
+	attributeDefinition: attributeDefinitionRouter,
+	attributeTemplate: attributeTemplateRouter,
+	brandAlias: brandAliasRouter,
+	brandMetadata: brandMetadataRouter,
+	validation: validationRouter,
+	brandNormalization: brandNormalizationRouter,
 	healthCheck: publicProcedure.query(() => {
 		return "OK";
 	}),
@@ -236,6 +250,18 @@ export const appRouter = router({
 			.groupBy(brand.name)
 			.orderBy(asc(brand.name));
 		return rows.filter((r) => !!r.name);
+	}),
+
+	// Brands with IDs for forms
+	listBrandsWithIds: publicProcedure.query(async () => {
+		const rows = await db
+			.select({
+				id: brand.id,
+				name: brand.name,
+			})
+			.from(brand)
+			.orderBy(asc(brand.name));
+		return rows;
 	}),
 });
 export type AppRouter = typeof appRouter;
