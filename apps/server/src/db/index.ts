@@ -4,7 +4,7 @@ import pg from "pg";
 import * as schema from "./schema";
 
 if (!process.env.DATABASE_URL) {
-	throw new Error("DATABASE_URL environment variable is not set. Please set it in apps/server/.env.local");
+	throw new Error("DATABASE_URL environment variable is not set. Please set it in apps/server/.env");
 }
 
 const pool = new pg.Pool({
