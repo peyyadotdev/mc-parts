@@ -1,38 +1,30 @@
 # Database Setup Instructions
 
-## Problem
-Servrarna körs men databasen är inte konfigurerad. PostgreSQL behöver startas och tabellerna behöver skapas.
+## Snabbstart med Docker
 
-## Lösning
-
-### 1. Starta PostgreSQL
+Kör detta kommando för att starta PostgreSQL och köra migrationer:
 
 ```bash
-# Starta PostgreSQL (kör som postgres-användare)
-sudo -u postgres /usr/lib/postgresql/16/bin/postgres -D /var/lib/postgresql/16/main &
+chmod +x /workspace/start-database.sh
+/workspace/start-database.sh
 ```
 
-Eller om systemd fungerar:
-```bash
-sudo systemctl start postgresql
-```
-
-### 2. Skapa databasen
+Eller manuellt:
 
 ```bash
-export PGPASSWORD=postgres
-psql -h localhost -U postgres -c "CREATE DATABASE mc_parts;"
-```
+# Starta PostgreSQL med Docker Compose
+docker-compose up -d postgres
 
-### 3. Kör migrationer
+# Vänta tills databasen är redo
+sleep 5
 
-```bash
+# Kör migrationer
 cd /workspace/apps/server
 export DATABASE_URL="postgresql://postgres:postgres@localhost:5432/mc_parts"
 npm run db:push
 ```
 
-### 4. Verifiera att servrarna fungerar
+## Verifiera att allt fungerar
 
 - Web UI: http://localhost:3001/admin
 - API: http://localhost:3000/trpc/attributeDefinition.list?input={}
