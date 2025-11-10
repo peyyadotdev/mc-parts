@@ -14,8 +14,14 @@ DATABASE_URL=postgresql://danadalis@localhost:5432/mc-parts
 Kör migrationer för att lägga till eventuella saknade tabeller (befintliga tabeller och data påverkas inte):
 
 ```bash
-cd /workspace/apps/server
-npm run db:push
+# Från projektets root
+bun run db:push
+```
+
+Eller från server-mappen:
+```bash
+cd apps/server
+bun run db:push
 ```
 
 Eller använd start-skriptet:
@@ -33,3 +39,4 @@ chmod +x /workspace/start-database.sh
 
 - Den befintliga databasen och dess innehåll bevaras
 - `db:push` lägger bara till saknade tabeller, ändrar inte befintliga
+- Detta är ett **Bun-projekt** - använd `bun` istället för `npm`

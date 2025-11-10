@@ -2,7 +2,7 @@
 set -e
 
 echo "Checking database connection to existing database..."
-cd /workspace/apps/server
+cd /workspace
 
 # Test connection to existing database
 export DATABASE_URL="postgresql://danadalis@localhost:5432/mc-parts"
@@ -14,7 +14,7 @@ else
 fi
 
 echo "Running database migrations (this will only add missing tables)..."
-npm run db:push
+bun run db:push
 
 echo "Database setup complete!"
 echo ""
