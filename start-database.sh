@@ -1,21 +1,19 @@
 #!/bin/bash
 set -e
 
-echo "Starting PostgreSQL with Docker..."
-docker-compose up -d postgres
-
-echo "Waiting for PostgreSQL to be ready..."
-sleep 5
-
-echo "Checking database connection..."
-until PGPASSWORD=postgres psql -h localhost -U postgres -d mc_parts -c "SELECT 1;" > /dev/null 2>&1; do
-  echo "Waiting for PostgreSQL..."
-  sleep 2
-done
-
-echo "Running database migrations..."
+echo "Checking database connection to existing database..."
 cd /workspace/apps/server
-export DATABASE_URL="postgresql://postgres:postgres@localhost:5432/mc_parts"
+
+# Test connection to existing database
+export DATABASE_URL="postgresql://danadalis@localhost:5432/mc-parts"
+if psql "$DATABASE_URL" -c "SELECT 1;" > /dev/null 2>&1; then
+  echo "✓ Connected to existing database: mc-parts"
+else
+  echo "✗ Could not connect to database. Please ensure PostgreSQL is running and the database exists."
+  exit 1
+fi
+
+echo "Running database migrations (this will only add missing tables)..."
 npm run db:push
 
 echo "Database setup complete!"

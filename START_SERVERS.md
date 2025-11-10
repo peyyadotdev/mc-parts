@@ -2,10 +2,13 @@
 
 ## Snabbstart
 
-### 1. Starta databasen (Docker)
+### 1. Kör migrationer (lägger till saknade tabeller)
+
+Projektet använder den befintliga databasen `mc-parts`. Kör migrationer för att lägga till eventuella saknade tabeller:
 
 ```bash
-docker-compose up -d postgres
+cd /workspace/apps/server
+npm run db:push
 ```
 
 Eller använd start-skriptet:
@@ -13,6 +16,8 @@ Eller använd start-skriptet:
 chmod +x /workspace/start-database.sh
 /workspace/start-database.sh
 ```
+
+**Notera:** Befintliga tabeller och data påverkas inte - endast saknade tabeller läggs till.
 
 ### 2. Starta servrarna
 
@@ -41,11 +46,18 @@ Körs på: http://localhost:3001
 - ✅ Web UI: http://localhost:3001/admin
 - ✅ API: http://localhost:3000/trpc/attributeDefinition.list?input={}
 
+## Databaskonfiguration
+
+Databasanslutningen är konfigurerad i `apps/server/.env.local`:
+```
+DATABASE_URL=postgresql://danadalis@localhost:5432/mc-parts
+```
+
 ## Felsökning
 
 Om databasen inte fungerar:
-1. Kontrollera att Docker-containern körs: `docker ps | grep postgres`
-2. Kontrollera loggar: `docker logs postgres-pim`
+1. Kontrollera att PostgreSQL körs: `psql -h localhost -U danadalis -d mc-parts -c "SELECT 1;"`
+2. Kontrollera att `.env.local` har rätt DATABASE_URL
 3. Kör migrationer manuellt: `cd /workspace/apps/server && npm run db:push`
 
 Om servrarna inte startar:
