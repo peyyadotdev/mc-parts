@@ -61,6 +61,7 @@ export const appRouter = router({
 				);
 			}
 			if (input.fitment?.make) {
+				// Bug fix: vehicleModel join must exist before referencing it in where clause
 				whereClauses.push(eq(vehicleModel.make, input.fitment.make));
 				if (input.fitment.model) {
 					whereClauses.push(
@@ -89,6 +90,10 @@ export const appRouter = router({
 				.leftJoin(
 					productFitment,
 					eq(productVariant.id, productFitment.variantId),
+				)
+				.leftJoin(
+					vehicleModel,
+					eq(productFitment.vehicleModelId, vehicleModel.id),
 				)
 				.where(whereExpr)
 				.groupBy(
@@ -121,9 +126,22 @@ export const appRouter = router({
 				.limit(limit)
 				.offset(offset);
 
+			// Bug fix: Count query must match the structure of the main query to get accurate totals
+			// Use count(distinct product.id) to avoid counting duplicates from joins
+			// Include all the same joins as the main query so filters work correctly
 			const totalRows = await db
-				.select({ cnt: sql<number>`count(*)::int` })
+				.select({ cnt: sql<number>`count(distinct ${product.id})::int` })
 				.from(product)
+				.leftJoin(brand, eq(product.brandId, brand.id))
+				.leftJoin(productVariant, eq(product.id, productVariant.productId))
+				.leftJoin(
+					productFitment,
+					eq(productVariant.id, productFitment.variantId),
+				)
+				.leftJoin(
+					vehicleModel,
+					eq(productFitment.vehicleModelId, vehicleModel.id),
+				)
 				.where(whereExpr);
 
 			const total = totalRows[0]?.cnt ?? 0;
