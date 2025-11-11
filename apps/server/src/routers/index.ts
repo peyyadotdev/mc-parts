@@ -1,4 +1,4 @@
-import { and, asc, desc, eq, like, or, type SQL, sql } from "drizzle-orm";
+import { and, asc, desc, eq, inArray, like, or, type SQL, sql } from "drizzle-orm";
 import { z } from "zod";
 import { db } from "../db/index";
 import { brand } from "../db/schema/tables/brand";
@@ -45,10 +45,8 @@ export const appRouter = router({
 				whereClauses.push(eq(product.status, status));
 			}
 			if (input.brands && input.brands.length > 0) {
-				// filter by brand name
-				whereClauses.push(
-					sql`coalesce(${brand.name}, '') = any(${input.brands})`,
-				);
+				// filter by brand name - using inArray for proper SQL IN clause
+				whereClauses.push(inArray(brand.name, input.brands));
 			}
 			if (input.updatedFrom) {
 				whereClauses.push(
@@ -60,6 +58,10 @@ export const appRouter = router({
 					sql`${product.updatedAt} <= ${new Date(input.updatedTo)}`,
 				);
 			}
+			
+			// Track if we need vehicleModel join for fitment filtering
+			const needsVehicleModelJoin = !!input.fitment?.make;
+			
 			if (input.fitment?.make) {
 				whereClauses.push(eq(vehicleModel.make, input.fitment.make));
 				if (input.fitment.model) {
@@ -72,7 +74,7 @@ export const appRouter = router({
 				whereClauses.length > 0 ? and(...whereClauses) : undefined;
 
 			// Select products with variant count
-			const baseSelect = db
+			let baseSelect = db
 				.select({
 					id: product.id,
 					name: product.name,
@@ -89,16 +91,24 @@ export const appRouter = router({
 				.leftJoin(
 					productFitment,
 					eq(productVariant.id, productFitment.variantId),
-				)
-				.where(whereExpr)
-				.groupBy(
-					product.id,
-					product.name,
-					product.status,
-					product.createdAt,
-					product.updatedAt,
-					brand.name,
 				);
+			
+			// Add vehicleModel join if filtering by fitment
+			if (needsVehicleModelJoin) {
+				baseSelect = baseSelect.leftJoin(
+					vehicleModel,
+					eq(productFitment.vehicleModelId, vehicleModel.id),
+				);
+			}
+			
+			baseSelect = baseSelect.where(whereExpr).groupBy(
+				product.id,
+				product.name,
+				product.status,
+				product.createdAt,
+				product.updatedAt,
+				brand.name,
+			);
 
 			const products = await baseSelect
 				.orderBy(
@@ -121,10 +131,26 @@ export const appRouter = router({
 				.limit(limit)
 				.offset(offset);
 
-			const totalRows = await db
-				.select({ cnt: sql<number>`count(*)::int` })
+			// Count query needs same joins as main query
+			let countQuery = db
+				.select({ cnt: sql<number>`count(distinct ${product.id})::int` })
 				.from(product)
-				.where(whereExpr);
+				.leftJoin(brand, eq(product.brandId, brand.id))
+				.leftJoin(productVariant, eq(product.id, productVariant.productId))
+				.leftJoin(
+					productFitment,
+					eq(productVariant.id, productFitment.variantId),
+				);
+			
+			// Add vehicleModel join if filtering by fitment
+			if (needsVehicleModelJoin) {
+				countQuery = countQuery.leftJoin(
+					vehicleModel,
+					eq(productFitment.vehicleModelId, vehicleModel.id),
+				);
+			}
+			
+			const totalRows = await countQuery.where(whereExpr);
 
 			const total = totalRows[0]?.cnt ?? 0;
 			const totalPages = Math.ceil(total / limit) || 1;
