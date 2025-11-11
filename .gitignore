@@ -2,6 +2,7 @@ node_modules
 .turbo
 .alchemy
 .env
+.env.local
 
 # START Ruler Generated Files
 /.cursor/mcp.json
