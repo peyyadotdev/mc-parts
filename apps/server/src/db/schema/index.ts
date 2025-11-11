@@ -1,4 +1,8 @@
+export * from "./tables/attribute_definition";
+export * from "./tables/attribute_template";
 export * from "./tables/brand";
+export * from "./tables/brand_alias";
+export * from "./tables/brand_metadata";
 export * from "./tables/brand_translation";
 export * from "./tables/category";
 export * from "./tables/category_translation";
@@ -6,6 +10,7 @@ export * from "./tables/external_ref";
 export * from "./tables/price_list";
 export * from "./tables/product";
 export * from "./tables/product_category";
+export * from "./tables/product_enrichment";
 export * from "./tables/product_fitment";
 export * from "./tables/product_translation";
 export * from "./tables/product_variant";

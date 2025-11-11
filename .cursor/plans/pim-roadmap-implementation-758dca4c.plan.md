@@ -61,7 +61,7 @@
 - [ ] Build admin table/form for attribute definitions management in apps/web
 - [ ] Build admin table/form for attribute templates management in apps/web
 - [ ] Build admin table/form for product enrichment stubs management in apps/web
-- [ ] Implement UI to compose attribute templates (fields, data types, units, required flags)
+- [x] Implement UI to compose attribute templates (fields, data types, units, required flags)
 - [ ] Implement UI to assign templates to categories/product types
 - [ ] Enforce template validation in product variant import logic
 - [ ] Enforce template validation in product variant update logic
