@@ -1,0 +1,60 @@
+{
+  "timestamp": "2025-11-11T19:54:27.766Z",
+  "totalProducts": 0,
+  "totalCategories": 0,
+  "searchTerms": [
+    "avgassystem",
+    "avgasrör",
+    "ljuddämpare",
+    "förgasare",
+    "karburator",
+    "moped",
+    "cylinder",
+    "kolv",
+    "vevparti",
+    "bromsar"
+  ],
+  "outputDirectory": "/home/user/mc-parts/data/nyehandel/sample-2025-11-11",
+  "productsBySearchTerm": [
+    {
+      "searchTerm": "avgassystem",
+      "productCount": 0
+    },
+    {
+      "searchTerm": "avgasrör",
+      "productCount": 0
+    },
+    {
+      "searchTerm": "ljuddämpare",
+      "productCount": 0
+    },
+    {
+      "searchTerm": "förgasare",
+      "productCount": 0
+    },
+    {
+      "searchTerm": "karburator",
+      "productCount": 0
+    },
+    {
+      "searchTerm": "moped",
+      "productCount": 0
+    },
+    {
+      "searchTerm": "cylinder",
+      "productCount": 0
+    },
+    {
+      "searchTerm": "kolv",
+      "productCount": 0
+    },
+    {
+      "searchTerm": "vevparti",
+      "productCount": 0
+    },
+    {
+      "searchTerm": "bromsar",
+      "productCount": 0
+    }
+  ]
+}
