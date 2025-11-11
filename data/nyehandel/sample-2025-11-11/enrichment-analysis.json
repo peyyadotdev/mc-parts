@@ -1,0 +1,1825 @@
+{
+  "analysis": {
+    "totalProducts": 50,
+    "productTypes": {
+      "inventory_item": 50
+    },
+    "categories": {
+      "Moped - MC": {
+        "count": 49,
+        "products": [
+          421,
+          422,
+          432,
+          444,
+          473,
+          477,
+          479,
+          481,
+          483,
+          493,
+          495,
+          1384,
+          1520,
+          1592,
+          1607,
+          1664,
+          2129,
+          2230,
+          2251,
+          2717,
+          2740,
+          2772,
+          2958,
+          3136,
+          3465,
+          3467,
+          3688,
+          3703,
+          3747,
+          3909,
+          3983,
+          3994,
+          4007,
+          4157,
+          4158,
+          4178,
+          4214,
+          4252,
+          4253,
+          4290,
+          4291,
+          4293,
+          4294,
+          4296,
+          4297,
+          4298,
+          4299,
+          4300,
+          4301
+        ]
+      },
+      "Eldelar": {
+        "count": 2,
+        "products": [
+          421,
+          422
+        ]
+      },
+      "Cylinder": {
+        "count": 4,
+        "products": [
+          432,
+          1384,
+          2230,
+          4178
+        ]
+      },
+      "Förgasare": {
+        "count": 8,
+        "products": [
+          444,
+          444,
+          3136,
+          3136,
+          4253,
+          4253,
+          4253,
+          4253
+        ]
+      },
+      "Hastighetsmätare": {
+        "count": 2,
+        "products": [
+          473,
+          495
+        ]
+      },
+      "Styre/Handtag": {
+        "count": 14,
+        "products": [
+          473,
+          477,
+          1592,
+          3465,
+          3703,
+          4290,
+          4291,
+          4293,
+          4293,
+          4296,
+          4298,
+          4300,
+          4301,
+          4301
+        ]
+      },
+      "Vajrar": {
+        "count": 6,
+        "products": [
+          473,
+          2958,
+          3983,
+          4294,
+          4297,
+          4299
+        ]
+      },
+      "Stöd": {
+        "count": 7,
+        "products": [
+          479,
+          479,
+          481,
+          481,
+          483,
+          3747,
+          3747
+        ]
+      },
+      "Bromsdelar": {
+        "count": 1,
+        "products": [
+          493
+        ]
+      },
+      "Hjul": {
+        "count": 1,
+        "products": [
+          493
+        ]
+      },
+      "Avgassystem": {
+        "count": 4,
+        "products": [
+          1520,
+          2772,
+          3909,
+          3909
+        ]
+      },
+      "Drev / Kedja": {
+        "count": 3,
+        "products": [
+          1607,
+          2740,
+          4007
+        ]
+      },
+      "Dyna / sadel": {
+        "count": 1,
+        "products": [
+          1664
+        ]
+      },
+      "Bensintank / oljetank": {
+        "count": 4,
+        "products": [
+          2129,
+          2129,
+          3467,
+          3467
+        ]
+      },
+      "Vevaxel": {
+        "count": 2,
+        "products": [
+          2251,
+          2717
+        ]
+      },
+      "Packningar / packboxar": {
+        "count": 4,
+        "products": [
+          3136,
+          4252,
+          4253,
+          4253
+        ]
+      },
+      "Motordelar": {
+        "count": 5,
+        "products": [
+          3688,
+          3688,
+          3688,
+          4214,
+          4214
+        ]
+      },
+      "Framgaffel/stötdämpare": {
+        "count": 1,
+        "products": [
+          3994
+        ]
+      },
+      "Belysning / Blinkers": {
+        "count": 2,
+        "products": [
+          4157,
+          4158
+        ]
+      },
+      "baklyse, framlyse": {
+        "count": 2,
+        "products": [
+          4157,
+          4158
+        ]
+      },
+      "Pedaler": {
+        "count": 1,
+        "products": [
+          4214
+        ]
+      },
+      "Tillbehör": {
+        "count": 1,
+        "products": [
+          4301
+        ]
+      }
+    },
+    "attributePatterns": {
+      "noAttributes": 50,
+      "noSpecifications": 50
+    },
+    "namePatterns": [
+      {
+        "id": 421,
+        "name": "Kontakt för sidostöd BAOTIAN BT50QT-9",
+        "extractedSpecs": {
+          "model": [
+            "bt50qt-9",
+            "bt50qt-9"
+          ],
+          "brand": [
+            "baotian"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Eldelar"
+        ]
+      },
+      {
+        "id": 422,
+        "name": "Signalhorn BAOTIAN BT50QT-9",
+        "extractedSpecs": {
+          "model": [
+            "bt50qt-9",
+            "bt50qt-9"
+          ],
+          "brand": [
+            "baotian"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Eldelar"
+        ]
+      },
+      {
+        "id": 432,
+        "name": "Cylinder Baotian/Kymco/GY6 70cc 47mm",
+        "extractedSpecs": {
+          "diameter": [
+            "47mm",
+            "47mm"
+          ],
+          "size": [
+            "70cc",
+            "47mm",
+            "47mm"
+          ],
+          "model": [
+            "gy6",
+            "mb139",
+            "bt50qt-9"
+          ],
+          "brand": [
+            "baotian",
+            "kymco",
+            "baotian"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Cylinder"
+        ]
+      },
+      {
+        "id": 444,
+        "name": "Förgasare 18mm Baotian / Kymco / mfl / GY6 motor",
+        "extractedSpecs": {
+          "diameter": [
+            "18mm",
+            "18mm"
+          ],
+          "size": [
+            "18mm",
+            "18mm"
+          ],
+          "model": [
+            "gy6",
+            "bt50qt-9"
+          ],
+          "brand": [
+            "baotian",
+            "kymco"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Förgasare",
+          "Förgasare"
+        ]
+      },
+      {
+        "id": 473,
+        "name": "Mätardrivning hastighet Baotian BT50QT-9 / Kymco",
+        "extractedSpecs": {
+          "size": [
+            "10\""
+          ],
+          "model": [
+            "bt50qt-9",
+            "bt50qt-9"
+          ],
+          "brand": [
+            "baotian",
+            "kymco"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Hastighetsmätare",
+          "Styre/Handtag",
+          "Vajrar"
+        ]
+      },
+      {
+        "id": 477,
+        "name": "Handtagsarm / grepp höger Baotian BT50QT-9",
+        "extractedSpecs": {
+          "model": [
+            "bt50qt-9",
+            "bt50qt-9"
+          ],
+          "brand": [
+            "baotian"
+          ],
+          "position": [
+            "höger",
+            "höger"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Styre/Handtag"
+        ]
+      },
+      {
+        "id": 479,
+        "name": "Centralstöd BAOTIAN BT50QT-9",
+        "extractedSpecs": {
+          "model": [
+            "bt50qt-9",
+            "bt50qt-9"
+          ],
+          "brand": [
+            "baotian",
+            "baotian",
+            "kymco",
+            "peugeot"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Stöd",
+          "Stöd"
+        ]
+      },
+      {
+        "id": 481,
+        "name": "Axel centralstöd Baotian BT50QT-9",
+        "extractedSpecs": {
+          "model": [
+            "bt50qt-9",
+            "bt50qt-9"
+          ],
+          "brand": [
+            "baotian"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Stöd",
+          "Stöd"
+        ]
+      },
+      {
+        "id": 483,
+        "name": "Gummistopp centralstöd BAOTIAN 50QT, M.FL",
+        "extractedSpecs": {
+          "model": [
+            "bt50qt-9"
+          ],
+          "brand": [
+            "baotian"
+          ],
+          "material": [
+            "gummi",
+            "gummi"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Stöd"
+        ]
+      },
+      {
+        "id": 493,
+        "name": "Bromsskiva fram BAOTIAN 50QT, M.FL 155mm",
+        "extractedSpecs": {
+          "diameter": [
+            "155mm",
+            "155mm"
+          ],
+          "size": [
+            "155mm",
+            "155mm"
+          ],
+          "model": [
+            "bt50qt-9"
+          ],
+          "brand": [
+            "baotian"
+          ],
+          "position": [
+            "fram",
+            "fram"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Bromsdelar",
+          "Hjul"
+        ]
+      },
+      {
+        "id": 495,
+        "name": "Instrumenpanel BAOTIAN BT50QT-9",
+        "extractedSpecs": {
+          "model": [
+            "bt50qt-9",
+            "bt50qt-9"
+          ],
+          "brand": [
+            "baotian"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Hastighetsmätare"
+        ]
+      },
+      {
+        "id": 1091,
+        "name": "Avgassystem effekt TURBO KIT",
+        "extractedSpecs": {
+          "brand": [
+            "gilera"
+          ]
+        },
+        "categories": []
+      },
+      {
+        "id": 1384,
+        "name": "Cylinder  ca 1hk Honda MT/MB",
+        "extractedSpecs": {
+          "horsePower": [
+            "1hk",
+            "1 hk"
+          ],
+          "brand": [
+            "honda"
+          ],
+          "material": [
+            "gjutjärn"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Cylinder"
+        ]
+      },
+      {
+        "id": 1520,
+        "name": "Ljuddämpare aluminium Honda MT",
+        "extractedSpecs": {
+          "model": [
+            "mt50"
+          ],
+          "brand": [
+            "honda"
+          ],
+          "material": [
+            "aluminium",
+            "aluminium"
+          ]
+        },
+        "categories": [
+          "Avgassystem",
+          "Moped - MC"
+        ]
+      },
+      {
+        "id": 1592,
+        "name": "Tvåfingergrepp sats svart Honda MT",
+        "extractedSpecs": {
+          "model": [
+            "mt50"
+          ],
+          "brand": [
+            "honda"
+          ],
+          "color": [
+            "svart",
+            "svart"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Styre/Handtag"
+        ]
+      },
+      {
+        "id": 1607,
+        "name": "Framdrev 11T Derbi/Honda alla 50/80CC modeller",
+        "extractedSpecs": {
+          "size": [
+            "80cc"
+          ],
+          "brand": [
+            "derbi",
+            "honda"
+          ],
+          "position": [
+            "fram",
+            "fram"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Drev / Kedja"
+        ]
+      },
+      {
+        "id": 1664,
+        "name": "Sadelklädsel MT50 blå",
+        "extractedSpecs": {
+          "model": [
+            "mt50",
+            "mt50"
+          ],
+          "color": [
+            "blå",
+            "blå"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Dyna / sadel"
+        ]
+      },
+      {
+        "id": 2230,
+        "name": "Topplock Kymco Super 9",
+        "extractedSpecs": {
+          "brand": [
+            "kymco"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Cylinder"
+        ]
+      },
+      {
+        "id": 2251,
+        "name": "Vevparti kompl. Top Racing KYMCO",
+        "extractedSpecs": {
+          "brand": [
+            "kymco"
+          ],
+          "color": [
+            "vit"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Vevaxel"
+        ]
+      },
+      {
+        "id": 2717,
+        "name": "Vevaxel Peugeot Fox top racing",
+        "extractedSpecs": {
+          "brand": [
+            "peugeot",
+            "peugeot"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Vevaxel"
+        ]
+      },
+      {
+        "id": 2740,
+        "name": "Bakdrev 56t Peugeot SPX",
+        "extractedSpecs": {
+          "diameter": [
+            "98mm"
+          ],
+          "size": [
+            "98mm"
+          ],
+          "brand": [
+            "peugeot",
+            "peugeot"
+          ],
+          "position": [
+            "bak"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Drev / Kedja"
+        ]
+      },
+      {
+        "id": 2772,
+        "name": "Ljuddämpare Peugeot v Turbo Kit",
+        "extractedSpecs": {
+          "size": [
+            "2\"",
+            "100\""
+          ],
+          "brand": [
+            "peugeot"
+          ]
+        },
+        "categories": [
+          "Avgassystem",
+          "Moped - MC"
+        ]
+      },
+      {
+        "id": 2958,
+        "name": "Frambromswire Peugeot Ludix – Bromswire Fram",
+        "extractedSpecs": {
+          "size": [
+            "172\"",
+            "407\"",
+            "210\"",
+            "227\"",
+            "228\"",
+            "231\"",
+            "323\"",
+            "326\"",
+            "409\"",
+            "431\"",
+            "409\"",
+            "429\"",
+            "432\"",
+            "544\"",
+            "432\"",
+            "472\"",
+            "434\"",
+            "472\"",
+            "473\"",
+            "498\"",
+            "475\"",
+            "498\"",
+            "499\"",
+            "544\"",
+            "501\"",
+            "544\""
+          ],
+          "brand": [
+            "peugeot",
+            "peugeot",
+            "peugeot",
+            "peugeot"
+          ],
+          "position": [
+            "fram",
+            "fram",
+            "fram",
+            "fram",
+            "fram"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Vajrar"
+        ]
+      },
+      {
+        "id": 3136,
+        "name": "Packningar förgasare Piaggio Ciao / Bravo / SI / mfl",
+        "extractedSpecs": {
+          "brand": [
+            "piaggio"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Förgasare",
+          "Förgasare",
+          "Packningar / packboxar"
+        ]
+      },
+      {
+        "id": 3465,
+        "name": "Bromshandtag (höger) Zip",
+        "extractedSpecs": {
+          "brand": [
+            "piaggio"
+          ],
+          "position": [
+            "höger",
+            "höger"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Styre/Handtag"
+        ]
+      },
+      {
+        "id": 3467,
+        "name": "Bensinkran Piaggio/Derbi/Yamaha",
+        "extractedSpecs": {
+          "brand": [
+            "piaggio",
+            "derbi",
+            "yamaha"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Bensintank / oljetank",
+          "Bensintank / oljetank"
+        ]
+      },
+      {
+        "id": 3747,
+        "name": "Fotstegsgummi sats Puch 7x15x107",
+        "extractedSpecs": {
+          "diameter": [
+            "107 mm"
+          ],
+          "size": [
+            "107 mm"
+          ],
+          "material": [
+            "gummi",
+            "gummi"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Stöd",
+          "Stöd"
+        ]
+      },
+      {
+        "id": 3983,
+        "name": "Gaswire Rieju RR / Spike / MRT Euro 2 / MRX / SMT / RRX",
+        "extractedSpecs": {
+          "size": [
+            "2\"",
+            "100\""
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Vajrar"
+        ]
+      },
+      {
+        "id": 3994,
+        "name": "Sänkningsats bakstötdämpare TWS DRAC & DRAC RR",
+        "extractedSpecs": {
+          "size": [
+            "7 cm"
+          ],
+          "color": [
+            "röd"
+          ],
+          "position": [
+            "bak",
+            "bak"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Framgaffel/stötdämpare"
+        ]
+      },
+      {
+        "id": 4007,
+        "name": "Bakdrev 46t Rieju 415",
+        "extractedSpecs": {
+          "voltage": [
+            "6 v"
+          ],
+          "position": [
+            "bak",
+            "bak"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Drev / Kedja"
+        ]
+      },
+      {
+        "id": 4157,
+        "name": "Bakljus Sachs Transport 1187 + 1188 Sachs",
+        "extractedSpecs": {
+          "voltage": [
+            "3 v"
+          ],
+          "position": [
+            "bak"
+          ]
+        },
+        "categories": [
+          "Belysning / Blinkers",
+          "baklyse, framlyse",
+          "Moped - MC"
+        ]
+      },
+      {
+        "id": 4178,
+        "name": "Cylinder luftkyld motor SACHS 1 HK",
+        "extractedSpecs": {
+          "diameter": [
+            "38 mm",
+            "5 mm"
+          ],
+          "size": [
+            "50cc",
+            "38 mm",
+            "5 mm"
+          ],
+          "horsePower": [
+            "1 hk",
+            "1 hk",
+            "5 hk"
+          ],
+          "material": [
+            "gjutjärn"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Cylinder"
+        ]
+      },
+      {
+        "id": 4214,
+        "name": "Växelaxel 3V för handväxel SACHS",
+        "extractedSpecs": {
+          "size": [
+            "0\"",
+            "2\"",
+            "100\""
+          ],
+          "voltage": [
+            "3v"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Motordelar",
+          "Motordelar",
+          "Pedaler"
+        ]
+      },
+      {
+        "id": 4253,
+        "name": "Korkpackning under förgasaren SACHS",
+        "extractedSpecs": {
+          "size": [
+            "0\"",
+            "2\""
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Förgasare",
+          "Förgasare",
+          "Förgasare",
+          "Förgasare",
+          "Packningar / packboxar",
+          "Packningar / packboxar"
+        ]
+      },
+      {
+        "id": 4290,
+        "name": "Gaswire std 2-3 vxl. Sachs / MCB Compact",
+        "extractedSpecs": {
+          "size": [
+            "0\"",
+            "2\"",
+            "100\""
+          ],
+          "voltage": [
+            "3 v"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Styre/Handtag"
+        ]
+      },
+      {
+        "id": 4291,
+        "name": "Kopplingswire MCB Compact extra lång",
+        "extractedSpecs": {
+          "size": [
+            "2\""
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Styre/Handtag"
+        ]
+      },
+      {
+        "id": 4293,
+        "name": "Växelwire nyare modell  Cresent Compact / Sachs",
+        "extractedSpecs": {
+          "size": [
+            "2\"",
+            "100\""
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Styre/Handtag",
+          "Styre/Handtag"
+        ]
+      },
+      {
+        "id": 4294,
+        "name": "Gaswire std nyare mod. Sachs COMPACT+TRANSPORT",
+        "extractedSpecs": {
+          "size": [
+            "0\"",
+            "2\"",
+            "100\""
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Vajrar"
+        ]
+      },
+      {
+        "id": 4296,
+        "name": "Bromswire Sachs Transport modell 1189",
+        "extractedSpecs": {
+          "size": [
+            "0\"",
+            "2\"",
+            "100\""
+          ],
+          "color": [
+            "grön"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Styre/Handtag"
+        ]
+      },
+      {
+        "id": 4297,
+        "name": "Gaswire std MCB 1187 TRANSPORT   ( Sachs )",
+        "extractedSpecs": {
+          "size": [
+            "0\"",
+            "2\"",
+            "100\""
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Vajrar"
+        ]
+      },
+      {
+        "id": 4298,
+        "name": "Kopplingswire std Sachs Transport modell 1187 1188",
+        "extractedSpecs": {
+          "size": [
+            "188\"",
+            "353\"",
+            "248\"",
+            "271\"",
+            "279\"",
+            "300\"",
+            "327\"",
+            "352\"",
+            "355\"",
+            "518\"",
+            "358\"",
+            "376\"",
+            "394\"",
+            "397\"",
+            "420\"",
+            "438\"",
+            "465\"",
+            "468\"",
+            "471\"",
+            "496\"",
+            "520\"",
+            "599\""
+          ],
+          "color": [
+            "blå",
+            "blå"
+          ],
+          "position": [
+            "bak"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Styre/Handtag"
+        ]
+      },
+      {
+        "id": 4299,
+        "name": "Bromswire Sachs transport model. 1187 och 1188",
+        "extractedSpecs": {
+          "size": [
+            "2\"",
+            "100\""
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Vajrar"
+        ]
+      },
+      {
+        "id": 4300,
+        "name": "Växelwire std 1975- 1189 flakmoped Sachs original",
+        "extractedSpecs": {
+          "size": [
+            "133\"",
+            "223\"",
+            "133\"",
+            "223\"",
+            "225\"",
+            "463\"",
+            "239\"",
+            "282\"",
+            "299\"",
+            "318\"",
+            "453\"",
+            "462\"",
+            "465\"",
+            "488\"",
+            "489\"",
+            "684\"",
+            "489\"",
+            "558\"",
+            "491\"",
+            "558\"",
+            "491\"",
+            "511\"",
+            "559\"",
+            "588\"",
+            "561\"",
+            "588\"",
+            "561\"",
+            "580\"",
+            "589\"",
+            "637\"",
+            "591\"",
+            "637\"",
+            "591\"",
+            "605\"",
+            "638\"",
+            "684\"",
+            "640\"",
+            "684\"",
+            "640\"",
+            "657\"",
+            "686\"",
+            "701\"",
+            "702\"",
+            "868\"",
+            "702\"",
+            "744\"",
+            "704\"",
+            "744\"",
+            "745\"",
+            "788\"",
+            "747\"",
+            "788\"",
+            "789\"",
+            "832\"",
+            "791\"",
+            "832\"",
+            "833\"",
+            "868\"",
+            "835\"",
+            "868\"",
+            "870\"",
+            "1146\""
+          ],
+          "position": [
+            "fram",
+            "fram"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Styre/Handtag"
+        ]
+      },
+      {
+        "id": 4301,
+        "name": "Växelwire std Sachs transport modell 1188 3 vxl",
+        "extractedSpecs": {
+          "voltage": [
+            "3 v"
+          ]
+        },
+        "categories": [
+          "Moped - MC",
+          "Styre/Handtag",
+          "Styre/Handtag",
+          "Tillbehör"
+        ]
+      }
+    ],
+    "descriptionPatterns": [],
+    "technicalSpecsFound": [
+      "model",
+      "brand",
+      "diameter",
+      "size",
+      "position",
+      "material",
+      "horsePower",
+      "color",
+      "voltage"
+    ],
+    "enrichmentOpportunities": []
+  },
+  "suggestions": {
+    "strategy": "Strukturerad Product Enrichment",
+    "overview": "\nBaserat på analysen av 50 produkter har jag identifierat flera\nmöjligheter för strukturerad product enrichment. Data innehåller för närvarande:\n- 50 produkter utan attribut\n- 50 produkter utan specifikationer\n- 9 typer av tekniska specifikationer i beskrivningstexter\n",
+    "categorySpecificAttributes": {
+      "Cylinder": [
+        {
+          "name": "Diameter",
+          "unit": "mm",
+          "type": "numeric",
+          "importance": "critical"
+        },
+        {
+          "name": "Displacement",
+          "unit": "cc",
+          "type": "numeric",
+          "importance": "critical"
+        },
+        {
+          "name": "Power Output",
+          "unit": "hk",
+          "type": "numeric",
+          "importance": "high"
+        },
+        {
+          "name": "Includes Piston",
+          "type": "boolean",
+          "importance": "high"
+        }
+      ],
+      "Förgasare": [
+        {
+          "name": "Intake Size",
+          "unit": "mm",
+          "type": "numeric",
+          "importance": "critical"
+        },
+        {
+          "name": "Type",
+          "type": "select",
+          "options": [
+            "Standard",
+            "Racing",
+            "Performance"
+          ],
+          "importance": "high"
+        },
+        {
+          "name": "Adjustment Type",
+          "type": "select",
+          "importance": "medium"
+        }
+      ],
+      "Avgassystem": [
+        {
+          "name": "Type",
+          "type": "select",
+          "options": [
+            "Original",
+            "Sport",
+            "Racing",
+            "Effekt"
+          ],
+          "importance": "high"
+        },
+        {
+          "name": "Material",
+          "type": "select",
+          "options": [
+            "Aluminium",
+            "Stål",
+            "Rostfritt"
+          ],
+          "importance": "high"
+        },
+        {
+          "name": "Sound Level",
+          "unit": "dB",
+          "type": "numeric",
+          "importance": "medium"
+        },
+        {
+          "name": "Mounting Type",
+          "type": "select",
+          "importance": "medium"
+        }
+      ],
+      "Bromsdelar": [
+        {
+          "name": "Disc Diameter",
+          "unit": "mm",
+          "type": "numeric",
+          "importance": "critical"
+        },
+        {
+          "name": "Pad Material",
+          "type": "select",
+          "importance": "high"
+        },
+        {
+          "name": "Position",
+          "type": "select",
+          "options": [
+            "Fram",
+            "Bak"
+          ],
+          "importance": "high"
+        }
+      ],
+      "Eldelar": [
+        {
+          "name": "Voltage",
+          "unit": "V",
+          "type": "numeric",
+          "importance": "high"
+        },
+        {
+          "name": "Wattage",
+          "unit": "W",
+          "type": "numeric",
+          "importance": "medium"
+        },
+        {
+          "name": "Connector Type",
+          "type": "select",
+          "importance": "medium"
+        }
+      ]
+    },
+    "universalAttributes": [
+      {
+        "name": "Compatibility",
+        "type": "multi-select",
+        "description": "Vilka fordon/modeller produkten passar till",
+        "extractionRule": "Regex: Model patterns från namn och beskrivning",
+        "importance": "high",
+        "examples": [
+          "BT50QT-9",
+          "Honda MT",
+          "Kymco"
+        ]
+      },
+      {
+        "name": "Brand",
+        "type": "select",
+        "description": "Varumärke/tillverkare",
+        "extractionRule": "Regex: Brand patterns",
+        "importance": "high",
+        "examples": [
+          "Honda",
+          "Yamaha",
+          "Baotian",
+          "Kymco"
+        ]
+      },
+      {
+        "name": "Material",
+        "type": "select",
+        "description": "Vilket material produkten är gjord av",
+        "extractionRule": "Regex: Material patterns",
+        "importance": "medium",
+        "examples": [
+          "Aluminium",
+          "Stål",
+          "Gjutjärn",
+          "Plast"
+        ]
+      },
+      {
+        "name": "Position",
+        "type": "select",
+        "description": "Var på fordonet delen sitter",
+        "extractionRule": "Regex: Position patterns",
+        "importance": "medium",
+        "examples": [
+          "Fram",
+          "Bak",
+          "Höger",
+          "Vänster"
+        ]
+      },
+      {
+        "name": "Color",
+        "type": "select",
+        "description": "Färg på produkten",
+        "extractionRule": "Regex: Color patterns",
+        "importance": "low",
+        "examples": [
+          "Svart",
+          "Silver",
+          "Krom"
+        ]
+      }
+    ],
+    "extractionRules": [
+      {
+        "rule": "Extract dimensions from product name and description",
+        "pattern": "\\d+\\s*mm|\\d+\\s*cc|\\d+\\s*cm",
+        "priority": "high",
+        "exampleMatch": "47mm -> Diameter: 47mm"
+      },
+      {
+        "rule": "Extract model compatibility",
+        "pattern": "BT\\d+QT-\\d+|MT\\d+|MB\\d+|GY6",
+        "priority": "high",
+        "exampleMatch": "BT50QT-9 -> Compatible with: BT50QT-9"
+      },
+      {
+        "rule": "Extract material information",
+        "pattern": "aluminium|stål|gjutjärn|plast|gummi",
+        "priority": "medium",
+        "exampleMatch": "aluminium -> Material: Aluminium"
+      },
+      {
+        "rule": "Extract position/placement",
+        "pattern": "fram|bak|höger|vänster",
+        "priority": "medium",
+        "exampleMatch": "fram -> Position: Fram"
+      },
+      {
+        "rule": "Extract power output",
+        "pattern": "\\d+\\s*hk|\\d+\\s*hp",
+        "priority": "high",
+        "exampleMatch": "1 hk -> Power: 1 HP"
+      }
+    ],
+    "implementationSteps": [
+      {
+        "step": 1,
+        "title": "Skapa attributschema i databas",
+        "description": "Definiera alla attribut och deras möjliga värden i databasen",
+        "tasks": [
+          "Skapa product_attributes tabell",
+          "Skapa attribute_definitions tabell med möjliga värden",
+          "Skapa kopplingar mellan produkter och attribut"
+        ]
+      },
+      {
+        "step": 2,
+        "title": "Implementera automatisk extraktion",
+        "description": "Bygg system för att automatiskt extrahera attribut från befintlig data",
+        "tasks": [
+          "Skapa regex-baserade extractors för varje attributtyp",
+          "Implementera NLP-baserad extraktion för mer komplexa mönster",
+          "Validera extraherad data mot definierade värden"
+        ]
+      },
+      {
+        "step": 3,
+        "title": "Manuell granskning och komplettering",
+        "description": "Tillåt manuell granskning och korrigering av extraherad data",
+        "tasks": [
+          "Bygg admin-gränssnitt för attributhantering",
+          "Implementera bulk-redigering av attribut",
+          "Skapa confidence scores för automatiskt extraherade attribut"
+        ]
+      },
+      {
+        "step": 4,
+        "title": "Använd attribut för förbättrad sökning och filtrering",
+        "description": "Integrera attribut i sök- och filterfunktionalitet",
+        "tasks": [
+          "Indexera attribut för snabb sökning",
+          "Skapa filtergränssnitt baserat på attribut",
+          "Implementera attribut-baserad produktmatchning"
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "category": "Moped - MC",
+      "productCount": 49,
+      "examples": [
+        {
+          "id": 421,
+          "name": "Kontakt för sidostöd BAOTIAN BT50QT-9",
+          "extractedSpecs": {
+            "model": [
+              "bt50qt-9",
+              "bt50qt-9"
+            ],
+            "brand": [
+              "baotian"
+            ]
+          },
+          "categories": [
+            "Moped - MC",
+            "Eldelar"
+          ]
+        },
+        {
+          "id": 422,
+          "name": "Signalhorn BAOTIAN BT50QT-9",
+          "extractedSpecs": {
+            "model": [
+              "bt50qt-9",
+              "bt50qt-9"
+            ],
+            "brand": [
+              "baotian"
+            ]
+          },
+          "categories": [
+            "Moped - MC",
+            "Eldelar"
+          ]
+        },
+        {
+          "id": 432,
+          "name": "Cylinder Baotian/Kymco/GY6 70cc 47mm",
+          "extractedSpecs": {
+            "diameter": [
+              "47mm",
+              "47mm"
+            ],
+            "size": [
+              "70cc",
+              "47mm",
+              "47mm"
+            ],
+            "model": [
+              "gy6",
+              "mb139",
+              "bt50qt-9"
+            ],
+            "brand": [
+              "baotian",
+              "kymco",
+              "baotian"
+            ]
+          },
+          "categories": [
+            "Moped - MC",
+            "Cylinder"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Styre/Handtag",
+      "productCount": 14,
+      "examples": [
+        {
+          "id": 473,
+          "name": "Mätardrivning hastighet Baotian BT50QT-9 / Kymco",
+          "extractedSpecs": {
+            "size": [
+              "10\""
+            ],
+            "model": [
+              "bt50qt-9",
+              "bt50qt-9"
+            ],
+            "brand": [
+              "baotian",
+              "kymco"
+            ]
+          },
+          "categories": [
+            "Moped - MC",
+            "Hastighetsmätare",
+            "Styre/Handtag",
+            "Vajrar"
+          ]
+        },
+        {
+          "id": 477,
+          "name": "Handtagsarm / grepp höger Baotian BT50QT-9",
+          "extractedSpecs": {
+            "model": [
+              "bt50qt-9",
+              "bt50qt-9"
+            ],
+            "brand": [
+              "baotian"
+            ],
+            "position": [
+              "höger",
+              "höger"
+            ]
+          },
+          "categories": [
+            "Moped - MC",
+            "Styre/Handtag"
+          ]
+        },
+        {
+          "id": 1592,
+          "name": "Tvåfingergrepp sats svart Honda MT",
+          "extractedSpecs": {
+            "model": [
+              "mt50"
+            ],
+            "brand": [
+              "honda"
+            ],
+            "color": [
+              "svart",
+              "svart"
+            ]
+          },
+          "categories": [
+            "Moped - MC",
+            "Styre/Handtag"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Förgasare",
+      "productCount": 8,
+      "examples": [
+        {
+          "id": 444,
+          "name": "Förgasare 18mm Baotian / Kymco / mfl / GY6 motor",
+          "extractedSpecs": {
+            "diameter": [
+              "18mm",
+              "18mm"
+            ],
+            "size": [
+              "18mm",
+              "18mm"
+            ],
+            "model": [
+              "gy6",
+              "bt50qt-9"
+            ],
+            "brand": [
+              "baotian",
+              "kymco"
+            ]
+          },
+          "categories": [
+            "Moped - MC",
+            "Förgasare",
+            "Förgasare"
+          ]
+        },
+        {
+          "id": 3136,
+          "name": "Packningar förgasare Piaggio Ciao / Bravo / SI / mfl",
+          "extractedSpecs": {
+            "brand": [
+              "piaggio"
+            ]
+          },
+          "categories": [
+            "Moped - MC",
+            "Förgasare",
+            "Förgasare",
+            "Packningar / packboxar"
+          ]
+        },
+        {
+          "id": 4253,
+          "name": "Korkpackning under förgasaren SACHS",
+          "extractedSpecs": {
+            "size": [
+              "0\"",
+              "2\""
+            ]
+          },
+          "categories": [
+            "Moped - MC",
+            "Förgasare",
+            "Förgasare",
+            "Förgasare",
+            "Förgasare",
+            "Packningar / packboxar",
+            "Packningar / packboxar"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Stöd",
+      "productCount": 7,
+      "examples": [
+        {
+          "id": 479,
+          "name": "Centralstöd BAOTIAN BT50QT-9",
+          "extractedSpecs": {
+            "model": [
+              "bt50qt-9",
+              "bt50qt-9"
+            ],
+            "brand": [
+              "baotian",
+              "baotian",
+              "kymco",
+              "peugeot"
+            ]
+          },
+          "categories": [
+            "Moped - MC",
+            "Stöd",
+            "Stöd"
+          ]
+        },
+        {
+          "id": 481,
+          "name": "Axel centralstöd Baotian BT50QT-9",
+          "extractedSpecs": {
+            "model": [
+              "bt50qt-9",
+              "bt50qt-9"
+            ],
+            "brand": [
+              "baotian"
+            ]
+          },
+          "categories": [
+            "Moped - MC",
+            "Stöd",
+            "Stöd"
+          ]
+        },
+        {
+          "id": 483,
+          "name": "Gummistopp centralstöd BAOTIAN 50QT, M.FL",
+          "extractedSpecs": {
+            "model": [
+              "bt50qt-9"
+            ],
+            "brand": [
+              "baotian"
+            ],
+            "material": [
+              "gummi",
+              "gummi"
+            ]
+          },
+          "categories": [
+            "Moped - MC",
+            "Stöd"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Vajrar",
+      "productCount": 6,
+      "examples": [
+        {
+          "id": 473,
+          "name": "Mätardrivning hastighet Baotian BT50QT-9 / Kymco",
+          "extractedSpecs": {
+            "size": [
+              "10\""
+            ],
+            "model": [
+              "bt50qt-9",
+              "bt50qt-9"
+            ],
+            "brand": [
+              "baotian",
+              "kymco"
+            ]
+          },
+          "categories": [
+            "Moped - MC",
+            "Hastighetsmätare",
+            "Styre/Handtag",
+            "Vajrar"
+          ]
+        },
+        {
+          "id": 2958,
+          "name": "Frambromswire Peugeot Ludix – Bromswire Fram",
+          "extractedSpecs": {
+            "size": [
+              "172\"",
+              "407\"",
+              "210\"",
+              "227\"",
+              "228\"",
+              "231\"",
+              "323\"",
+              "326\"",
+              "409\"",
+              "431\"",
+              "409\"",
+              "429\"",
+              "432\"",
+              "544\"",
+              "432\"",
+              "472\"",
+              "434\"",
+              "472\"",
+              "473\"",
+              "498\"",
+              "475\"",
+              "498\"",
+              "499\"",
+              "544\"",
+              "501\"",
+              "544\""
+            ],
+            "brand": [
+              "peugeot",
+              "peugeot",
+              "peugeot",
+              "peugeot"
+            ],
+            "position": [
+              "fram",
+              "fram",
+              "fram",
+              "fram",
+              "fram"
+            ]
+          },
+          "categories": [
+            "Moped - MC",
+            "Vajrar"
+          ]
+        },
+        {
+          "id": 3983,
+          "name": "Gaswire Rieju RR / Spike / MRT Euro 2 / MRX / SMT / RRX",
+          "extractedSpecs": {
+            "size": [
+              "2\"",
+              "100\""
+            ]
+          },
+          "categories": [
+            "Moped - MC",
+            "Vajrar"
+          ]
+        }
+      ]
+    }
+  ]
+}
