@@ -1,6 +1,5 @@
-import { QueryCache, QueryClient } from '@tanstack/react-query';
+import { QueryCache, QueryClient, useQuery, useMutation } from '@tanstack/react-query';
 import { createTRPCClient, httpBatchLink } from '@trpc/client';
-import { createTRPCOptionsProxy } from '@trpc/tanstack-react-query';
 import type { AppRouter } from '../../../server/src/routers';
 import { toast } from 'sonner';
 
@@ -19,16 +18,74 @@ export const queryClient = new QueryClient({
   }),
 });
 
-const trpcClient = createTRPCClient<AppRouter>({
+// Create vanilla tRPC client for direct API calls
+export const trpcClient = createTRPCClient<AppRouter>({
   links: [
     httpBatchLink({
       url: `${process.env.NEXT_PUBLIC_SERVER_URL}/trpc`,
     }),
   ],
-})
-
-export const trpc = createTRPCOptionsProxy<AppRouter>({
-  client: trpcClient,
-  queryClient,
 });
+
+// React hooks wrapper using React Query
+
+export const trpc = {
+  healthCheck: {
+    useQuery: () => {
+      return useQuery({
+        queryKey: ['healthCheck'],
+        queryFn: () => trpcClient.healthCheck.query(),
+      });
+    }
+  },
+  listAttributeDefinitions: {
+    useQuery: () => {
+      return useQuery({
+        queryKey: ['listAttributeDefinitions'],
+        queryFn: () => trpcClient.listAttributeDefinitions.query(),
+      });
+    }
+  },
+  getProducts: {
+    useQuery: (input: any) => {
+      return useQuery({
+        queryKey: ['getProducts', input],
+        queryFn: () => trpcClient.getProducts.query(input),
+      });
+    }
+  },
+  getVariantsWithAttributes: {
+    useQuery: (input: any) => {
+      return useQuery({
+        queryKey: ['getVariantsWithAttributes', input],
+        queryFn: () => trpcClient.getVariantsWithAttributes.query(input),
+      });
+    }
+  },
+  getVariantAttributes: {
+    useQuery: (input: any, options?: any) => {
+      return useQuery({
+        queryKey: ['getVariantAttributes', input],
+        queryFn: () => trpcClient.getVariantAttributes.query(input),
+        enabled: options?.enabled ?? true,
+      });
+    }
+  },
+  extractVariantAttributes: {
+    useMutation: (options?: any) => {
+      return useMutation({
+        mutationFn: (input: any) => trpcClient.extractVariantAttributes.mutate(input),
+        ...options,
+      });
+    }
+  },
+  updateVariantAttributes: {
+    useMutation: (options?: any) => {
+      return useMutation({
+        mutationFn: (input: any) => trpcClient.updateVariantAttributes.mutate(input),
+        ...options,
+      });
+    }
+  }
+};
 

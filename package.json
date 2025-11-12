@@ -23,7 +23,9 @@
 		"ny:introspect": "bun run scripts/nyehandel/introspect.ts",
 		"gen:nye:types": "openapi-typescript .cursor/docs/nyehandel/nyehandel.openapi.json -o src/integrations/nyehandel/generated/nyehandel.types.ts",
 		"gen:nye:zod": "openapi-zod-client .cursor/docs/nyehandel/nyehandel.openapi.json -o src/integrations/nyehandel/generated/nyehandel.zod.ts",
-		"gen:nye": "bun run gen:nye:types && bun run gen:nye:zod"
+		"gen:nye": "bun run gen:nye:types && bun run gen:nye:zod",
+		"extract:attributes": "bun run apps/server/src/scripts/extract-product-attributes.ts",
+		"test:extraction": "bun run apps/server/src/scripts/test-attribute-extraction.ts"
 	},
 	"dependencies": {
 		"@dqbd/tiktoken": "^1.0.22",
