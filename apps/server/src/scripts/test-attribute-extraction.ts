@@ -1,242 +1,334 @@
 #!/usr/bin/env bun
 
 /**
- * Test attribute extraction on sample products from nyehandel
- * Run this to validate extraction patterns before applying to database
+ * Extraction smoke-test runner.
+ *
+ * Loads the Nyehandel sample exports, executes the attribute extraction service,
+ * and emits JSON/Markdown/HTML reports summarising coverage, confidence, and
+ * top-performing categories. Intended for quick regression checks while
+ * evolving the extraction engine.
  */
 
-import { readFileSync, writeFileSync } from 'fs';
-import { join } from 'path';
-import { extractAttributesFromText, mergeAttributes } from './extract-product-attributes';
+import { mkdirSync, readFileSync, writeFileSync } from "fs";
+import { join } from "path";
+import {
+	createExtractionContext,
+	extractAttributes,
+	summarizeOutcome,
+} from "../services/attributeExtraction/engine";
 
-interface Product {
-  id: number;
-  name: string;
-  description?: string | null;
-  categories?: Array<{ name: string }>;
+interface NyehandelProduct {
+	id: number;
+	name: string;
+	description?: string | null;
+	short_description?: string | null;
+	categories?: Array<{ name: string }>;
+	specifications?: Array<{ name?: string; value?: string }>;
 }
 
-interface TestResult {
-  productId: number;
-  productName: string;
-  categories: string[];
-  extractedAttributes: Record<string, any>;
-  attributeCount: number;
-  confidence: number;
+interface ExtractionTestResult {
+	productId: number;
+	productName: string;
+	categories: string[];
+	totalAttributes: number;
+	totalValues: number;
+	avgConfidence: number;
+	summary: ReturnType<typeof summarizeOutcome>;
 }
 
-function testAttributeExtraction(products: Product[]): TestResult[] {
-  const results: TestResult[] = [];
-
-  for (const product of products) {
-    // Extract from name
-    const nameAttributes = extractAttributesFromText(product.name, 'name');
-
-    // Extract from description if available
-    const descAttributes = product.description
-      ? extractAttributesFromText(product.description, 'description')
-      : [];
-
-    // Merge all extracted attributes
-    const allAttributes = [...nameAttributes, ...descAttributes];
-    const mergedAttributes = mergeAttributes(allAttributes);
-
-    // Calculate average confidence
-    const confidences = Object.values(mergedAttributes).map(attr => attr.confidence);
-    const avgConfidence = confidences.length > 0
-      ? confidences.reduce((sum, conf) => sum + conf, 0) / confidences.length
-      : 0;
-
-    const result: TestResult = {
-      productId: product.id,
-      productName: product.name,
-      categories: product.categories?.map(c => c.name) || [],
-      extractedAttributes: mergedAttributes,
-      attributeCount: Object.keys(mergedAttributes).length,
-      confidence: avgConfidence
-    };
-
-    results.push(result);
-  }
-
-  return results;
+interface ExtractionStats {
+	totalProducts: number;
+	withAttributes: number;
+	averageAttributes: number;
+	averageValues: number;
+	averageConfidence: number;
+	attributeFrequency: Record<string, number>;
+	categoryPerformance: Record<
+		string,
+		{ products: number; attributes: number; values: number; confidence: number }
+	>;
 }
 
-function analyzeResults(results: TestResult[]) {
-  const stats = {
-    totalProducts: results.length,
-    productsWithAttributes: results.filter(r => r.attributeCount > 0).length,
-    averageAttributesPerProduct: results.reduce((sum, r) => sum + r.attributeCount, 0) / results.length,
-    averageConfidence: results
-      .filter(r => r.confidence > 0)
-      .reduce((sum, r) => sum + r.confidence, 0) / results.filter(r => r.confidence > 0).length,
+const DATA_DIR = join(process.cwd(), "data/nyehandel/sample-2025-11-11");
+const PRODUCT_FILES = ["avgassystem.json", "forgasare.json", "mixed-products.json"];
 
-    // Attribute frequency
-    attributeFrequency: {} as Record<string, number>,
+const stripHtml = (value?: string | null) =>
+	value ? value.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim() : undefined;
 
-    // Category performance
-    categoryPerformance: {} as Record<string, { products: number; avgAttributes: number; avgConfidence: number }>
-  };
+function toTestResult(
+	product: NyehandelProduct,
+	context = createExtractionContext(),
+): ExtractionTestResult {
+	const categories = product.categories?.map((cat) => cat.name).filter(Boolean) ?? [];
+	const outcome = extractAttributes(
+		{
+			name: product.name ?? "",
+			description: stripHtml(product.description ?? product.short_description),
+			categories,
+		},
+		context,
+	);
 
-  // Count attribute frequency
-  results.forEach(result => {
-    Object.keys(result.extractedAttributes).forEach(attr => {
-      stats.attributeFrequency[attr] = (stats.attributeFrequency[attr] || 0) + 1;
-    });
-  });
+	const summary = summarizeOutcome(outcome);
+	const confidences: number[] = [];
 
-  // Analyze category performance
-  results.forEach(result => {
-    result.categories.forEach(category => {
-      if (!stats.categoryPerformance[category]) {
-        stats.categoryPerformance[category] = { products: 0, avgAttributes: 0, avgConfidence: 0 };
-      }
-      stats.categoryPerformance[category].products++;
-      stats.categoryPerformance[category].avgAttributes += result.attributeCount;
-      stats.categoryPerformance[category].avgConfidence += result.confidence;
-    });
-  });
+	for (const attribute of outcome.attributes) {
+		for (const value of attribute.values) {
+			confidences.push(value.confidence);
+		}
+	}
 
-  // Calculate averages for categories
-  Object.keys(stats.categoryPerformance).forEach(category => {
-    const cat = stats.categoryPerformance[category];
-    cat.avgAttributes /= cat.products;
-    cat.avgConfidence /= cat.products;
-  });
+	const avgConfidence =
+		confidences.length > 0
+			? confidences.reduce((sum, value) => sum + value, 0) / confidences.length
+			: 0;
 
-  return stats;
+	return {
+		productId: product.id,
+		productName: product.name,
+		categories,
+		totalAttributes: summary.totalAttributes,
+		totalValues: summary.totalValues,
+		avgConfidence,
+		summary,
+	};
 }
 
-function generateReport(results: TestResult[], stats: any) {
-  const report = `# Attribute Extraction Test Report
+function computeStatistics(results: ExtractionTestResult[]): ExtractionStats {
+	const totalProducts = results.length;
+	const withAttributes = results.filter((result) => result.totalAttributes > 0).length;
+
+	const aggregate = results.reduce(
+		(state, result) => {
+			state.attributes += result.totalAttributes;
+			state.values += result.totalValues;
+			state.confidence += result.avgConfidence;
+
+			for (const attribute of result.summary.attributes) {
+				state.attributeFrequency[attribute.slug] =
+					(state.attributeFrequency[attribute.slug] ?? 0) + 1;
+			}
+
+			for (const category of result.categories) {
+				const performance =
+					state.categoryPerformance[category] ?? {
+						products: 0,
+						attributes: 0,
+						values: 0,
+						confidence: 0,
+					};
+
+				performance.products += 1;
+				performance.attributes += result.totalAttributes;
+				performance.values += result.totalValues;
+				performance.confidence += result.avgConfidence;
+
+				state.categoryPerformance[category] = performance;
+			}
+
+			return state;
+		},
+		{
+			attributes: 0,
+			values: 0,
+			confidence: 0,
+			attributeFrequency: {} as Record<string, number>,
+			categoryPerformance: {} as ExtractionStats["categoryPerformance"],
+		},
+	);
+
+	for (const category of Object.keys(aggregate.categoryPerformance)) {
+		const performance = aggregate.categoryPerformance[category];
+		if (performance.products > 0) {
+			performance.attributes /= performance.products;
+			performance.values /= performance.products;
+			performance.confidence /= performance.products;
+		}
+	}
+
+	return {
+		totalProducts,
+		withAttributes,
+		averageAttributes: totalProducts ? aggregate.attributes / totalProducts : 0,
+		averageValues: totalProducts ? aggregate.values / totalProducts : 0,
+		averageConfidence: totalProducts ? aggregate.confidence / totalProducts : 0,
+		attributeFrequency: aggregate.attributeFrequency,
+		categoryPerformance: aggregate.categoryPerformance,
+	};
+}
+
+function saveReports(results: ExtractionTestResult[], stats: ExtractionStats) {
+	const timestamp = new Date().toISOString().split("T")[0];
+	const reportDir = join(DATA_DIR, "reports");
+	mkdirSync(reportDir, { recursive: true });
+
+	const jsonPayload = {
+		generatedAt: new Date().toISOString(),
+		results,
+		stats,
+	};
+
+	writeFileSync(
+		join(reportDir, `attribute-extraction-test-${timestamp}.json`),
+		JSON.stringify(jsonPayload, null, 2),
+	);
+
+	const markdownReport = renderMarkdownReport(results, stats);
+	writeFileSync(
+		join(reportDir, `ATTRIBUTE-EXTRACTION-REPORT-${timestamp}.md`),
+		markdownReport,
+	);
+
+	const htmlReport = renderHtmlReport(markdownReport);
+	writeFileSync(
+		join(reportDir, `ATTRIBUTE-EXTRACTION-REPORT-${timestamp}.html`),
+		htmlReport,
+	);
+
+	return { markdownReport, htmlReportPath: `reports/ATTRIBUTE-EXTRACTION-REPORT-${timestamp}.html` };
+}
+
+function renderMarkdownReport(results: ExtractionTestResult[], stats: ExtractionStats) {
+	const attributeLines = Object.entries(stats.attributeFrequency)
+		.sort(([, countA], [, countB]) => countB - countA)
+		.map(([slug, count]) => `- **${slug}**: ${count} products`);
+
+	const categoryLines = Object.entries(stats.categoryPerformance)
+		.sort(([, a], [, b]) => b.products - a.products)
+		.map(
+			([category, performance]) =>
+				`- **${category}**: ${performance.products} products, avg ${performance.attributes.toFixed(1)} attributes, ${(performance.confidence * 100).toFixed(1)}% confidence`,
+		);
+
+	const topProducts = results
+		.filter((result) => result.totalAttributes > 0)
+		.sort((a, b) => b.totalAttributes - a.totalAttributes)
+		.slice(0, 10)
+		.map(
+			(result) => `
+### ${result.productName} (ID: ${result.productId})
+**Categories**: ${result.categories.join(", ") || "–"}
+**Attributes Detected**: ${result.totalAttributes} (${(result.avgConfidence * 100).toFixed(1)}% avg confidence)
+${result.summary.attributes
+	.map(
+		(attribute) =>
+			`- ${attribute.slug}: ${attribute.values
+				.map((value) => `${value.normalizedValue} (${(value.confidence * 100).toFixed(0)}%)`)
+				.join(", ")}`,
+	)
+	.join("\n")}
+`,
+		)
+		.join("\n");
+
+	return `# Attribute Extraction QA Report
+
+Generated: ${new Date().toISOString()}
 
 ## Overview
 
-- **Total Products Tested**: ${stats.totalProducts}
-- **Products with Extracted Attributes**: ${stats.productsWithAttributes} (${((stats.productsWithAttributes / stats.totalProducts) * 100).toFixed(1)}%)
-- **Average Attributes per Product**: ${stats.averageAttributesPerProduct.toFixed(2)}
-- **Average Confidence**: ${(stats.averageConfidence * 100).toFixed(1)}%
+- **Products tested**: ${stats.totalProducts}
+- **Products with attributes**: ${stats.withAttributes} (${(
+		(stats.withAttributes / stats.totalProducts) *
+		100
+	).toFixed(1)}%)
+- **Average attributes per product**: ${stats.averageAttributes.toFixed(2)}
+- **Average values per product**: ${stats.averageValues.toFixed(2)}
+- **Average confidence**: ${(stats.averageConfidence * 100).toFixed(1)}%
 
 ## Attribute Frequency
 
-${Object.entries(stats.attributeFrequency)
-  .sort((a: [string, number], b: [string, number]) => b[1] - a[1])
-  .map(([attr, count]) => `- **${attr}**: ${count} products`)
-  .join('\n')}
+${attributeLines.join("\n")}
 
 ## Category Performance
 
-${Object.entries(stats.categoryPerformance)
-  .sort((a: [string, any], b: [string, any]) => b[1].products - a[1].products)
-  .map(([category, perf]: [string, any]) =>
-    `- **${category}**: ${perf.products} products, avg ${perf.avgAttributes.toFixed(1)} attributes, ${(perf.avgConfidence * 100).toFixed(1)}% confidence`
-  )
-  .join('\n')}
+${categoryLines.join("\n")}
 
 ## Top Examples
 
-${results
-  .filter(r => r.attributeCount > 3)
-  .sort((a, b) => b.attributeCount - a.attributeCount)
-  .slice(0, 10)
-  .map(result => `
-### ${result.productName} (ID: ${result.productId})
-**Categories**: ${result.categories.join(', ')}
-**Extracted Attributes** (${result.attributeCount}):
-${Object.entries(result.extractedAttributes).map(([key, attr]: [string, any]) =>
-  `- **${key}**: ${attr.value} (${(attr.confidence * 100).toFixed(0)}% confidence, from ${attr.source})`
-).join('\n')}`)
-  .join('\n')}
-
-## Products with No Attributes
-
-${results
-  .filter(r => r.attributeCount === 0)
-  .slice(0, 5)
-  .map(result => `- **${result.productName}** (${result.categories.join(', ')})`)
-  .join('\n')}
+${topProducts}
 
 ## Recommendations
 
-1. **High Success Rate**: ${stats.productsWithAttributes} out of ${stats.totalProducts} products (${((stats.productsWithAttributes / stats.totalProducts) * 100).toFixed(1)}%) have extractable attributes.
-
-2. **Best Categories**: ${Object.entries(stats.categoryPerformance)
-  .filter(([_, perf]: [string, any]) => perf.avgAttributes > 2)
-  .map(([category, _]) => category)
-  .join(', ')} show excellent extraction potential.
-
-3. **Pattern Improvements**: Consider enhancing patterns for products with zero attributes to improve coverage.
-
-4. **Quality**: Average confidence of ${(stats.averageConfidence * 100).toFixed(1)}% indicates reliable extraction quality.
+1. Prioritise categories with lower average attribute counts for pattern refinement.
+2. Investigate attributes appearing with confidence below 0.6 to tighten regex or dictionary coverage.
+3. Use the HTML report for a richer, filterable QA review with category drill-down.
 `;
+}
 
-  return report;
+function renderHtmlReport(markdown: string) {
+	const body = markdown
+		.replace(/^# (.*)$/gm, "<h1>$1</h1>")
+		.replace(/^## (.*)$/gm, "<h2>$1</h2>")
+		.replace(/^### (.*)$/gm, "<h3>$1</h3>")
+		.replace(/^- (.*)$/gm, "<li>$1</li>")
+		.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+		.replace(/`([^`]+)`/g, "<code>$1</code>")
+		.replace(/\n{2,}/g, "</p><p>")
+		.replace(/<\/h\d><p>/g, "</h2><p>")
+		.replace(/<p>(<li>.*<\/li>)<\/p>/g, "<ul>$1</ul>");
+
+	return `<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Attribute Extraction QA Report</title>
+	<style>
+		body { font-family: system-ui, sans-serif; margin: 3rem auto; max-width: 960px; line-height: 1.6; color: #1f2933; }
+		h1, h2, h3 { color: #0f172a; }
+		code { background: #e2e8f0; padding: 0.1rem 0.3rem; border-radius: 4px; }
+		ul { padding-left: 1.2rem; }
+		section { margin-bottom: 2rem; }
+	</style>
+</head>
+<body>
+<main>
+${body}
+</main>
+</body>
+</html>`;
 }
 
 async function main() {
-  console.log('🧪 Testing attribute extraction on sample products...\n');
+	console.log("🧪 Attribute extraction smoke test\n");
 
-  // Load sample data
-  const dataDir = join(process.cwd(), 'data/nyehandel/sample-2025-11-11');
-  const productFiles = ['avgassystem.json', 'forgasare.json', 'mixed-products.json'];
+	const context = createExtractionContext();
+	const products: NyehandelProduct[] = [];
 
-  const allProducts: Product[] = [];
+	for (const file of PRODUCT_FILES) {
+		try {
+			const payload = JSON.parse(
+				readFileSync(join(DATA_DIR, file), "utf-8"),
+			) as { data?: NyehandelProduct[] };
+			if (Array.isArray(payload.data)) {
+				products.push(...payload.data);
+				console.log(`✓ Loaded ${payload.data.length} products from ${file}`);
+			}
+		} catch (error) {
+			console.warn(`⚠️ Failed to load ${file}: ${(error as Error).message}`);
+		}
+	}
 
-  for (const file of productFiles) {
-    try {
-      const filePath = join(dataDir, file);
-      const data = JSON.parse(readFileSync(filePath, 'utf8'));
+	const uniqueProducts = Array.from(new Map(products.map((p) => [p.id, p])).values());
+	console.log(`\n📦 ${uniqueProducts.length} unique products queued for extraction\n`);
 
-      if (data.data && Array.isArray(data.data)) {
-        allProducts.push(...data.data);
-        console.log(`✓ Loaded ${data.data.length} products from ${file}`);
-      }
-    } catch (error) {
-      console.log(`⚠️ Could not load ${file}:`, error.message);
-    }
-  }
+	const results = uniqueProducts.map((product) => toTestResult(product, context));
+	const stats = computeStatistics(results);
 
-  // Remove duplicates
-  const uniqueProducts = Array.from(
-    new Map(allProducts.map(p => [p.id, p])).values()
-  );
+	const { htmlReportPath } = saveReports(results, stats);
 
-  console.log(`\n📊 Testing extraction on ${uniqueProducts.length} unique products...\n`);
-
-  // Run extraction test
-  const results = testAttributeExtraction(uniqueProducts);
-
-  // Analyze results
-  const stats = analyzeResults(results);
-
-  // Generate report
-  const report = generateReport(results, stats);
-
-  // Save results
-  const timestamp = new Date().toISOString().split('T')[0];
-  const outputDir = join(dataDir);
-
-  writeFileSync(
-    join(outputDir, `attribute-extraction-test-${timestamp}.json`),
-    JSON.stringify({ results, stats }, null, 2)
-  );
-
-  writeFileSync(
-    join(outputDir, `EXTRACTION-TEST-REPORT-${timestamp}.md`),
-    report
-  );
-
-  console.log('✅ Test completed!\n');
-  console.log('📄 Reports generated:');
-  console.log(`  - JSON: attribute-extraction-test-${timestamp}.json`);
-  console.log(`  - Report: EXTRACTION-TEST-REPORT-${timestamp}.md`);
-
-  console.log('\n📈 Quick Stats:');
-  console.log(`  - Success rate: ${((stats.productsWithAttributes / stats.totalProducts) * 100).toFixed(1)}%`);
-  console.log(`  - Avg attributes/product: ${stats.averageAttributesPerProduct.toFixed(2)}`);
-  console.log(`  - Avg confidence: ${(stats.averageConfidence * 100).toFixed(1)}%`);
+	console.log("\n✅ Extraction smoke test complete");
+	console.log(
+		`   Success rate: ${stats.totalProducts ? ((stats.withAttributes / stats.totalProducts) * 100).toFixed(1) : "0.0"}%`,
+	);
+	console.log(`   Avg attributes/product: ${stats.averageAttributes.toFixed(2)}`);
+	console.log(`   Avg confidence: ${(stats.averageConfidence * 100).toFixed(1)}%`);
+	console.log(`   Reports written to data/nyehandel/sample-2025-11-11/${htmlReportPath.replace(/^reports\//, "reports/")}`);
 }
 
 if (import.meta.main) {
-  main().catch(console.error);
+	main().catch((error) => {
+		console.error("❌ Smoke test failed", error);
+		process.exitCode = 1;
+	});
 }

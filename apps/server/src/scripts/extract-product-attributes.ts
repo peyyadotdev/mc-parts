@@ -1,289 +1,317 @@
 #!/usr/bin/env bun
 
 /**
- * Extract product attributes from product names and descriptions
- * Based on enrichment analysis patterns
+ * Attribute extraction CLI.
+ *
+ * This script powers the enrichment pipeline by:
+ *  - Converting product text into structured attributes using the extraction service
+ *  - Persisting results into the new attribute tables (and legacy JSON snapshot for back-compat)
+ *  - Emitting a concise run summary
+ *
+ * Usage examples:
+ *  bun run apps/server/src/scripts/extract-product-attributes.ts
+ *  bun run apps/server/src/scripts/extract-product-attributes.ts --limit=25 --dry-run
+ *  bun run apps/server/src/scripts/extract-product-attributes.ts --variant=<uuid>
  */
 
+import { mkdirSync, writeFileSync } from "node:fs";
+import { dirname } from "node:path";
+import { desc, eq, inArray } from "drizzle-orm";
 import { db } from "../db";
-import { product, productVariant } from "../db/schema";
-import { eq, isNull } from "drizzle-orm";
+import {
+	category,
+	product,
+	productCategory,
+	productVariant,
+} from "../db/schema";
+import {
+	createExtractionContext,
+	extractAttributes,
+	persistExtractionResult,
+	summarizeOutcome,
+} from "../services/attributeExtraction/engine";
 
-// Types for extracted attributes
-interface ExtractedAttribute {
-  name: string;
-  value: string | number;
-  confidence: number;
-  source: 'name' | 'description';
+interface CliOptions {
+	limit?: number;
+	offset?: number;
+	batchSize: number;
+	dryRun: boolean;
+	variantId?: string;
+	reportPath?: string;
 }
 
-interface ExtractedAttributes {
-  [key: string]: {
-    value: string | number;
-    confidence: number;
-    source: 'name' | 'description';
-  };
+interface VariantRow {
+	productId: string;
+	variantId: string;
+	variantSku: string | null;
+	name: string;
+	description: string | null;
+	attributes: Record<string, unknown> | null;
 }
 
-// Extraction patterns based on enrichment analysis
-const EXTRACTION_PATTERNS = {
-  // Dimensions and measurements
-  diameter: {
-    regex: /(\d+)\s*mm/gi,
-    transform: (value: string) => parseInt(value.replace(/[^\d]/g, '')),
-    unit: 'mm',
-    confidence: 0.9
-  },
+const DEFAULT_BATCH_SIZE = 50;
+const DEFAULT_LIMIT = 250;
 
-  displacement: {
-    regex: /(\d+)\s*cc/gi,
-    transform: (value: string) => parseInt(value.replace(/[^\d]/g, '')),
-    unit: 'cc',
-    confidence: 0.95
-  },
+function parseArgs(): CliOptions {
+	const args = process.argv.slice(2);
+	let limit: number | undefined;
+	let offset: number | undefined;
+	let batchSize = DEFAULT_BATCH_SIZE;
+	let dryRun = false;
+	let variantId: string | undefined;
+	let reportPath: string | undefined;
 
-  size: {
-    regex: /(\d+)\s*(cm|mm|tum|")/gi,
-    transform: (value: string) => {
-      const match = value.match(/(\d+)\s*(cm|mm|tum|")/i);
-      if (!match) return null;
-      return {
-        value: parseInt(match[1]),
-        unit: match[2].toLowerCase()
-      };
-    },
-    confidence: 0.8
-  },
+	for (const arg of args) {
+		if (arg.startsWith("--limit=")) {
+			limit = Number.parseInt(arg.split("=")[1] ?? "", 10);
+		} else if (arg.startsWith("--offset=")) {
+			offset = Number.parseInt(arg.split("=")[1] ?? "", 10);
+		} else if (arg.startsWith("--batch-size=")) {
+			batchSize = Number.parseInt(arg.split("=")[1] ?? "", 10);
+		} else if (arg === "--dry-run") {
+			dryRun = true;
+		} else if (arg.startsWith("--variant=")) {
+			variantId = arg.split("=")[1];
+		} else if (arg.startsWith("--report=")) {
+			reportPath = arg.split("=")[1];
+		}
+	}
 
-  // Technical specs
-  horsePower: {
-    regex: /(\d+)\s*(hk|hp)/gi,
-    transform: (value: string) => parseInt(value.replace(/[^\d]/g, '')),
-    unit: 'hp',
-    confidence: 0.9
-  },
-
-  voltage: {
-    regex: /(\d+)\s*v(?:\s|$|[^\w])/gi,
-    transform: (value: string) => parseInt(value.replace(/[^\d]/g, '')),
-    unit: 'V',
-    confidence: 0.85
-  },
-
-  // Compatibility and brand
-  model: {
-    regex: /(BT\d+QT-\d+|MT\d+|MB\d+|QT\d+|GY6)/gi,
-    transform: (value: string) => value.toUpperCase(),
-    confidence: 0.95
-  },
-
-  brand: {
-    regex: /(Honda|Yamaha|Suzuki|Kawasaki|Baotian|Kymco|Peugeot|Piaggio|Derbi|Aprilia|Gilera|Sachs)/gi,
-    transform: (value: string) => value.charAt(0).toUpperCase() + value.slice(1).toLowerCase(),
-    confidence: 0.9
-  },
-
-  // Product attributes
-  material: {
-    regex: /(aluminium|stål|gjutjärn|plast|gummi|rostfritt|metall)/gi,
-    transform: (value: string) => value.toLowerCase(),
-    confidence: 0.8
-  },
-
-  color: {
-    regex: /(svart|vit|röd|blå|grön|gul|silver|krom|vitt|svarta)/gi,
-    transform: (value: string) => value.toLowerCase(),
-    confidence: 0.7
-  },
-
-  position: {
-    regex: /(fram|bak|höger|vänster|vänster\/höger|framre|bakre)/gi,
-    transform: (value: string) => value.toLowerCase(),
-    confidence: 0.85
-  }
-};
-
-function extractAttributesFromText(text: string, source: 'name' | 'description'): ExtractedAttribute[] {
-  const attributes: ExtractedAttribute[] = [];
-  const lowerText = text.toLowerCase();
-
-  for (const [attributeName, pattern] of Object.entries(EXTRACTION_PATTERNS)) {
-    const matches = [...text.matchAll(pattern.regex)];
-
-    if (matches.length > 0) {
-      for (const match of matches) {
-        const rawValue = match[1] || match[0];
-        let transformedValue = pattern.transform(rawValue);
-
-        if (transformedValue !== null && transformedValue !== undefined) {
-          attributes.push({
-            name: attributeName,
-            value: transformedValue,
-            confidence: pattern.confidence * (source === 'name' ? 1.0 : 0.8), // Names are more reliable
-            source
-          });
-        }
-      }
-    }
-  }
-
-  return attributes;
+	return {
+		limit: Number.isFinite(limit) ? limit : undefined,
+		offset: Number.isFinite(offset) ? offset : undefined,
+		batchSize: Number.isFinite(batchSize) && batchSize > 0 ? batchSize : DEFAULT_BATCH_SIZE,
+		dryRun,
+		variantId,
+		reportPath,
+	};
 }
 
-function mergeAttributes(extractedAttrs: ExtractedAttribute[]): ExtractedAttributes {
-  const merged: ExtractedAttributes = {};
+async function fetchCategoriesByProduct(productIds: string[]) {
+	if (!productIds.length) return new Map<string, string[]>();
 
-  for (const attr of extractedAttrs) {
-    const existing = merged[attr.name];
+	const rows = await db
+		.select({
+			productId: productCategory.productId,
+			categoryName: category.name,
+		})
+		.from(productCategory)
+		.innerJoin(category, eq(productCategory.categoryId, category.id))
+		.where(inArray(productCategory.productId, productIds));
 
-    if (!existing || attr.confidence > existing.confidence) {
-      merged[attr.name] = {
-        value: attr.value,
-        confidence: attr.confidence,
-        source: attr.source
-      };
-    }
-  }
-
-  return merged;
+	const map = new Map<string, string[]>();
+	for (const row of rows) {
+		if (!row.categoryName) continue;
+		const list = map.get(row.productId) ?? [];
+		list.push(row.categoryName);
+		map.set(row.productId, list);
+	}
+	return map;
 }
 
-async function extractAttributesForProduct(productId: string, productName: string, productDescription?: string | null) {
-  console.log(`Extracting attributes for product: ${productName}`);
+async function fetchVariantBatch(options: {
+	batchSize: number;
+	offset: number;
+	variantId?: string;
+}) {
+	const { batchSize, offset, variantId } = options;
 
-  // Extract from name
-  const nameAttributes = extractAttributesFromText(productName, 'name');
+	const query = db
+		.select({
+			productId: product.id,
+			variantId: productVariant.id,
+			variantSku: productVariant.sku,
+			name: product.name,
+			description: product.description,
+			attributes: productVariant.attributes,
+		})
+		.from(product)
+		.innerJoin(productVariant, eq(product.id, productVariant.productId))
+		.orderBy(desc(productVariant.updatedAt))
+		.limit(batchSize)
+		.offset(offset);
 
-  // Extract from description if available
-  const descAttributes = productDescription
-    ? extractAttributesFromText(productDescription, 'description')
-    : [];
+	if (variantId) {
+		return query.where(eq(productVariant.id, variantId));
+	}
 
-  // Merge all extracted attributes
-  const allAttributes = [...nameAttributes, ...descAttributes];
-  const mergedAttributes = mergeAttributes(allAttributes);
-
-  if (Object.keys(mergedAttributes).length > 0) {
-    console.log(`  Found ${Object.keys(mergedAttributes).length} attributes:`,
-      Object.entries(mergedAttributes).map(([key, attr]) =>
-        `${key}: ${attr.value} (${(attr.confidence * 100).toFixed(0)}%)`
-      ).join(', ')
-    );
-
-    return mergedAttributes;
-  }
-
-  return null;
-}
-
-async function updateProductVariantAttributes(variantId: string, attributes: ExtractedAttributes) {
-  // Get existing attributes
-  const [existingVariant] = await db
-    .select({ attributes: productVariant.attributes })
-    .from(productVariant)
-    .where(eq(productVariant.id, variantId))
-    .limit(1);
-
-  const existingAttrs = (existingVariant?.attributes as any) || {};
-
-  // Merge with existing attributes (prioritize existing manual entries)
-  const updatedAttributes = {
-    ...existingAttrs,
-    ...Object.fromEntries(
-      Object.entries(attributes).map(([key, attr]) => [
-        key, {
-          ...attr,
-          extractedAt: new Date().toISOString(),
-          extracted: true
-        }
-      ])
-    )
-  };
-
-  // Update variant with new attributes
-  await db
-    .update(productVariant)
-    .set({
-      attributes: updatedAttributes,
-      updatedAt: new Date()
-    })
-    .where(eq(productVariant.id, variantId));
-
-  return updatedAttributes;
+	return query;
 }
 
 async function main() {
-  console.log('🔍 Starting product attribute extraction...\n');
+	const options = parseArgs();
+	const context = createExtractionContext();
+	const runStartedAt = Date.now();
+	const startTime = performance.now();
 
-  // Get all products with their variants
-  const products = await db
-    .select({
-      productId: product.id,
-      productName: product.name,
-      productDescription: product.description,
-      variantId: productVariant.id,
-      variantSku: productVariant.sku,
-      currentAttributes: productVariant.attributes
-    })
-    .from(product)
-    .innerJoin(productVariant, eq(product.id, productVariant.productId))
-    .limit(100); // Process in batches to avoid overwhelming the system
+	console.log("🔍  Product attribute extraction");
+	console.log(
+		`    mode=${options.dryRun ? "dry-run" : "apply"} batchSize=${options.batchSize} limit=${options.limit ?? "∞"}${options.variantId ? ` variant=${options.variantId}` : ""}`,
+	);
 
-  let processedCount = 0;
-  let enrichedCount = 0;
+	let processed = 0;
+	let updated = 0;
+	let skipped = 0;
+	let offset = options.offset ?? 0;
+	let batches = 0;
 
-  for (const prod of products) {
-    try {
-      // Skip if already has extensive attributes (manual entry)
-      const currentAttrs = (prod.currentAttributes as any) || {};
-      const manualAttributeCount = Object.keys(currentAttrs).filter(
-        key => !currentAttrs[key]?.extracted
-      ).length;
+	const attributeStats = new Map<
+		string,
+		{ count: number; values: number; topConfidence: number }
+	>();
 
-      if (manualAttributeCount > 5) {
-        console.log(`⏭️ Skipping ${prod.productName} - already has ${manualAttributeCount} manual attributes`);
-        processedCount++;
-        continue;
-      }
+	while (true) {
+		if (options.limit && processed >= options.limit) break;
 
-      // Extract attributes from product name and description
-      const extractedAttributes = await extractAttributesForProduct(
-        prod.productId,
-        prod.productName,
-        prod.productDescription
-      );
+		const remaining =
+			options.limit != null ? Math.max(options.limit - processed, 0) : options.batchSize;
+		const batchSize = options.limit ? Math.min(options.batchSize, remaining) : options.batchSize;
 
-      if (extractedAttributes) {
-        await updateProductVariantAttributes(prod.variantId, extractedAttributes);
-        enrichedCount++;
-        console.log(`✅ Updated variant ${prod.variantSku}\n`);
-      } else {
-        console.log(`ℹ️ No attributes extracted for ${prod.productName}\n`);
-      }
+		const rows = await fetchVariantBatch({
+			batchSize,
+			offset,
+			variantId: options.variantId,
+		});
 
-      processedCount++;
+		if (!rows.length) break;
 
-      // Add small delay to avoid overwhelming the database
-      if (processedCount % 10 === 0) {
-        console.log(`📊 Progress: ${processedCount}/${products.length} processed, ${enrichedCount} enriched`);
-        await new Promise(resolve => setTimeout(resolve, 100));
-      }
+		const categories = await fetchCategoriesByProduct(
+			rows.map((row) => row.productId),
+		);
 
-    } catch (error) {
-      console.error(`❌ Error processing product ${prod.productName}:`, error);
-    }
-  }
+		for (const row of rows as VariantRow[]) {
+			if (options.limit && processed >= options.limit) break;
 
-  console.log('\n🎉 Attribute extraction complete!');
-  console.log(`📈 Results:`);
-  console.log(`  - Products processed: ${processedCount}`);
-  console.log(`  - Products enriched: ${enrichedCount}`);
-  console.log(`  - Success rate: ${((enrichedCount / processedCount) * 100).toFixed(1)}%`);
+			const categoryList = categories.get(row.productId) ?? [];
+
+			const outcome = extractAttributes(
+				{
+					productId: row.productId,
+					variantId: row.variantId,
+					name: row.name,
+					description: row.description,
+					categories: categoryList,
+					legacyAttributes: row.attributes as Record<string, unknown> | null,
+				},
+				context,
+			);
+
+			if (!outcome.attributes.length) {
+				skipped++;
+				processed++;
+				continue;
+			}
+
+			const summary = summarizeOutcome(outcome);
+
+			for (const attribute of summary.attributes) {
+				const stat = attributeStats.get(attribute.slug) ?? {
+					count: 0,
+					values: 0,
+					topConfidence: 0,
+				};
+
+				stat.count += 1;
+				stat.values += attribute.count;
+				stat.topConfidence = Math.max(stat.topConfidence, attribute.topConfidence);
+
+				attributeStats.set(attribute.slug, stat);
+			}
+
+			if (!options.dryRun) {
+				await persistExtractionResult({
+					db,
+					context,
+					variantId: row.variantId,
+					outcome,
+					overrideLegacyAttributes: true,
+					existingLegacyAttributes: row.attributes as Record<string, unknown> | null,
+				});
+			}
+
+			const matchSummary = summary.attributes
+				.map((attribute) => `${attribute.slug}(${attribute.count})`)
+				.join(", ");
+
+			console.log(
+				`✅ ${options.dryRun ? "[dry]" : "[save]"} ${row.variantSku ?? row.variantId} → ${matchSummary}`,
+			);
+
+			updated++;
+			processed++;
+		}
+
+		batches++;
+		offset += rows.length;
+
+		if (rows.length < options.batchSize || options.variantId) {
+			break;
+		}
+	}
+
+	const durationMs = performance.now() - startTime;
+	const topAttributes = Array.from(attributeStats.entries())
+		.sort(([, a], [, b]) => b.count - a.count)
+		.slice(0, 10);
+
+	console.log("\n📊  Extraction summary");
+	console.log(`    processed=${processed}`);
+	console.log(`    updated=${updated}`);
+	console.log(`    skipped=${skipped}`);
+	console.log(`    batches=${batches}`);
+	console.log(`    duration=${(durationMs / 1000).toFixed(1)}s`);
+
+	if (topAttributes.length) {
+		console.log("\n🏅  Top attributes:");
+		for (const [slug, stat] of topAttributes) {
+			console.log(
+				`    ${slug.padEnd(30)} count=${String(stat.count).padStart(3)} values=${String(stat.values).padStart(3)} topConfidence=${(stat.topConfidence * 100).toFixed(1)}%`,
+			);
+		}
+	}
+
+	if (options.dryRun) {
+		console.log("\n🚧 Dry run completed. No database changes were applied.");
+	} else {
+		console.log("\n💾 Extraction results persisted to database.");
+	}
+
+	const metrics = {
+		runStartedAt: new Date(runStartedAt).toISOString(),
+		durationMs,
+		filters: {
+			limit: options.limit ?? null,
+			offset: options.offset ?? null,
+			batchSize: options.batchSize,
+			dryRun: options.dryRun,
+			variantId: options.variantId ?? null,
+		},
+		processed,
+		updated,
+		skipped,
+		batches,
+		topAttributes: topAttributes.map(([slug, stat]) => ({
+			slug,
+			variantCount: stat.count,
+			valueCount: stat.values,
+			topConfidence: stat.topConfidence,
+		})),
+	};
+
+	if (options.reportPath) {
+		if (options.reportPath === "stdout") {
+			console.log(JSON.stringify({ event: "extraction_summary", ...metrics }));
+		} else {
+			mkdirSync(dirname(options.reportPath), { recursive: true });
+			writeFileSync(options.reportPath, JSON.stringify(metrics, null, 2));
+			console.log(`📝 Metrics written to ${options.reportPath}`);
+		}
+	}
 }
 
-// Run the script
 if (import.meta.main) {
-  main().catch(console.error);
+	main().catch((error) => {
+		console.error("❌ Extraction run failed", error);
+		process.exitCode = 1;
+	});
 }
-
-export { extractAttributesFromText, mergeAttributes, extractAttributesForProduct };

@@ -174,4 +174,44 @@ Persist both raw capture and derived canonical value for traceability. Include p
 2. **Extraction Service Refactor**: Consume `ATTRIBUTE_TAXONOMY` and dictionaries for consistent parsing, normalisation, and confidence scoring.
 3. **Admin UI**: Surface taxonomy metadata (labels, units, enum options) to drive form controls and QA review.
 
+## 8. Operational Playbook
+
+### 8.1 Daily / Pre-deploy Checklist
+
+- Run automated unit tests for the extraction service:
+  - `cd apps/server && bun test` (verifies regex + legacy snapshot behaviour).
+- Refresh taxonomy seeds when definitions change:
+  - `bun run db:seed:enrichment`.
+- Execute the smoke test against Nyehandel sample data and inspect generated reports:
+  - `bun run apps/server/src/scripts/test-attribute-extraction.ts`
+  - Reports written to `data/nyehandel/sample-2025-11-11/reports/`.
+
+### 8.2 Running the Extraction Job
+
+```
+bun run apps/server/src/scripts/extract-product-attributes.ts \ 
+  --limit=200 \
+  --report=.tmp/extraction-metrics.json
+```
+
+- Pass `--dry-run` to inspect matches without persisting changes.
+- `--variant=<uuid>` targets a single variant during QA.
+- `--report=stdout` emits JSON metrics to the console for log aggregation.
+- Metrics include processed counts, per-attribute success rates, and run duration.
+
+### 8.3 Admin Review Workflow
+
+- Navigate to `/attributes` in the admin UI to review enriched variants.
+- Use the "Run extraction" action on a variant to trigger the on-demand mutation (tRPC `extractVariantAttributes`).
+- Apply manual overrides via the "Add manual attribute" form; entries are persisted in `variant_attribute` with `source = 'manual'`.
+- Remove incorrect manual values using the "Remove" action alongside each attribute group.
+
+### 8.4 Deployment Notes
+
+- Ensure the production environment has run the enrichment seed at least once (new definitions require corresponding DB rows).
+- Configure CI/CD to capture `extraction_summary` JSON logs emitted by the job when `--report=stdout` is enabled.
+- For rollback, re-run the extraction script with `--dry-run` to snapshot current matches, then revert affected variants via the admin UI or `updateVariantAttributes` mutation with `clear` slugs.
+
+Maintaining this playbook alongside taxonomy changes keeps engineering, operations, and content review in sync as enrichment iterates.
+
 Maintain this document alongside the taxonomy module to ensure engineering, data, and content teams share a consistent view of the enrichment model.

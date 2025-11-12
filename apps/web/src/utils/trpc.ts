@@ -38,6 +38,14 @@ export const trpc = {
       });
     }
   },
+  listAttributeDefinitions: {
+    useQuery: () => {
+      return useQuery({
+        queryKey: ['listAttributeDefinitions'],
+        queryFn: () => trpcClient.listAttributeDefinitions.query(),
+      });
+    }
+  },
   getProducts: {
     useQuery: (input: any) => {
       return useQuery({
@@ -51,6 +59,23 @@ export const trpc = {
       return useQuery({
         queryKey: ['getVariantsWithAttributes', input],
         queryFn: () => trpcClient.getVariantsWithAttributes.query(input),
+      });
+    }
+  },
+  getVariantAttributes: {
+    useQuery: (input: any, options?: any) => {
+      return useQuery({
+        queryKey: ['getVariantAttributes', input],
+        queryFn: () => trpcClient.getVariantAttributes.query(input),
+        enabled: options?.enabled ?? true,
+      });
+    }
+  },
+  extractVariantAttributes: {
+    useMutation: (options?: any) => {
+      return useMutation({
+        mutationFn: (input: any) => trpcClient.extractVariantAttributes.mutate(input),
+        ...options,
       });
     }
   },
