@@ -1,6 +1,6 @@
 "use client";
 
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";  // Now using tRPC hooks
 import {
 	type ColumnDef,
 	createColumnHelper,
@@ -56,16 +56,14 @@ export function VirtualizedDataTable() {
 			? (sortId as "name" | "createdAt" | "variantCount")
 			: "name";
 
-	const query = useQuery(
-		trpc.getProducts.queryOptions({
-			page,
-			limit: 100,
-			search: debouncedSearch || undefined,
-			sortBy,
-			sortOrder: sorting[0]?.desc ? "desc" : "asc",
-			status,
-		}),
-	);
+	const query = trpc.getProducts.useQuery({
+		page,
+		limit: 100,
+		search: debouncedSearch || undefined,
+		sortBy,
+		sortOrder: sorting[0]?.desc ? "desc" : "asc",
+		status,
+	});
 
 	const columnHelper = createColumnHelper<ProductRow>();
 	const columns: ColumnDef<ProductRow, any>[] = React.useMemo(

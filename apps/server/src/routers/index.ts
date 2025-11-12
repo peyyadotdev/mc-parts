@@ -237,5 +237,122 @@ export const appRouter = router({
 			.orderBy(asc(brand.name));
 		return rows.filter((r) => !!r.name);
 	}),
+
+	// Get variants with their attributes for enrichment UI
+	getVariantsWithAttributes: publicProcedure
+		.input(
+			z.object({
+				page: z.number().min(1).default(1),
+				limit: z.number().min(1).max(100).default(25),
+				search: z.string().optional(),
+				hasAttributes: z.enum(["all", "yes", "no"]).default("all"),
+				extractedOnly: z.boolean().default(false),
+			}),
+		)
+		.query(async ({ input }) => {
+			const { page, limit, search, hasAttributes, extractedOnly } = input;
+			const offset = (page - 1) * limit;
+
+			const whereClauses: SQL[] = [];
+
+			if (search && search.trim().length > 0) {
+				whereClauses.push(
+					or(
+						like(product.name, `%${search}%`),
+						like(productVariant.sku, `%${search}%`)
+					)
+				);
+			}
+
+			if (hasAttributes === "yes") {
+				whereClauses.push(sql`${productVariant.attributes} IS NOT NULL AND json_array_length(coalesce(${productVariant.attributes}, '{}')::json) > 0`);
+			} else if (hasAttributes === "no") {
+				whereClauses.push(sql`${productVariant.attributes} IS NULL OR json_array_length(coalesce(${productVariant.attributes}, '{}')::json) = 0`);
+			}
+
+			if (extractedOnly) {
+				whereClauses.push(sql`EXISTS (SELECT 1 FROM json_each(coalesce(${productVariant.attributes}, '{}')::json) WHERE value->'extracted' = 'true')`);
+			}
+
+			const whereExpr =
+				whereClauses.length > 0 ? and(...whereClauses) : undefined;
+
+			const variants = await db
+				.select({
+					variantId: productVariant.id,
+					productId: product.id,
+					productName: product.name,
+					productDescription: product.description,
+					sku: productVariant.sku,
+					gtin: productVariant.gtin,
+					attributes: productVariant.attributes,
+					updatedAt: productVariant.updatedAt,
+					brandName: brand.name,
+				})
+				.from(productVariant)
+				.innerJoin(product, eq(productVariant.productId, product.id))
+				.leftJoin(brand, eq(product.brandId, brand.id))
+				.where(whereExpr)
+				.orderBy(desc(productVariant.updatedAt))
+				.limit(limit)
+				.offset(offset);
+
+			const totalRows = await db
+				.select({ cnt: sql<number>`count(*)::int` })
+				.from(productVariant)
+				.innerJoin(product, eq(productVariant.productId, product.id))
+				.where(whereExpr);
+
+			const total = totalRows[0]?.cnt ?? 0;
+			const totalPages = Math.ceil(total / limit) || 1;
+
+			return {
+				variants,
+				pagination: {
+					page,
+					limit,
+					total,
+					totalPages,
+					hasNextPage: page < totalPages,
+					hasPrevPage: page > 1,
+				},
+			};
+		}),
+
+	// Update variant attributes
+	updateVariantAttributes: publicProcedure
+		.input(
+			z.object({
+				variantId: z.string(),
+				attributes: z.record(z.object({
+					value: z.union([z.string(), z.number()]),
+					confidence: z.number().optional(),
+					source: z.enum(["manual", "extracted"]).optional(),
+					extractedAt: z.string().optional(),
+				})),
+			}),
+		)
+		.mutation(async ({ input }) => {
+			const { variantId, attributes } = input;
+
+			await db
+				.update(productVariant)
+				.set({
+					attributes: attributes,
+					updatedAt: new Date(),
+				})
+				.where(eq(productVariant.id, variantId));
+
+			return { success: true };
+		}),
+
+	// Extract attributes for specific variant
+	extractVariantAttributes: publicProcedure
+		.input(z.object({ variantId: z.string() }))
+		.mutation(async ({ input }) => {
+			// This would call our extraction function
+			// For now, return a placeholder
+			return { success: true, extracted: {} };
+		}),
 });
 export type AppRouter = typeof appRouter;
