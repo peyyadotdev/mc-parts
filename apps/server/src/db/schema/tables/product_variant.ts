@@ -1,3 +1,4 @@
+import { relations } from "drizzle-orm";
 import {
 	boolean,
 	integer,
@@ -8,6 +9,7 @@ import {
 	uniqueIndex,
 	uuid,
 } from "drizzle-orm/pg-core";
+import { variantAttribute } from "./variant_attribute";
 
 export const productVariant = pgTable(
 	"product_variant",
@@ -32,3 +34,7 @@ export const productVariant = pgTable(
 		gtinUnique: uniqueIndex("product_variant_gtin_unique").on(t.gtin),
 	}),
 );
+
+export const productVariantRelations = relations(productVariant, ({ many }) => ({
+	attributes: many(variantAttribute),
+}));
