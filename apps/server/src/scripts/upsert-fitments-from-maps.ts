@@ -10,7 +10,7 @@ import { productVariant } from "../db/schema/tables/product_variant";
 import { vehicleModel } from "../db/schema/tables/vehicle_model";
 
 interface MapFile {
-	brand: string;
+	make: string;
 	model: string;
 	mappings: Array<{ sku: string }>;
 }
@@ -25,7 +25,7 @@ interface ExportVariant {
 	product_name?: string | null;
 }
 
-async function exists(path: string) {
+async function _exists(path: string) {
 	try {
 		await stat(path);
 		return true;
@@ -54,16 +54,16 @@ async function loadExportIndex(exportDir: string) {
 	return bySku;
 }
 
-async function ensureVehicleModelId(brand: string, modelName: string) {
+async function ensureVehicleModelId(make: string, modelName: string) {
 	const found = await db
 		.select({ id: vehicleModel.id })
 		.from(vehicleModel)
-		.where(and(eq(vehicleModel.make, brand), eq(vehicleModel.model, modelName)))
+		.where(and(eq(vehicleModel.make, make), eq(vehicleModel.model, modelName)))
 		.limit(1);
 	if (found[0]) return found[0].id;
 	const ins = await db
 		.insert(vehicleModel)
-		.values({ make: brand, model: modelName, type: "moped" })
+		.values({ make: make, model: modelName, type: "moped" })
 		.returning({ id: vehicleModel.id });
 	return ins[0].id;
 }
@@ -144,7 +144,7 @@ async function minimalUpsertVariants(
 		const stock = src?.stock;
 		const stockQty =
 			typeof stock === "string"
-				? Number.parseInt(stock)
+				? Number.parseInt(stock, 10)
 				: typeof stock === "number"
 					? stock
 					: undefined;
@@ -185,8 +185,8 @@ async function minimalUpsertVariants(
 	return inserted;
 }
 
-async function linkFitments(brand: string, model: string, skus: string[]) {
-	const vmId = await ensureVehicleModelId(brand, model);
+async function linkFitments(make: string, model: string, skus: string[]) {
+	const vmId = await ensureVehicleModelId(make, model);
 	let linked = 0;
 	for (const sku of skus) {
 		const row = await db
@@ -209,7 +209,7 @@ async function linkFitments(brand: string, model: string, skus: string[]) {
 async function collectMapFiles(root: string) {
 	const brandDir = join(root, "brand");
 	const brands = await readdir(brandDir);
-	const files: Array<{ path: string; brand: string; model: string }> = [];
+	const files: Array<{ path: string; make: string; model: string }> = [];
 	for (const b of brands) {
 		const dir = join(brandDir, b);
 		const entries = await readdir(dir);
@@ -219,7 +219,7 @@ async function collectMapFiles(root: string) {
 				"__",
 				"/",
 			);
-			files.push({ path: join(dir, f), brand: b, model });
+			files.push({ path: join(dir, f), make: b, model });
 		}
 	}
 	return files;
@@ -239,7 +239,7 @@ async function main() {
 	);
 	const bySku = await loadExportIndex(exportDir);
 	const files = await collectMapFiles(mapsRoot);
-	const concurrency = Number.parseInt(process.env.CONCURRENCY || "5");
+	const concurrency = Number.parseInt(process.env.CONCURRENCY || "5", 10);
 
 	let processed = 0;
 	let totalLinked = 0;
@@ -251,14 +251,14 @@ async function main() {
 			const raw = JSON.parse(await readFile(it.path, "utf8")) as MapFile;
 			const skus = Array.from(new Set(raw.mappings.map((m) => String(m.sku))));
 			const inserted = await minimalUpsertVariants(skus, bySku);
-			const { linked } = await linkFitments(it.brand, it.model, skus);
+			const { linked } = await linkFitments(it.make, it.model, skus);
 			totalInserted += inserted;
 			totalLinked += linked;
 			processed++;
 			console.log(
 				JSON.stringify({
 					processed,
-					brand: it.brand,
+					make: it.make,
 					model: it.model,
 					skus: skus.length,
 					inserted,

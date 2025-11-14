@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { eq, inArray } from "drizzle-orm";
+import { inArray } from "drizzle-orm";
 import { db } from "../db/index";
 import { productVariant } from "../db/schema/tables/product_variant";
 

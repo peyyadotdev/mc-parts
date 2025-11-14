@@ -20,7 +20,7 @@ const TITLE_TEXT = `
  `;
 
 export default function Home() {
-	const healthCheck = useQuery(trpc.healthCheck.queryOptions());
+	const healthCheck = trpc.healthCheck.useQuery();
 
 	return (
 		<div className="container mx-auto max-w-7xl px-4 py-2">

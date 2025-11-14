@@ -8,9 +8,11 @@
 	],
 	"scripts": {
 		"check": "biome check --write .",
+		"check:scripts": "biome check --write apps/server/src/scripts",
 		"prepare": "husky",
 		"ruler:apply": "bunx @intellectronica/ruler@latest apply --local-only",
 		"dev": "bun run --filter '*' dev",
+		"dev:stop": "bun run scripts/dev-stop.ts",
 		"build": "bun run --filter '*' build",
 		"check-types": "bun run --filter '*' check-types",
 		"dev:native": "bun run --filter native dev",
@@ -23,10 +25,13 @@
 		"ny:introspect": "bun run scripts/nyehandel/introspect.ts",
 		"gen:nye:types": "openapi-typescript .cursor/docs/nyehandel/nyehandel.openapi.json -o src/integrations/nyehandel/generated/nyehandel.types.ts",
 		"gen:nye:zod": "openapi-zod-client .cursor/docs/nyehandel/nyehandel.openapi.json -o src/integrations/nyehandel/generated/nyehandel.zod.ts",
-		"gen:nye": "bun run gen:nye:types && bun run gen:nye:zod"
+		"gen:nye": "bun run gen:nye:types && bun run gen:nye:zod",
+		"extract:attributes": "bun run apps/server/src/scripts/extract-product-attributes.ts",
+		"test:extraction": "bun run apps/server/src/scripts/test-attribute-extraction.ts"
 	},
 	"dependencies": {
 		"@dqbd/tiktoken": "^1.0.22",
+		"cheerio": "^1.1.2",
 		"openai": "^6.5.0",
 		"zod": "^4.1.5"
 	},

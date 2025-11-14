@@ -19,7 +19,7 @@ export const variantPrice = pgTable(
 	},
 	(t) => ({
 		pk: primaryKey({
-			columns: [t.variantId, t.priceListId, t.validFrom, t.validTo],
+			columns: [t.variantId, t.priceListId],
 		}),
 	}),
 );

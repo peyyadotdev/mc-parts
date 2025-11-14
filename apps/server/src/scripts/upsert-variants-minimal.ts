@@ -1,6 +1,6 @@
 import "dotenv/config";
 import { readFile } from "node:fs/promises";
-import { eq, inArray } from "drizzle-orm";
+import { inArray } from "drizzle-orm";
 import { db } from "../db/index";
 import { product } from "../db/schema/tables/product";
 import { productVariant } from "../db/schema/tables/product_variant";
@@ -47,7 +47,7 @@ async function main() {
 		const gtin = v.gtin && v.gtin.trim().length > 0 ? v.gtin : undefined;
 		const stockQty =
 			typeof v.stock === "string"
-				? Number.parseInt(v.stock)
+				? Number.parseInt(v.stock, 10)
 				: typeof v.stock === "number"
 					? v.stock
 					: undefined;

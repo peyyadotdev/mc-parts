@@ -1,4 +1,5 @@
 import "dotenv/config";
+import * as cheerio from "cheerio";
 import { and, eq, inArray } from "drizzle-orm";
 import { db } from "../db/index";
 import { product } from "../db/schema/tables/product";
@@ -36,7 +37,7 @@ async function req(path: string, jar: { cookie?: string; xsrf?: string }) {
 		"X-Requested-With": "XMLHttpRequest",
 		Referer: `${BASE}/`,
 	};
-	if (jar.cookie) headers["Cookie"] = jar.cookie;
+	if (jar.cookie) headers.Cookie = jar.cookie;
 	if (jar.xsrf) headers["X-XSRF-TOKEN"] = jar.xsrf;
 	const res = await fetch(`${BASE}/${path}`, { headers, redirect: "follow" });
 	const text = await res.text();
@@ -60,7 +61,7 @@ async function postForm(
 		"X-Requested-With": "XMLHttpRequest",
 		Referer: `${BASE}/`,
 	};
-	if (jar.cookie) headers["Cookie"] = jar.cookie;
+	if (jar.cookie) headers.Cookie = jar.cookie;
 	if (jar.xsrf) headers["X-XSRF-TOKEN"] = jar.xsrf;
 	const body = new URLSearchParams(form).toString();
 	const res = await fetch(`${BASE}/${path}`, {
@@ -90,16 +91,55 @@ function unwrapArray(payload: any): any[] {
 	return [];
 }
 
-async function ensureVehicleModel(brand: string, modelName: string) {
+function extractSkusFromResponse(response: any): string[] {
+	// Handle HTML response format: {"html": ["<div>...</div>", ...]}
+	let htmlStrings: string[] = [];
+
+	if (response && typeof response === "object" && "html" in response) {
+		htmlStrings = Array.isArray((response as any).html)
+			? (response as any).html
+			: [];
+	} else {
+		// Fallback: try unwrapArray for backward compatibility
+		const arr = unwrapArray(response);
+		if (arr.length > 0 && typeof arr[0] === "string") {
+			htmlStrings = arr;
+		} else {
+			// Old format with direct JSON objects
+			return arr.map((p: any) => String(p?.sku || "")).filter(Boolean);
+		}
+	}
+
+	// Parse HTML to extract product SKUs
+	const skus: string[] = [];
+
+	for (const html of htmlStrings) {
+		if (!html || typeof html !== "string") continue;
+
+		const $ = cheerio.load(html);
+
+		// Extract SKU from product cards
+		$(".product-card__sku, [class*='sku']").each((_, el) => {
+			const sku = $(el).text().trim();
+			if (sku) {
+				skus.push(sku);
+			}
+		});
+	}
+
+	return skus;
+}
+
+async function ensureVehicleModel(make: string, modelName: string) {
 	const existing = await db
 		.select({ id: vehicleModel.id })
 		.from(vehicleModel)
-		.where(and(eq(vehicleModel.make, brand), eq(vehicleModel.model, modelName)))
+		.where(and(eq(vehicleModel.make, make), eq(vehicleModel.model, modelName)))
 		.limit(1);
 	if (existing[0]) return existing[0].id;
 	const inserted = await db
 		.insert(vehicleModel)
-		.values({ make: brand, model: modelName, type: "moped" })
+		.values({ make: make, model: modelName, type: "moped" })
 		.returning({ id: vehicleModel.id });
 	return inserted[0].id;
 }
@@ -129,13 +169,13 @@ function normalize(str: string) {
 }
 
 async function findModelCandidates(
-	brand: string,
+	make: string,
 	inputModel: string,
 	jar: { cookie?: string; xsrf?: string },
 ) {
 	const resp = await postForm(
 		"frontend-api/biluppgifter/get-models",
-		{ brand },
+		{ brand: make },
 		jar,
 	);
 	const models = unwrapArray(resp.json).map((m: any) => String(m?.model ?? m));
@@ -159,46 +199,43 @@ async function findModelCandidates(
 }
 
 async function main() {
-	const brand = process.argv[2];
+	const make = process.argv[2];
 	const model = process.argv[3];
 	const year = process.argv[4];
-	if (!brand || !model) {
+	if (!make || !model) {
 		console.error(
-			"Usage: bun src/scripts/upsert-fitment-from-endpoint.ts <brand> <modelNameOrSlug> [year]",
+			"Usage: bun src/scripts/upsert-fitment-from-endpoint.ts <make> <modelNameOrSlug> [year]",
 		);
 		process.exit(1);
 	}
 	const jar = await primeSession();
 	// First try as-is
 	const path0 = year
-		? `frontend-api/biluppgifter/get-products/${encodeURIComponent(brand)}/${encodeURIComponent(model)}?year=${encodeURIComponent(year)}`
-		: `frontend-api/biluppgifter/get-products/${encodeURIComponent(brand)}/${encodeURIComponent(model)}`;
+		? `frontend-api/biluppgifter/get-products/${encodeURIComponent(make)}/${encodeURIComponent(model)}?year=${encodeURIComponent(year)}`
+		: `frontend-api/biluppgifter/get-products/${encodeURIComponent(make)}/${encodeURIComponent(model)}`;
 	let resp = await req(path0, jar);
-	let arr = unwrapArray(resp.json);
-	let skus = arr.map((p: any) => String(p?.sku || "")).filter(Boolean);
+	let skus = extractSkusFromResponse(resp.json);
 
 	let triedCandidates: string[] = [];
 	if (skus.length === 0) {
 		// discover models for brand and try candidates
-		const candidates = await findModelCandidates(brand, model, jar);
+		const candidates = await findModelCandidates(make, model, jar);
 		triedCandidates = candidates;
 		for (const cand of candidates) {
 			const path = year
-				? `frontend-api/biluppgifter/get-products/${encodeURIComponent(brand)}/${encodeURIComponent(cand)}?year=${encodeURIComponent(year)}`
-				: `frontend-api/biluppgifter/get-products/${encodeURIComponent(brand)}/${encodeURIComponent(cand)}`;
+				? `frontend-api/biluppgifter/get-products/${encodeURIComponent(make)}/${encodeURIComponent(cand)}?year=${encodeURIComponent(year)}`
+				: `frontend-api/biluppgifter/get-products/${encodeURIComponent(make)}/${encodeURIComponent(cand)}`;
 			const r = await req(path, jar);
-			const a = unwrapArray(r.json);
-			const s = a.map((p: any) => String(p?.sku || "")).filter(Boolean);
+			const s = extractSkusFromResponse(r.json);
 			if (s.length > 0) {
 				resp = r;
-				arr = a;
 				skus = s;
 				break;
 			}
 		}
 	}
 
-	const vmId = await ensureVehicleModel(brand, decodeURIComponent(model));
+	const vmId = await ensureVehicleModel(make, decodeURIComponent(model));
 	const insertedVariants = await minimalUpsertVariants(skus);
 	let linked = 0;
 	for (const sku of skus) {
@@ -219,7 +256,7 @@ async function main() {
 	console.log(
 		JSON.stringify(
 			{
-				brand,
+				make,
 				model,
 				triedCandidates,
 				year: year || null,
