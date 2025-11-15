@@ -1,4 +1,4 @@
-import { and, asc, desc, eq, like, or, type SQL, sql } from "drizzle-orm";
+import { and, asc, desc, eq, inArray, like, or, type SQL, sql } from "drizzle-orm";
 import { z } from "zod";
 import { db } from "../db/index";
 import { attributeCategory } from "../db/schema/tables/attribute_category";
@@ -104,6 +104,8 @@ export const appRouter = router({
 			const offset = (page - 1) * limit;
 
 			const whereClauses: SQL[] = [];
+			const fitmentWhereClauses: SQL[] = [];
+			
 			if (search && search.trim().length > 0) {
 				whereClauses.push(like(product.name, `%${search}%`));
 			}
@@ -112,9 +114,7 @@ export const appRouter = router({
 			}
 			if (input.brands && input.brands.length > 0) {
 				// filter by brand name
-				whereClauses.push(
-					sql`coalesce(${brand.name}, '') = any(${input.brands})`,
-				);
+				whereClauses.push(inArray(brand.name, input.brands));
 			}
 			if (input.updatedFrom) {
 				whereClauses.push(
@@ -127,15 +127,17 @@ export const appRouter = router({
 				);
 			}
 			if (input.fitment?.make) {
-				whereClauses.push(eq(vehicleModel.make, input.fitment.make));
+				fitmentWhereClauses.push(eq(vehicleModel.make, input.fitment.make));
 				if (input.fitment.model) {
-					whereClauses.push(
+					fitmentWhereClauses.push(
 						like(vehicleModel.model, `%${input.fitment.model}%`),
 					);
 				}
 			}
 			const whereExpr =
 				whereClauses.length > 0 ? and(...whereClauses) : undefined;
+			const fitmentWhereExpr =
+				fitmentWhereClauses.length > 0 ? and(...fitmentWhereClauses) : undefined;
 
 			// Select products with variant count
 			const baseSelect = db
@@ -156,7 +158,15 @@ export const appRouter = router({
 					productFitment,
 					eq(productVariant.id, productFitment.variantId),
 				)
-				.where(whereExpr)
+				.leftJoin(
+					vehicleModel,
+					eq(productFitment.vehicleModelId, vehicleModel.id),
+				)
+				.where(
+					fitmentWhereExpr
+						? and(whereExpr, fitmentWhereExpr)
+						: whereExpr,
+				)
 				.groupBy(
 					product.id,
 					product.name,
@@ -187,11 +197,27 @@ export const appRouter = router({
 				.limit(limit)
 				.offset(offset);
 
-			const totalRows = await db
-				.select({ cnt: sql<number>`count(*)::int` })
+			// Count query needs same joins and filters as main query
+			const totalRowsQuery = db
+				.select({ cnt: sql<number>`count(distinct ${product.id})::int` })
 				.from(product)
-				.where(whereExpr);
+				.leftJoin(brand, eq(product.brandId, brand.id))
+				.leftJoin(productVariant, eq(product.id, productVariant.productId))
+				.leftJoin(
+					productFitment,
+					eq(productVariant.id, productFitment.variantId),
+				)
+				.leftJoin(
+					vehicleModel,
+					eq(productFitment.vehicleModelId, vehicleModel.id),
+				)
+				.where(
+					fitmentWhereExpr
+						? and(whereExpr, fitmentWhereExpr)
+						: whereExpr,
+				);
 
+			const totalRows = await totalRowsQuery;
 			const total = totalRows[0]?.cnt ?? 0;
 			const totalPages = Math.ceil(total / limit) || 1;
 
